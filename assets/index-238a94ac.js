@@ -50,7 +50,6 @@ Error generating stack: `+l.message+`
 `,lg=rn.div`
   padding: 2rem;
   border: 1px solid black;
-  background-color: red;
 
   div {
     flex-wrap: wrap;
