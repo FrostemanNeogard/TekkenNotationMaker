@@ -28,7 +28,7 @@ export const PreviewContainer = styled.div`
   display: inherit;
 
   h1 {
-    font-size: 4rem;
+    font-size: 3rem;
     text-align: center;
   }
 
