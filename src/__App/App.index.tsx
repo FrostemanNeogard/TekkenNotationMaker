@@ -1,33 +1,14 @@
-import { useRef, useState, useEffect } from "react";
-import b from "../assets/images/upscaled/arrows/b.png";
-import f from "../assets/images/upscaled/arrows/f.png";
-import n from "../assets/images/upscaled/arrows/n.png";
-import two from "../assets/images/upscaled/arrows/2.png";
+import { useRef, useState } from "react";
 
 import { saveAs } from "file-saver";
 
 import * as S from "./App.styled";
 import * as htmlToImage from "html-to-image";
-import { ImagePaths } from "../__util/ImageEnum";
+import { ImagePaths } from "../__util/ImagePaths";
 
 function App() {
   const divRef = useRef(null);
   const [comboNotation, setComboNotation] = useState<string[]>([]);
-  const [imageSources, setImageSources] = useState<string[]>([]);
-
-  useEffect(() => {
-    // Require all images from the specified directory
-    let images = [];
-    for (const image in ImagePaths) {
-      if (!image.startsWith(".")) {
-        continue;
-      }
-
-      images.push(image);
-    }
-
-    setImageSources(images);
-  }, []);
 
   async function generateImage() {
     const node = divRef.current;
@@ -46,10 +27,22 @@ function App() {
     setComboNotation([...comboNotation, imageSrc]);
   };
 
+  const removeLastNotation = () => {
+    const data = [...comboNotation];
+    data.pop();
+    setComboNotation(data);
+  };
+
   const Output = () => {
     return (
       <>
-        <h1>Output</h1>
+        <S.PreviewContainer>
+          <div>
+            {comboNotation.map((imageSrc, index) => (
+              <S.NotationOutput key={index} src={imageSrc} />
+            ))}
+          </div>
+        </S.PreviewContainer>
         <S.NotationContainer>
           <div ref={divRef}>
             {comboNotation.map((imageSrc, index) => (
@@ -61,20 +54,25 @@ function App() {
     );
   };
 
+  const shits = Object.values(ImagePaths);
+
   return (
-    <>
+    <S.App>
       <Output />
       <S.EditorUI>
-        {imageSources.map((src, index) => (
+        {shits.map((key) => (
           <S.NotationButton
-            key={index}
-            onClick={() => pushImageSrc(src)}
-            src={src}
+            src={key.src}
+            alt={key.text}
+            key={key.text}
+            onClick={() => pushImageSrc(key.src)}
           />
         ))}
         <button onClick={() => generateImage()}>Generate</button>
+        <button onClick={() => removeLastNotation()}>Backspace</button>
+        <button onClick={() => setComboNotation([])}>Reset</button>
       </S.EditorUI>
-    </>
+    </S.App>
   );
 }
 
