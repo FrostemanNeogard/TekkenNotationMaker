@@ -2,10 +2,20 @@ import styled from "styled-components";
 
 export const App = styled.div`
   overflow: hidden !important;
+
+  background-color: black;
+  color: white;
+
+  min-height: 100vh;
+  display: grid;
+  column-gap: 2rem;
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;
 
 export const NotationButton = styled.img`
-  height: 100px;
+  height: 75px;
 
   &:hover {
     cursor: pointer;
@@ -15,13 +25,23 @@ export const NotationButton = styled.img`
 
 export const PreviewContainer = styled.div`
   padding: 2rem;
-  border: 1px solid black;
+  display: inherit;
+
+  h1 {
+    font-size: 4rem;
+    text-align: center;
+  }
 
   div {
-    flex-wrap: wrap;
+    border: 5px solid gray;
+    background-color: darkgray;
+    border-radius: 10px;
+    padding: 1rem;
     max-width: 100%;
     display: flex;
-    width: max-content;
+    flex-wrap: wrap;
+    height: min-content;
+    min-height: 50px;
 
     img {
       height: 50px;
@@ -36,7 +56,6 @@ export const NotationOutput = styled.img`
 export const NotationContainer = styled.div`
   padding: 2rem;
   border: 1px solid black;
-  background-color: red;
 
   width: max-content;
   position: absolute;
@@ -58,9 +77,11 @@ export const EditorUI = styled.div`
   border: 1px solid black;
   flex-wrap: wrap;
 
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
-  user-select: none; /* Standard syntax */
+  align-self: flex-end;
+
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
   button {
     width: 100%;
