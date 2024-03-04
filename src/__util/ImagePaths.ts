@@ -64,6 +64,7 @@ import swr from "../assets/images/upscaled/misc/swr.png";
 import w from "../assets/images/upscaled/misc/w.png";
 import wr from "../assets/images/upscaled/misc/wr.png";
 import ws from "../assets/images/upscaled/misc/ws.png";
+import heat from "../assets/images/upscaled/misc/heat.png";
 
 export const ImagePaths = {
   // ARROWS
@@ -304,5 +305,9 @@ export const ImagePaths = {
   ws: {
     text: "ws",
     src: ws,
+  },
+  heat: {
+    text: "in heat",
+    src: heat,
   },
 };
