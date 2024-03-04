@@ -93,10 +93,11 @@ export const EditorNav = styled.nav`
 
   button {
     width: 100%;
-    background-color: green;
     border: none;
     width: 100%;
     padding: 1rem;
+
+    font-size: 2rem;
 
     &:hover {
       cursor: pointer;
@@ -104,6 +105,20 @@ export const EditorNav = styled.nav`
     }
   }
 `;
+
+export const SaveButton = styled.button`
+  background-color: green;
+`;
+
+export const BackButton = styled.button`
+  background-color: yellow;
+`;
+
+export const ResetButton = styled.button`
+  background-color: red;
+`;
+
+export const UndoButton = styled.button``;
 
 export const VerticalDivider = styled.div`
   width: 1px;

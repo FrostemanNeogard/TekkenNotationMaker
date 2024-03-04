@@ -1,10 +1,14 @@
 import { useRef, useState } from "react";
-
 import { saveAs } from "file-saver";
-
+import { ImagePaths } from "../__util/ImagePaths";
+import {
+  FaBackspace,
+  FaFileDownload,
+  FaTrashAlt,
+  FaUndo,
+} from "react-icons/fa";
 import * as S from "./App.styled";
 import * as htmlToImage from "html-to-image";
-import { ImagePaths } from "../__util/ImagePaths";
 
 function App() {
   const divRef = useRef(null);
@@ -91,11 +95,19 @@ function App() {
         </S.NotationButtons>
         <S.VerticalDivider />
         <S.EditorNav>
-          <button onClick={() => generateImage()}>Generate</button>
-          <button onClick={() => removeLastNotation()}>Backspace</button>
-          <button onClick={() => resetNotation()}>Reset</button>
+          <S.SaveButton onClick={() => generateImage()}>
+            <FaFileDownload />
+          </S.SaveButton>
+          <S.BackButton onClick={() => removeLastNotation()}>
+            <FaBackspace />
+          </S.BackButton>
+          <S.ResetButton onClick={() => resetNotation()}>
+            <FaTrashAlt />
+          </S.ResetButton>
           {lastKnownComboNotation.length > 0 && (
-            <button onClick={() => undoReset()}>Undo</button>
+            <S.UndoButton onClick={() => undoReset()}>
+              <FaUndo />
+            </S.UndoButton>
           )}
         </S.EditorNav>
       </S.EditorUI>
