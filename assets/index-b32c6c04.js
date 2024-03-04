@@ -71,7 +71,7 @@ Error generating stack: `+l.message+`
 
   width: max-content;
   position: absolute;
-  transform: translateX(2000px);
+  transform: translateX(200vw);
 
   div {
     display: flex;
