@@ -9,6 +9,9 @@ import { ImagePaths } from "../__util/ImagePaths";
 function App() {
   const divRef = useRef(null);
   const [comboNotation, setComboNotation] = useState<string[]>([]);
+  const [lastKnownComboNotation, setLastKnownComboNotation] = useState<
+    string[]
+  >([]);
 
   async function generateImage() {
     const node = divRef.current;
@@ -33,10 +36,25 @@ function App() {
     setComboNotation(data);
   };
 
+  const resetNotation = () => {
+    setLastKnownComboNotation([...comboNotation]);
+    setComboNotation([]);
+  };
+
+  const undoReset = () => {
+    if (lastKnownComboNotation.length <= 0) {
+      alert("No previous state set.");
+      return;
+    }
+
+    setComboNotation(lastKnownComboNotation);
+  };
+
   const Output = () => {
     return (
       <>
         <S.PreviewContainer>
+          <h1>Output preview</h1>
           <div>
             {comboNotation.map((imageSrc, index) => (
               <S.NotationOutput key={index} src={imageSrc} draggable={false} />
@@ -54,13 +72,13 @@ function App() {
     );
   };
 
-  const shits = Object.values(ImagePaths);
+  const images = Object.values(ImagePaths);
 
   return (
     <S.App>
       <Output />
       <S.EditorUI>
-        {shits.map((key) => (
+        {images.map((key) => (
           <S.NotationButton
             src={key.src}
             alt={key.text}
@@ -71,7 +89,10 @@ function App() {
         ))}
         <button onClick={() => generateImage()}>Generate</button>
         <button onClick={() => removeLastNotation()}>Backspace</button>
-        <button onClick={() => setComboNotation([])}>Reset</button>
+        <button onClick={() => resetNotation()}>Reset</button>
+        {lastKnownComboNotation.length > 0 && (
+          <button onClick={() => undoReset()}>Undo</button>
+        )}
       </S.EditorUI>
     </S.App>
   );
