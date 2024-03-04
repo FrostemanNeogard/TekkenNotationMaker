@@ -68,6 +68,10 @@ import heat from "../assets/images/upscaled/misc/heat.png";
 
 export const ImagePaths = {
   // ARROWS
+  n: {
+    text: "n",
+    src: n,
+  },
   f: {
     text: "f",
     src: f,
@@ -99,10 +103,6 @@ export const ImagePaths = {
   uf: {
     text: "u/f",
     src: uf,
-  },
-  n: {
-    text: "n",
-    src: n,
   },
   f_h: {
     text: "F",
