@@ -39,7 +39,7 @@ function App() {
         <S.PreviewContainer>
           <div>
             {comboNotation.map((imageSrc, index) => (
-              <S.NotationOutput key={index} src={imageSrc} />
+              <S.NotationOutput key={index} src={imageSrc} draggable={false} />
             ))}
           </div>
         </S.PreviewContainer>
@@ -66,6 +66,7 @@ function App() {
             alt={key.text}
             key={key.text}
             onClick={() => pushImageSrc(key.src)}
+            draggable={false}
           />
         ))}
         <button onClick={() => generateImage()}>Generate</button>

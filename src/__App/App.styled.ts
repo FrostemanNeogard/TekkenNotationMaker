@@ -59,6 +59,10 @@ export const EditorUI = styled.div`
   border: 1px solid black;
   flex-wrap: wrap;
 
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+
   button {
     width: 100%;
     padding: 1rem;
