@@ -21,8 +21,10 @@ export const NotationButton = styled.img`
 `;
 
 export const PreviewContainer = styled.div`
-  padding: 2rem;
-  display: inherit;
+  padding: 4rem;
+  display: grid;
+  height: min-content;
+  row-gap: 1rem;
 
   h1 {
     font-size: 3rem;
@@ -96,8 +98,8 @@ export const EditorNav = styled.nav`
     border: none;
     width: 100%;
     padding: 1rem;
-
     font-size: 2rem;
+    filter: drop-shadow(#0008 3px 3px 5px);
 
     &:hover {
       cursor: pointer;
@@ -107,15 +109,15 @@ export const EditorNav = styled.nav`
 `;
 
 export const SaveButton = styled.button`
-  background-color: green;
+  background: linear-gradient(to bottom right, #0d0, #0d0);
 `;
 
 export const BackButton = styled.button`
-  background-color: yellow;
+  background: linear-gradient(to bottom right, #dd0, #dd0);
 `;
 
 export const ResetButton = styled.button`
-  background-color: red;
+  background: linear-gradient(to bottom right, #d00, #d00);
 `;
 
 export const UndoButton = styled.button``;

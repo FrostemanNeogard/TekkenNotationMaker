@@ -12,12 +12,14 @@ import * as htmlToImage from "html-to-image";
 
 function App() {
   const divRef = useRef(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [comboNotation, setComboNotation] = useState<string[]>([]);
   const [lastKnownComboNotation, setLastKnownComboNotation] = useState<
     string[]
   >([]);
 
   async function generateImage() {
+    setIsLoading(true);
     const node = divRef.current;
 
     if (!node) {
@@ -26,8 +28,8 @@ function App() {
     }
 
     const dataUrl = await htmlToImage.toPng(node);
-
     saveAs(dataUrl, "shit.png");
+    setIsLoading(false);
   }
 
   const pushImageSrc = (imageSrc: string) => {
@@ -95,7 +97,7 @@ function App() {
         </S.NotationButtons>
         <S.VerticalDivider />
         <S.EditorNav>
-          <S.SaveButton onClick={() => generateImage()}>
+          <S.SaveButton onClick={() => generateImage()} disabled={isLoading}>
             <FaFileDownload />
           </S.SaveButton>
           <S.BackButton onClick={() => removeLastNotation()}>
