@@ -68,41 +68,25 @@ import heat from "../assets/images/upscaled/misc/heat.png";
 
 export const ImagePaths = {
   // ARROWS
-  db: {
-    text: "d/b",
-    src: db,
-  },
-  d: {
-    text: "d",
-    src: d,
+  f: {
+    text: "f",
+    src: f,
   },
   df: {
     text: "d/f",
     src: df,
   },
-  db_h: {
-    text: "D/B",
-    src: db_h,
+  d: {
+    text: "d",
+    src: d,
   },
-  d_h: {
-    text: "D",
-    src: d_h,
-  },
-  df_h: {
-    text: "D/F",
-    src: df_h,
+  db: {
+    text: "d/b",
+    src: db,
   },
   b: {
     text: "b",
     src: b,
-  },
-  n: {
-    text: "n",
-    src: n,
-  },
-  f: {
-    text: "f",
-    src: f,
   },
   ub: {
     text: "u/b",
@@ -116,13 +100,29 @@ export const ImagePaths = {
     text: "u/f",
     src: uf,
   },
-  b_h: {
-    text: "B",
-    src: b_h,
+  n: {
+    text: "n",
+    src: n,
   },
   f_h: {
     text: "F",
     src: f_h,
+  },
+  df_h: {
+    text: "D/F",
+    src: df_h,
+  },
+  d_h: {
+    text: "D",
+    src: d_h,
+  },
+  db_h: {
+    text: "D/B",
+    src: db_h,
+  },
+  b_h: {
+    text: "B",
+    src: b_h,
   },
   ub_h: {
     text: "U/B",
@@ -170,9 +170,17 @@ export const ImagePaths = {
     text: "1+2",
     src: onetwo,
   },
+  threefour: {
+    text: "3+4",
+    src: threefour,
+  },
   onethree: {
     text: "1+3",
     src: onethree,
+  },
+  twofour: {
+    text: "2+4",
+    src: twofour,
   },
   onefour: {
     text: "1+4",
@@ -181,14 +189,6 @@ export const ImagePaths = {
   twothree: {
     text: "2+3",
     src: twothree,
-  },
-  twofour: {
-    text: "2+4",
-    src: twofour,
-  },
-  threefour: {
-    text: "3+4",
-    src: threefour,
   },
   onetwothree: {
     text: "1+2+3",
@@ -250,14 +250,6 @@ export const ImagePaths = {
     text: "HB!",
     src: heatburst,
   },
-  hms: {
-    text: "HMS",
-    src: hms,
-  },
-  jf: {
-    text: ":",
-    src: jf,
-  },
   bt: {
     text: "BT",
     src: bt,
@@ -309,5 +301,13 @@ export const ImagePaths = {
   heat: {
     text: "in heat",
     src: heat,
+  },
+  hms: {
+    text: "HMS",
+    src: hms,
+  },
+  jf: {
+    text: ":",
+    src: jf,
   },
 };
