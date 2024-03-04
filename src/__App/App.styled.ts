@@ -41,7 +41,8 @@ export const NotationContainer = styled.div`
 
   width: max-content;
   position: absolute;
-  transform: translateX(200vw);
+  transform: translateX(300vw);
+  z-index: -90000;
 
   div {
     display: flex;
