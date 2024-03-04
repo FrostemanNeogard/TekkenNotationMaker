@@ -80,7 +80,7 @@ Error generating stack: `+l.message+`
   }
 `,ug=rn.div`
   background-color: gray;
-  width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: center;
   padding: 2rem;
