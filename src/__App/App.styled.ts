@@ -52,7 +52,7 @@ export const NotationContainer = styled.div`
 
 export const EditorUI = styled.div`
   background-color: gray;
-  width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: center;
   padding: 2rem;
