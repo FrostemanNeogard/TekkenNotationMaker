@@ -78,21 +78,26 @@ function App() {
     <S.App>
       <Output />
       <S.EditorUI>
-        {images.map((key) => (
-          <S.NotationButton
-            src={key.src}
-            alt={key.text}
-            key={key.text}
-            onClick={() => pushImageSrc(key.src)}
-            draggable={false}
-          />
-        ))}
-        <button onClick={() => generateImage()}>Generate</button>
-        <button onClick={() => removeLastNotation()}>Backspace</button>
-        <button onClick={() => resetNotation()}>Reset</button>
-        {lastKnownComboNotation.length > 0 && (
-          <button onClick={() => undoReset()}>Undo</button>
-        )}
+        <S.NotationButtons>
+          {images.map((key) => (
+            <S.NotationButton
+              src={key.src}
+              alt={key.text}
+              key={key.text}
+              onClick={() => pushImageSrc(key.src)}
+              draggable={false}
+            />
+          ))}
+        </S.NotationButtons>
+        <S.VerticalDivider />
+        <S.EditorNav>
+          <button onClick={() => generateImage()}>Generate</button>
+          <button onClick={() => removeLastNotation()}>Backspace</button>
+          <button onClick={() => resetNotation()}>Reset</button>
+          {lastKnownComboNotation.length > 0 && (
+            <button onClick={() => undoReset()}>Undo</button>
+          )}
+        </S.EditorNav>
       </S.EditorUI>
     </S.App>
   );

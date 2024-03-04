@@ -2,14 +2,11 @@ import styled from "styled-components";
 
 export const App = styled.div`
   overflow: hidden !important;
-
   background-color: black;
   color: white;
-
   min-height: 100vh;
   display: grid;
   column-gap: 2rem;
-
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;
@@ -70,22 +67,47 @@ export const NotationContainer = styled.div`
 
 export const EditorUI = styled.div`
   background-color: gray;
-  max-width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: 70% auto 20%;
+  column-gap: 3rem;
   justify-content: center;
-  padding: 2rem;
+  padding: 2rem 10vmin;
   border: 1px solid black;
-  flex-wrap: wrap;
 
   align-self: flex-end;
 
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+`;
+
+export const NotationButtons = styled.nav`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+`;
+
+export const EditorNav = styled.nav`
+  display: grid;
+  row-gap: 1rem;
 
   button {
     width: 100%;
+    background-color: green;
+    border: none;
+    width: 100%;
     padding: 1rem;
-    margin: 2rem 20% 0;
+
+    &:hover {
+      cursor: pointer;
+      filter: brightness(80%);
+    }
   }
+`;
+
+export const VerticalDivider = styled.div`
+  width: 1px;
+  height: 100%;
+
+  border-right: 1px solid black;
 `;
