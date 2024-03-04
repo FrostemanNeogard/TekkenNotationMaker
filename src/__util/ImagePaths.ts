@@ -50,6 +50,8 @@ import wallbreak from "../assets/images/upscaled/stage/wallbreak.png";
 import heatdash from "../assets/images/upscaled/misc/heatdash.png";
 import tornado from "../assets/images/upscaled/misc/tornado.png";
 import heatburst from "../assets/images/upscaled/misc/heatburst.png";
+import hms from "../assets/images/upscaled/misc/hms.png";
+import jf from "../assets/images/upscaled/misc/jf.png";
 
 export const ImagePaths = {
   // ARROWS
@@ -234,5 +236,13 @@ export const ImagePaths = {
   heatburst: {
     text: "HB!",
     src: heatburst,
+  },
+  hms: {
+    text: "HMS",
+    src: hms,
+  },
+  jf: {
+    text: ":",
+    src: jf,
   },
 };
