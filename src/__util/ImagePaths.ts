@@ -52,6 +52,18 @@ import tornado from "../assets/images/upscaled/misc/tornado.png";
 import heatburst from "../assets/images/upscaled/misc/heatburst.png";
 import hms from "../assets/images/upscaled/misc/hms.png";
 import jf from "../assets/images/upscaled/misc/jf.png";
+import bt from "../assets/images/upscaled/misc/bt.png";
+import cc from "../assets/images/upscaled/misc/cc.png";
+import ch from "../assets/images/upscaled/misc/ch.png";
+import dash from "../assets/images/upscaled/misc/dash.png";
+import fc from "../assets/images/upscaled/misc/fc.png";
+import ssl from "../assets/images/upscaled/misc/ssl.png";
+import ssr from "../assets/images/upscaled/misc/ssr.png";
+import swl from "../assets/images/upscaled/misc/swl.png";
+import swr from "../assets/images/upscaled/misc/swr.png";
+import w from "../assets/images/upscaled/misc/w.png";
+import wr from "../assets/images/upscaled/misc/wr.png";
+import ws from "../assets/images/upscaled/misc/ws.png";
 
 export const ImagePaths = {
   // ARROWS
@@ -244,5 +256,53 @@ export const ImagePaths = {
   jf: {
     text: ":",
     src: jf,
+  },
+  bt: {
+    text: "BT",
+    src: bt,
+  },
+  cc: {
+    text: "cc",
+    src: cc,
+  },
+  ch: {
+    text: "ch",
+    src: ch,
+  },
+  dash: {
+    text: "dash",
+    src: dash,
+  },
+  fc: {
+    text: "fc",
+    src: fc,
+  },
+  ssl: {
+    text: "ssl",
+    src: ssl,
+  },
+  ssr: {
+    text: "ssr",
+    src: ssr,
+  },
+  swl: {
+    text: "swl",
+    src: swl,
+  },
+  swr: {
+    text: "swr",
+    src: swr,
+  },
+  w: {
+    text: "W!",
+    src: w,
+  },
+  wr: {
+    text: "wr",
+    src: wr,
+  },
+  ws: {
+    text: "ws",
+    src: ws,
   },
 };
