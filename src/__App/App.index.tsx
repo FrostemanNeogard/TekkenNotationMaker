@@ -43,6 +43,10 @@ function App() {
   };
 
   const resetNotation = () => {
+    if (comboNotation.length <= 0) {
+      return;
+    }
+
     setLastKnownComboNotation([...comboNotation]);
     setComboNotation([]);
   };
@@ -106,11 +110,12 @@ function App() {
           <S.ResetButton onClick={() => resetNotation()}>
             <FaTrashAlt />
           </S.ResetButton>
-          {lastKnownComboNotation.length > 0 && (
-            <S.UndoButton onClick={() => undoReset()}>
-              <FaUndo />
-            </S.UndoButton>
-          )}
+          <S.UndoButton
+            onClick={() => undoReset()}
+            disabled={lastKnownComboNotation.length <= 0}
+          >
+            <FaUndo />
+          </S.UndoButton>
         </S.EditorNav>
       </S.EditorUI>
     </S.App>
