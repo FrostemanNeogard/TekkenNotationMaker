@@ -5,7 +5,7 @@ export const App = styled.div`
 `;
 
 export const NotationButton = styled.img`
-  width: 100px;
+  height: 100px;
 
   &:hover {
     cursor: pointer;
