@@ -16,7 +16,6 @@ export const NotationButton = styled.img`
 export const PreviewContainer = styled.div`
   padding: 2rem;
   border: 1px solid black;
-  background-color: red;
 
   div {
     flex-wrap: wrap;
