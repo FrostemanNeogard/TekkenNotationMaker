@@ -30,7 +30,7 @@ function App() {
 
     const dataUrl = await htmlToImage.toPng(node);
     saveAs(dataUrl, "shit.png");
-    // setIsLoading(false);
+    setIsLoading(false);
   }
 
   const pushImageSrc = (imageSrc: string) => {
