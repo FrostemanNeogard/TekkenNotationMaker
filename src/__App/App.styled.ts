@@ -93,13 +93,17 @@ export const EditorNav = styled.nav`
   display: grid;
   row-gap: 1rem;
 
+  button,
+  select {
+    filter: drop-shadow(#0008 3px 3px 5px);
+    border: none;
+    padding: 1rem;
+  }
+
   button {
     width: 100%;
-    border: none;
     width: 100%;
-    padding: 1rem;
     font-size: 2rem;
-    filter: drop-shadow(#0008 3px 3px 5px);
 
     &:hover {
       cursor: pointer;
@@ -107,6 +111,8 @@ export const EditorNav = styled.nav`
     }
   }
 `;
+
+export const CharacterDropdown = styled.select``;
 
 export const SaveButton = styled.button`
   background: linear-gradient(to bottom right, #0d0, #0d0);

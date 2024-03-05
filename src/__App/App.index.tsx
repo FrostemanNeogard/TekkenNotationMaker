@@ -13,6 +13,7 @@ import * as htmlToImage from "html-to-image";
 function App() {
   const divRef = useRef(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [selectedCharacter, setSelectedCharacter] = useState<string>();
   const [comboNotation, setComboNotation] = useState<string[]>([]);
   const [lastKnownComboNotation, setLastKnownComboNotation] = useState<
     string[]
@@ -56,8 +57,14 @@ function App() {
       alert("No previous state set.");
       return;
     }
-
     setComboNotation(lastKnownComboNotation);
+  };
+
+  const handleCharacterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const characterName = e.target.value;
+    console.log("Changing character to:", characterName);
+    setSelectedCharacter(characterName);
+    console.log(selectedCharacter);
   };
 
   const Output = () => {
@@ -101,6 +108,18 @@ function App() {
         </S.NotationButtons>
         <S.VerticalDivider />
         <S.EditorNav>
+          {false && (
+            <>
+              <label htmlFor="character-dropdown">Character</label>
+              <S.CharacterDropdown
+                name="character-dropdown"
+                onChange={handleCharacterChange}
+              >
+                <option value="bryan">Bryan</option>
+                <option value="lee">Lee</option>
+              </S.CharacterDropdown>
+            </>
+          )}
           <S.SaveButton onClick={() => generateImage()} disabled={isLoading}>
             <FaFileDownload />
           </S.SaveButton>
