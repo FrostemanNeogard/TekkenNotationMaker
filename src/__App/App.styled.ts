@@ -115,15 +115,15 @@ export const EditorNav = styled.nav`
 export const CharacterDropdown = styled.select``;
 
 export const SaveButton = styled.button`
-  background: linear-gradient(to bottom right, #0d0, #0d0);
+  background-color: #3d3;
 `;
 
 export const BackButton = styled.button`
-  background: linear-gradient(to bottom right, #dd0, #dd0);
+  background-color: #dd3;
 `;
 
 export const ResetButton = styled.button`
-  background: linear-gradient(to bottom right, #d00, #d00);
+  background-color: #d33;
 `;
 
 export const UndoButton = styled.button``;
