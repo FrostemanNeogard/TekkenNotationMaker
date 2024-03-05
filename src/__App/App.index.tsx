@@ -20,7 +20,7 @@ function App() {
   >([]);
 
   async function generateImage() {
-    setIsLoading(true);
+    // setIsLoading(true);
     const node = divRef.current;
 
     if (!node) {
@@ -30,7 +30,7 @@ function App() {
 
     const dataUrl = await htmlToImage.toPng(node);
     saveAs(dataUrl, "shit.png");
-    setIsLoading(false);
+    // setIsLoading(false);
   }
 
   const pushImageSrc = (imageSrc: string) => {
