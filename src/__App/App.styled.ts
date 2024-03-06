@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const App = styled.div`
-  overflow: hidden !important;
+  /* overflow: hidden !important; */
   background-color: ${(props) => props.theme.colors.primary};
   color: white;
   min-height: 100vh;
@@ -32,19 +32,53 @@ export const PreviewContainer = styled.div`
     text-align: center;
   }
 
-  div {
+  & > div {
     border: 5px solid gray;
     background-color: ${(props) => props.theme.colors.secondary};
     border-radius: 10px;
     padding: 1rem;
-    max-width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+    max-width: 100% !important;
     height: min-content;
     min-height: 50px;
 
-    img {
-      height: 50px;
+    div {
+      display: grid;
+      grid-auto-flow: row;
+      grid-template-rows: auto 1fr auto;
+      grid-template-columns: 1fr;
+      width: 100%;
+      flex-wrap: wrap;
+
+      section {
+        /* flex-wrap: wrap;
+        width: max-content; */
+      }
+
+      p {
+        display: inline;
+        font-size: 2.3rem;
+        width: min-content;
+        justify-self: center;
+        margin: 1rem 0;
+        white-space: nowrap;
+
+        &:first-child {
+          grid-row: 1;
+          grid-column: 1 / -1;
+          margin-top: 0;
+        }
+
+        &:nth-child(3) {
+          grid-row: 3;
+          grid-column: 1 / -1;
+          margin-bottom: 0 !important;
+        }
+      }
+
+      img {
+        width: min-content;
+        height: 50px;
+      }
     }
   }
 `;
@@ -53,18 +87,46 @@ export const NotationOutput = styled.img`
   height: 500px;
 `;
 
-export const NotationContainer = styled.div`
-  padding: 2rem;
-  border: 1px solid black;
-
+export const NotationContainer = styled.div<{ $qualityMultiplier: number }>`
+  overflow: hidden;
   width: max-content;
   position: absolute;
-  transform: translateX(300vw);
+  transform: translateY(-300vw);
   z-index: -90000;
 
   div {
-    display: flex;
-    width: max-content;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr;
+    width: 100%;
+    flex-wrap: wrap;
+
+    p {
+      display: inline;
+      font-size: calc(500px * ${(props) => props.$qualityMultiplier});
+      width: min-content;
+      justify-self: center;
+      margin: calc(100px * ${(props) => props.$qualityMultiplier}) 0;
+      white-space: nowrap;
+
+      &:first-child {
+        grid-row: 1;
+        grid-column: 1 / -1;
+        margin-top: 0;
+      }
+
+      &:nth-child(3) {
+        grid-row: 3;
+        grid-column: 1 / -1;
+        margin-bottom: 0;
+      }
+    }
+
+    img {
+      width: min-content;
+      height: calc(500px * ${(props) => props.$qualityMultiplier});
+    }
   }
 
   /* article {
@@ -93,10 +155,10 @@ export const NotationContainer = styled.div`
 export const EditorUI = styled.div`
   background-color: ${(props) => props.theme.colors.secondary};
   display: grid;
-  grid-template-columns: 70% auto 20%;
-  column-gap: 3rem;
+  grid-template-columns: 20% auto 20%;
+  column-gap: 1rem;
   justify-content: center;
-  padding: 2rem 10vmin;
+  padding: 2vmin 4vmin;
 
   align-self: flex-end;
 
@@ -107,8 +169,38 @@ export const EditorUI = styled.div`
 
 export const NotationButtons = styled.nav`
   display: flex;
+  height: min-content;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  gap: 0.2rem;
+  img {
+    height: 3.5em;
+  }
+`;
+
+export const EditorOptions = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    padding: 0.5rem 0;
+  }
+
+  input {
+    padding: 1rem;
+  }
+
+  select {
+    font-size: 1.2rem;
+    filter: drop-shadow(#0008 3px 3px 5px);
+    border: none;
+    padding: 1rem;
+  }
 `;
 
 export const EditorNav = styled.nav`
@@ -117,6 +209,7 @@ export const EditorNav = styled.nav`
 
   button,
   select {
+    font-size: 1.2rem;
     filter: drop-shadow(#0008 3px 3px 5px);
     border: none;
     padding: 1rem;
@@ -160,5 +253,5 @@ export const HorizontalDivider = styled.div`
   height: 1px;
   width: 100%;
   border-bottom: 1px solid black;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 `;
