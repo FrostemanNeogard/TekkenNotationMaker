@@ -16,6 +16,9 @@ import { Footer } from "../components/Footer/Footer.index";
 function App() {
   const divRef = useRef(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [topText, setTopText] = useState<string>("");
+  const [bottomText, setBottomText] = useState<string>("");
+  const [quality, setQuality] = useState<string>("medium");
   const [selectedCharacter, setSelectedCharacter] = useState<string>("bryan");
   const [comboNotation, setComboNotation] = useState<string[]>([]);
   const [lastKnownComboNotation, setLastKnownComboNotation] = useState<
@@ -74,16 +77,40 @@ function App() {
         <S.PreviewContainer>
           <h1>Output preview</h1>
           <div>
-            {comboNotation.map((imageSrc, index) => (
-              <S.NotationOutput key={index} src={imageSrc} draggable={false} />
-            ))}
+            <div>
+              {topText && <p>{topText}</p>}
+              <section>
+                {comboNotation.map((imageSrc, index) => (
+                  <S.NotationOutput
+                    key={index}
+                    src={imageSrc}
+                    draggable={false}
+                  />
+                ))}
+              </section>
+              {bottomText && <p>{bottomText}</p>}
+            </div>
           </div>
         </S.PreviewContainer>
-        <S.NotationContainer>
+        <S.NotationContainer
+          $qualityMultiplier={
+            quality === "high"
+              ? 1
+              : quality === "medium"
+              ? 0.5
+              : quality === "low"
+              ? 0.1
+              : 1
+          }
+        >
           <div ref={divRef}>
-            {comboNotation.map((imageSrc, index) => (
-              <S.NotationOutput key={index} src={imageSrc} />
-            ))}
+            {topText && <p>{topText}</p>}
+            <section>
+              {comboNotation.map((imageSrc, index) => (
+                <S.NotationOutput key={index} src={imageSrc} />
+              ))}
+            </section>
+            {bottomText && <p>{bottomText}</p>}
           </div>
         </S.NotationContainer>
       </>
@@ -141,6 +168,52 @@ function App() {
     <S.App>
       <Output />
       <S.EditorUI>
+        <S.EditorOptions>
+          {/* <div>
+            <label htmlFor="theme">Theme</label>
+            <select name="theme" id="theme">
+              <option value="arcade">Arcade</option>
+              <option value="playstation">Playstation</option>
+              <option value="xbox">XBox</option>
+            </select>
+          </div> */}
+
+          <div>
+            <label htmlFor="quality">Quality</label>
+            <select
+              name="quality"
+              id="quality"
+              value={quality}
+              onChange={(e) => setQuality(e.target.value)}
+            >
+              <option value="high">High</option>
+              <option value="medium">Medium</option>
+              <option value="low">Low</option>
+            </select>
+          </div>
+
+          <div>
+            <label htmlFor="top-text">Top Text (Optional)</label>
+            <input
+              type="text"
+              name="top-text"
+              placeholder="Top text"
+              onChange={(e) => setTopText(e.target.value)}
+              value={topText}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="bottom-text">Bottom Text (Optional)</label>
+            <input
+              type="text"
+              name="bottom-text"
+              placeholder="Bottom text"
+              onChange={(e) => setBottomText(e.target.value)}
+              value={bottomText}
+            />
+          </div>
+        </S.EditorOptions>
         <S.NotationButtons>
           {images.map((key: NotationImage) => (
             <EditorNotationButtons image={key} key={key.src} />
@@ -150,7 +223,6 @@ function App() {
             <EditorNotationButtons image={key} key={key.src} />
           ))}
         </S.NotationButtons>
-        <S.VerticalDivider />
         <S.EditorNav>
           <CharacterDropdown />
           <S.SaveButton onClick={() => generateImage()} disabled={isLoading}>
