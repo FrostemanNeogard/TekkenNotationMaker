@@ -24,21 +24,38 @@ import bracket_r from "../assets/images/upscaled/arrows/bracket_right.png";
 import next from "../assets/images/upscaled/arrows/next.png";
 
 // BUTTONS
-import one from "../assets/images/upscaled/buttons/1.png";
-import two from "../assets/images/upscaled/buttons/2.png";
-import three from "../assets/images/upscaled/buttons/3.png";
-import four from "../assets/images/upscaled/buttons/4.png";
-import onetwo from "../assets/images/upscaled/buttons/12.png";
-import onethree from "../assets/images/upscaled/buttons/13.png";
-import onefour from "../assets/images/upscaled/buttons/14.png";
-import twothree from "../assets/images/upscaled/buttons/23.png";
-import twofour from "../assets/images/upscaled/buttons/24.png";
-import threefour from "../assets/images/upscaled/buttons/34.png";
-import onetwothree from "../assets/images/upscaled/buttons/123.png";
-import onetwofour from "../assets/images/upscaled/buttons/124.png";
-import onethreefour from "../assets/images/upscaled/buttons/134.png";
-import twothreefour from "../assets/images/upscaled/buttons/234.png";
-import onetwothreefour from "../assets/images/upscaled/buttons/1234.png";
+// TEKKEN 8
+import one from "../assets/images/upscaled/buttons/tekken8/1.png";
+import two from "../assets/images/upscaled/buttons/tekken8/2.png";
+import three from "../assets/images/upscaled/buttons/tekken8/3.png";
+import four from "../assets/images/upscaled/buttons/tekken8/4.png";
+import onetwo from "../assets/images/upscaled/buttons/tekken8/12.png";
+import onethree from "../assets/images/upscaled/buttons/tekken8/13.png";
+import onefour from "../assets/images/upscaled/buttons/tekken8/14.png";
+import twothree from "../assets/images/upscaled/buttons/tekken8/23.png";
+import twofour from "../assets/images/upscaled/buttons/tekken8/24.png";
+import threefour from "../assets/images/upscaled/buttons/tekken8/34.png";
+import onetwothree from "../assets/images/upscaled/buttons/tekken8/123.png";
+import onetwofour from "../assets/images/upscaled/buttons/tekken8/124.png";
+import onethreefour from "../assets/images/upscaled/buttons/tekken8/134.png";
+import twothreefour from "../assets/images/upscaled/buttons/tekken8/234.png";
+import onetwothreefour from "../assets/images/upscaled/buttons/tekken8/1234.png";
+// ARCADE
+import oneArcade from "../assets/images/upscaled/buttons/arcade/1.png";
+import twoArcade from "../assets/images/upscaled/buttons/arcade/2.png";
+import threeArcade from "../assets/images/upscaled/buttons/arcade/3.png";
+import fourArcade from "../assets/images/upscaled/buttons/arcade/4.png";
+import onetwoArcade from "../assets/images/upscaled/buttons/arcade/12.png";
+import onethreeArcade from "../assets/images/upscaled/buttons/arcade/13.png";
+import onefourArcade from "../assets/images/upscaled/buttons/arcade/14.png";
+import twothreeArcade from "../assets/images/upscaled/buttons/arcade/23.png";
+import twofourArcade from "../assets/images/upscaled/buttons/arcade/24.png";
+import threefourArcade from "../assets/images/upscaled/buttons/arcade/34.png";
+import onetwothreeArcade from "../assets/images/upscaled/buttons/arcade/123.png";
+import onetwofourArcade from "../assets/images/upscaled/buttons/arcade/124.png";
+import onethreefourArcade from "../assets/images/upscaled/buttons/arcade/134.png";
+import twothreefourArcade from "../assets/images/upscaled/buttons/arcade/234.png";
+import onetwothreefourArcade from "../assets/images/upscaled/buttons/arcade/1234.png";
 
 // STAGE GIMMICKS
 import balcony from "../assets/images/upscaled/stage/balconybreak.png";
@@ -137,6 +154,134 @@ import uns from "../assets/images/upscaled/stances/uns.png";
 import wra from "../assets/images/upscaled/stances/wra.png";
 import zen from "../assets/images/upscaled/stances/zen.png";
 
+export const Tekken8ButtonPaths: { [key: string]: NotationImage } = {
+  // BUTTONS
+  one: {
+    text: "1",
+    src: one,
+  },
+  two: {
+    text: "2",
+    src: two,
+  },
+  three: {
+    text: "3",
+    src: three,
+  },
+  four: {
+    text: "4",
+    src: four,
+  },
+  onetwo: {
+    text: "1+2",
+    src: onetwo,
+  },
+  threefour: {
+    text: "3+4",
+    src: threefour,
+  },
+  onethree: {
+    text: "1+3",
+    src: onethree,
+  },
+  twofour: {
+    text: "2+4",
+    src: twofour,
+  },
+  onefour: {
+    text: "1+4",
+    src: onefour,
+  },
+  twothree: {
+    text: "2+3",
+    src: twothree,
+  },
+  onetwothree: {
+    text: "1+2+3",
+    src: onetwothree,
+  },
+  onetwofour: {
+    text: "1+2+4",
+    src: onetwofour,
+  },
+  onethreefour: {
+    text: "1+3+4",
+    src: onethreefour,
+  },
+  twothreefour: {
+    text: "2+3+4",
+    src: twothreefour,
+  },
+  onetwothreefour: {
+    text: "1+2+3+4",
+    src: onetwothreefour,
+  },
+};
+
+export const ArcadeButtonPaths: { [key: string]: NotationImage } = {
+  // BUTTONS
+  one: {
+    text: "1",
+    src: oneArcade,
+  },
+  two: {
+    text: "2",
+    src: twoArcade,
+  },
+  three: {
+    text: "3",
+    src: threeArcade,
+  },
+  four: {
+    text: "4",
+    src: fourArcade,
+  },
+  onetwo: {
+    text: "1+2",
+    src: onetwoArcade,
+  },
+  threefour: {
+    text: "3+4",
+    src: threefourArcade,
+  },
+  onethree: {
+    text: "1+3",
+    src: onethreeArcade,
+  },
+  twofour: {
+    text: "2+4",
+    src: twofourArcade,
+  },
+  onefour: {
+    text: "1+4",
+    src: onefourArcade,
+  },
+  twothree: {
+    text: "2+3",
+    src: twothreeArcade,
+  },
+  onetwothree: {
+    text: "1+2+3",
+    src: onetwothreeArcade,
+  },
+  onetwofour: {
+    text: "1+2+4",
+    src: onetwofourArcade,
+  },
+  onethreefour: {
+    text: "1+3+4",
+    src: onethreefourArcade,
+  },
+  twothreefour: {
+    text: "2+3+4",
+    src: twothreefourArcade,
+  },
+  onetwothreefour: {
+    text: "1+2+3+4",
+    src: onetwothreefourArcade,
+  },
+};
+
 export const ImagePaths: { [key: string]: NotationImage } = {
   // ARROWS
   n: {
@@ -218,68 +363,6 @@ export const ImagePaths: { [key: string]: NotationImage } = {
   next: {
     text: "->",
     src: next,
-  },
-
-  // BUTTONS
-  one: {
-    text: "1",
-    src: one,
-  },
-  two: {
-    text: "2",
-    src: two,
-  },
-  three: {
-    text: "3",
-    src: three,
-  },
-  four: {
-    text: "4",
-    src: four,
-  },
-  onetwo: {
-    text: "1+2",
-    src: onetwo,
-  },
-  threefour: {
-    text: "3+4",
-    src: threefour,
-  },
-  onethree: {
-    text: "1+3",
-    src: onethree,
-  },
-  twofour: {
-    text: "2+4",
-    src: twofour,
-  },
-  onefour: {
-    text: "1+4",
-    src: onefour,
-  },
-  twothree: {
-    text: "2+3",
-    src: twothree,
-  },
-  onetwothree: {
-    text: "1+2+3",
-    src: onetwothree,
-  },
-  onetwofour: {
-    text: "1+2+4",
-    src: onetwofour,
-  },
-  onethreefour: {
-    text: "1+3+4",
-    src: onethreefour,
-  },
-  twothreefour: {
-    text: "2+3+4",
-    src: twothreefour,
-  },
-  onetwothreefour: {
-    text: "1+2+3+4",
-    src: onetwothreefour,
   },
   jf: {
     text: ":",

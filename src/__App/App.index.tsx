@@ -1,6 +1,11 @@
 import { useRef, useState } from "react";
 import { saveAs } from "file-saver";
-import { CharacterSpecificImagePaths, ImagePaths } from "../__util/ImagePaths";
+import {
+  ArcadeButtonPaths,
+  CharacterSpecificImagePaths,
+  Tekken8ButtonPaths,
+  ImagePaths,
+} from "../__util/ImagePaths";
 import {
   FaBackspace,
   FaFileDownload,
@@ -12,9 +17,11 @@ import * as htmlToImage from "html-to-image";
 import { NotationImage } from "../__types/PathTypes";
 import { characters } from "../__util/characters";
 import { Footer } from "../components/Footer/Footer.index";
+import { Theme } from "../__types/theme";
 
 function App() {
   const divRef = useRef(null);
+  const [theme, setTheme] = useState<Theme>("tekken8");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [topText, setTopText] = useState<string>("");
   const [bottomText, setBottomText] = useState<string>("");
@@ -118,6 +125,17 @@ function App() {
   };
 
   const images: NotationImage[] = Object.values(ImagePaths);
+  const buttonImagesPath = () => {
+    switch (theme) {
+      case "tekken8":
+        return Object.values(Tekken8ButtonPaths);
+      case "arcade":
+        return Object.values(ArcadeButtonPaths);
+    }
+  };
+  const buttonImages: NotationImage[] =
+    buttonImagesPath() ?? Object.values(Tekken8ButtonPaths);
+  const allImages = [...buttonImages, ...images];
   const characterImages = Object.values(
     CharacterSpecificImagePaths[selectedCharacter] ?? {}
   );
@@ -164,19 +182,25 @@ function App() {
     );
   };
 
+  const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value as Theme;
+    setTheme(value);
+  };
+
   return (
     <S.App>
       <Output />
       <S.EditorUI>
         <S.EditorOptions>
-          {/* <div>
+          <div>
             <label htmlFor="theme">Theme</label>
-            <select name="theme" id="theme">
+            <select name="theme" id="theme" onChange={handleThemeChange}>
+              <option value="tekken8">TEKKEN 8</option>
               <option value="arcade">Arcade</option>
               <option value="playstation">Playstation</option>
               <option value="xbox">XBox</option>
             </select>
-          </div> */}
+          </div>
 
           <div>
             <label htmlFor="quality">Quality</label>
@@ -215,7 +239,7 @@ function App() {
           </div>
         </S.EditorOptions>
         <S.NotationButtons>
-          {images.map((key: NotationImage) => (
+          {allImages.map((key: NotationImage) => (
             <EditorNotationButtons image={key} key={key.src} />
           ))}
           <S.HorizontalDivider />
