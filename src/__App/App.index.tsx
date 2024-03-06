@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { saveAs } from "file-saver";
 import {
-  ArcadeButtonPaths,
+  // ArcadeButtonPaths,
   CharacterSpecificImagePaths,
   Tekken8ButtonPaths,
   ImagePaths,
@@ -17,7 +17,7 @@ import * as htmlToImage from "html-to-image";
 import { NotationImage } from "../__types/PathTypes";
 import { characters } from "../__util/characters";
 import { Footer } from "../components/Footer/Footer.index";
-import { Theme } from "../__types/theme";
+// import { Theme } from "../__types/theme";
 
 function App() {
   const divRef = useRef(null);
