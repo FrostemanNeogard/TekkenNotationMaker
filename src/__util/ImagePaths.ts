@@ -339,7 +339,7 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
   bryan: {
     SNE: {
       text: "SNE",
-      src: tornado,
+      src: "",
     },
   },
   claudio: {
