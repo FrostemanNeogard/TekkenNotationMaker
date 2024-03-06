@@ -182,10 +182,10 @@ function App() {
     );
   };
 
-  const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = e.target.value as Theme;
-    setTheme(value);
-  };
+  // const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  //   const value = e.target.value as Theme;
+  //   setTheme(value);
+  // };
 
   return (
     <S.App>
