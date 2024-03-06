@@ -21,7 +21,7 @@ import { Theme } from "../__types/theme";
 
 function App() {
   const divRef = useRef(null);
-  const [theme, setTheme] = useState<Theme>("tekken8");
+  // const [theme, setTheme] = useState<Theme>("tekken8");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [topText, setTopText] = useState<string>("");
   const [bottomText, setBottomText] = useState<string>("");
