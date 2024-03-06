@@ -1,15 +1,13 @@
 import styled from "styled-components";
 
 export const App = styled.div`
-  /* overflow: hidden !important; */
   background-color: ${(props) => props.theme.colors.primary};
+  font-family: "Roboto", sans-serif;
   color: white;
   min-height: 100vh;
   display: grid;
   grid-template-rows: auto auto min-content min-content;
   column-gap: 2rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;
 
 export const NotationButton = styled.img`
@@ -22,7 +20,7 @@ export const NotationButton = styled.img`
 `;
 
 export const PreviewContainer = styled.div`
-  padding: 4rem;
+  padding: 2rem 4rem;
   display: grid;
   height: min-content;
   row-gap: 1rem;
@@ -139,7 +137,6 @@ export const NotationContainer = styled.div<{ $qualityMultiplier: number }>`
     background-color: salmon;
     padding: 20px 80px;
     p {
-      font-family: "Roboto", sans-serif;
       font-optical-sizing: auto;
       font-weight: 600;
       font-style: normal;
