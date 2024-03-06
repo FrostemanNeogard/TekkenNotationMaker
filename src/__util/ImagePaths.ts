@@ -281,6 +281,10 @@ export const ImagePaths: { [key: string]: NotationImage } = {
     text: "1+2+3+4",
     src: onetwothreefour,
   },
+  jf: {
+    text: ":",
+    src: jf,
+  },
 
   // STAGE
   balcony: {
@@ -309,10 +313,6 @@ export const ImagePaths: { [key: string]: NotationImage } = {
   },
 
   // MISC
-  jf: {
-    text: ":",
-    src: jf,
-  },
   heatdash: {
     text: "HD!",
     src: heatdash,
