@@ -1,10 +1,12 @@
 import { useRef, useState } from "react";
 import { saveAs } from "file-saver";
 import {
-  // ArcadeButtonPaths,
+  ArcadeButtonPaths,
   CharacterSpecificImagePaths,
   Tekken8ButtonPaths,
   ImagePaths,
+  XboxButtonPaths,
+  PlaystationButtonPaths,
 } from "../__util/ImagePaths";
 import {
   FaBackspace,
@@ -17,11 +19,11 @@ import * as htmlToImage from "html-to-image";
 import { NotationImage } from "../__types/PathTypes";
 import { characters } from "../__util/characters";
 import { Footer } from "../components/Footer/Footer.index";
-// import { Theme } from "../__types/theme";
+import { Theme } from "../__types/theme";
 
 function App() {
   const divRef = useRef(null);
-  // const [theme, setTheme] = useState<Theme>("tekken8");
+  const [theme, setTheme] = useState<Theme>("tekken8");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [topText, setTopText] = useState<string>("");
   const [bottomText, setBottomText] = useState<string>("");
@@ -126,13 +128,18 @@ function App() {
 
   const images: NotationImage[] = Object.values(ImagePaths);
   const buttonImagesPath = () => {
-    return Object.values(Tekken8ButtonPaths);
-    // switch (theme) {
-    //   case "tekken8":
-    //     return Object.values(Tekken8ButtonPaths);
-    //   case "arcade":
-    //     return Object.values(ArcadeButtonPaths);
-    // }
+    switch (theme) {
+      case "tekken8":
+        return Object.values(Tekken8ButtonPaths);
+      case "arcade":
+        return Object.values(ArcadeButtonPaths);
+      case "xbox":
+        return Object.values(XboxButtonPaths);
+      case "playstation":
+        return Object.values(PlaystationButtonPaths);
+      default:
+        return Object.values(Tekken8ButtonPaths);
+    }
   };
   const buttonImages: NotationImage[] =
     buttonImagesPath() ?? Object.values(Tekken8ButtonPaths);
@@ -183,17 +190,17 @@ function App() {
     );
   };
 
-  // const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-  //   const value = e.target.value as Theme;
-  //   setTheme(value);
-  // };
+  const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value as Theme;
+    setTheme(value);
+  };
 
   return (
     <S.App>
       <Output />
       <S.EditorUI>
         <S.EditorOptions>
-          {/* <div>
+          <div>
             <label htmlFor="theme">Theme</label>
             <select name="theme" id="theme" onChange={handleThemeChange}>
               <option value="tekken8">TEKKEN 8</option>
@@ -201,7 +208,7 @@ function App() {
               <option value="playstation">Playstation</option>
               <option value="xbox">XBox</option>
             </select>
-          </div> */}
+          </div>
 
           <div>
             <label htmlFor="quality">Quality</label>
