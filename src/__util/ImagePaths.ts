@@ -310,16 +310,288 @@ export const ImagePaths: { [key: string]: NotationImage } = {
 };
 
 export const CharacterSpecificImagePaths: CharacterNotationImage = {
+  alisa: {
+    DES: {
+      text: "DES",
+      src: "",
+    },
+    IDK: {
+      text: "IDK",
+      src: "",
+    },
+  },
+  asuka: {
+    install: {
+      text: "IDK",
+      src: "",
+    },
+  },
+  azucena: {
+    LIB: {
+      text: "LIB",
+      src: "",
+    },
+    IDK: {
+      text: "IDK",
+      src: "",
+    },
+  },
+  bryan: {
+    SNE: {
+      text: "SNE",
+      src: tornado,
+    },
+  },
+  claudio: {
+    STB: {
+      text: "STB",
+      src: "",
+    },
+  },
+  devil_jin: {
+    MCR: {
+      text: "MCR",
+      src: "",
+    },
+  },
+  dragunov: {
+    SNK: {
+      text: "SNK",
+      src: "",
+    },
+  },
+  feng: {
+    STC: {
+      text: "STC",
+      src: "",
+    },
+    KNP: {
+      text: "KNP",
+      src: "",
+    },
+    IDK: {
+      text: "IDK",
+      src: "",
+    },
+  },
+  hwoarang: {
+    LFS: {
+      text: "LFS",
+      src: "",
+    },
+    RFS: {
+      text: "RFS",
+      src: "",
+    },
+    RFF: {
+      text: "RFF",
+      src: "",
+    },
+  },
+  jack_8: {
+    GMH: {
+      text: "GMH",
+      src: "",
+    },
+  },
+  jin: {
+    ZEN: {
+      text: "ZEN",
+      src: "",
+    },
+    CDS: {
+      text: "CDS",
+      src: "",
+    },
+  },
+  jun: {
+    IDK: {
+      text: "IDK",
+      src: "",
+    },
+  },
+  kazuya: {
+    IDK: {
+      text: "IDK",
+      src: "",
+    },
+  },
+  king: {
+    IDK: {
+      text: "IDK",
+      src: "",
+    },
+  },
+  kuma: {
+    HBS: {
+      text: "HBS",
+      src: "",
+    },
+    IDK: {
+      text: "IDK",
+      src: "",
+    },
+  },
+  lars: {
+    DEN: {
+      text: "DEN",
+      src: "",
+    },
+    SEN: {
+      text: "SEN",
+      src: "",
+    },
+    LEN: {
+      text: "LEN",
+      src: "",
+    },
+  },
+  law: {
+    DSS: {
+      text: "DSS",
+      src: "",
+    },
+  },
   lee: {
-    hms: {
+    HMS: {
       text: "HMS",
       src: hms,
     },
   },
-  bryan: {
-    sne: {
-      text: "SNE",
-      src: tornado,
+  leo: {
+    BOK: {
+      text: "BOK",
+      src: "",
+    },
+    KNK: {
+      text: "KNK",
+      src: "",
+    },
+  },
+  leroy: {
+    HRM: {
+      text: "HRM",
+      src: "",
+    },
+  },
+  lili: {
+    DEW: {
+      text: "DEW",
+      src: "",
+    },
+    RAB: {
+      text: "RAB",
+      src: "",
+    },
+  },
+  nina: {
+    IDK: {
+      text: "IDK",
+      src: "",
+    },
+  },
+  panda: {
+    HBS: {
+      text: "HBS",
+      src: "",
+    },
+    IDK: {
+      text: "IDK",
+      src: "",
+    },
+  },
+  paul: {
+    SWA: {
+      text: "SWA",
+      src: "",
+    },
+    IDK: {
+      text: "IDK",
+      src: "",
+    },
+  },
+  raven: {
+    IDK: {
+      text: "IDK",
+      src: "",
+    },
+  },
+  reina: {
+    HWR: {
+      text: "HWR",
+      src: "",
+    },
+    SEN: {
+      text: "SEN",
+      src: "",
+    },
+  },
+  shaheen: {
+    IDK: {
+      text: "IDK",
+      src: "",
+    },
+  },
+  steve: {
+    PAB: {
+      text: "PAB",
+      src: "",
+    },
+    FLK: {
+      text: "FLK",
+      src: "",
+    },
+    DCK: {
+      text: "DCK",
+      src: "",
+    },
+    EXT_DCK: {
+      text: "EXT DCK",
+      src: "",
+    },
+    IDK: {
+      text: "IDK",
+      src: "",
+    },
+  },
+  victor: {
+    PRF: {
+      text: "PRF",
+      src: "",
+    },
+    IAI: {
+      text: "IAI",
+      src: "",
+    },
+  },
+  xiaoyu: {
+    AOP: {
+      text: "AOP",
+      src: "",
+    },
+    IDK: {
+      text: "IDK",
+      src: "",
+    },
+  },
+  yoshimitsu: {
+    IDK: {
+      text: "IDK",
+      src: "",
+    },
+  },
+  zafina: {
+    SCR: {
+      text: "SCR",
+      src: "",
+    },
+    MNT: {
+      text: "MNT",
+      src: "",
+    },
+    TRT: {
+      text: "TRT",
+      src: "",
     },
   },
 };
