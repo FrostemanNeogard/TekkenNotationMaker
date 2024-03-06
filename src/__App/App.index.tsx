@@ -11,6 +11,7 @@ import * as S from "./App.styled";
 import * as htmlToImage from "html-to-image";
 import { NotationImage } from "../__types/PathTypes";
 import { characters } from "../__util/characters";
+import { Footer } from "../components/Footer/Footer.index";
 
 function App() {
   const divRef = useRef(null);
@@ -169,6 +170,7 @@ function App() {
           </S.UndoButton>
         </S.EditorNav>
       </S.EditorUI>
+      <Footer />
     </S.App>
   );
 }

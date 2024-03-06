@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const App = styled.div`
   overflow: hidden !important;
-  background-color: black;
+  background-color: ${(props) => props.theme.colors.primary};
   color: white;
   min-height: 100vh;
   display: grid;
+  grid-template-rows: auto auto min-content min-content;
   column-gap: 2rem;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -33,7 +34,7 @@ export const PreviewContainer = styled.div`
 
   div {
     border: 5px solid gray;
-    background-color: darkgray;
+    background-color: ${(props) => props.theme.colors.secondary};
     border-radius: 10px;
     padding: 1rem;
     max-width: 100%;
@@ -90,13 +91,12 @@ export const NotationContainer = styled.div`
 `;
 
 export const EditorUI = styled.div`
-  background-color: gray;
+  background-color: ${(props) => props.theme.colors.secondary};
   display: grid;
   grid-template-columns: 70% auto 20%;
   column-gap: 3rem;
   justify-content: center;
   padding: 2rem 10vmin;
-  border: 1px solid black;
 
   align-self: flex-end;
 
