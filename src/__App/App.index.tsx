@@ -126,12 +126,13 @@ function App() {
 
   const images: NotationImage[] = Object.values(ImagePaths);
   const buttonImagesPath = () => {
-    switch (theme) {
-      case "tekken8":
-        return Object.values(Tekken8ButtonPaths);
-      case "arcade":
-        return Object.values(ArcadeButtonPaths);
-    }
+    return Object.values(Tekken8ButtonPaths);
+    // switch (theme) {
+    //   case "tekken8":
+    //     return Object.values(Tekken8ButtonPaths);
+    //   case "arcade":
+    //     return Object.values(ArcadeButtonPaths);
+    // }
   };
   const buttonImages: NotationImage[] =
     buttonImagesPath() ?? Object.values(Tekken8ButtonPaths);
