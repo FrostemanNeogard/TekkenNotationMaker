@@ -131,6 +131,12 @@ export const UndoButton = styled.button``;
 export const VerticalDivider = styled.div`
   width: 1px;
   height: 100%;
-
   border-right: 1px solid black;
+`;
+
+export const HorizontalDivider = styled.div`
+  height: 1px;
+  width: 100%;
+  border-bottom: 1px solid black;
+  margin: 1rem 0;
 `;
