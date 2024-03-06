@@ -10,6 +10,7 @@ import {
 import * as S from "./App.styled";
 import * as htmlToImage from "html-to-image";
 import { NotationImage } from "../__types/PathTypes";
+import { characters } from "../__util/characters";
 
 function App() {
   const divRef = useRef(null);
@@ -108,8 +109,6 @@ function App() {
   };
 
   const CharacterDropdown = () => {
-    const characters: string[] = ["Bryan", "Lee", "Devil Jin", "Jack-8"];
-
     function formatCharacterValue(name: string) {
       let newName = name;
       newName = newName.toLowerCase();
