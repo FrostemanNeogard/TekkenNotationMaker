@@ -32,7 +32,7 @@ function App() {
     }
 
     const dataUrl = await htmlToImage.toPng(node);
-    saveAs(dataUrl, "shit.png");
+    saveAs(dataUrl, "T8ComboNotation.png");
     setIsLoading(false);
   }
 
