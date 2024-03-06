@@ -144,7 +144,7 @@ function App() {
           {images.map((key: NotationImage) => (
             <EditorNotationButtons image={key} key={key.src} />
           ))}
-          {/* <S.HorizontalDivider /> */}
+          <S.HorizontalDivider />
           {characterImages.map((key: NotationImage) => (
             <EditorNotationButtons image={key} key={key.src} />
           ))}
