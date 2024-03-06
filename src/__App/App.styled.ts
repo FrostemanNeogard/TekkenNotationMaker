@@ -65,6 +65,28 @@ export const NotationContainer = styled.div`
     display: flex;
     width: max-content;
   }
+
+  /* article {
+    margin: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 90px;
+    background-color: salmon;
+    padding: 20px 80px;
+    p {
+      font-family: "Roboto", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 600;
+      font-style: normal;
+      height: 720px;
+      padding: 50px 0;
+      font-size: 720px;
+      -webkit-text-stroke-width: 20px;
+      -webkit-text-stroke-color: black;
+    }
+  } */
 `;
 
 export const EditorUI = styled.div`
