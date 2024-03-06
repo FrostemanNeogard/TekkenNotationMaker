@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { saveAs } from "file-saver";
-import { ImagePaths } from "../__util/ImagePaths";
+import { CharacterSpecificImagePaths, ImagePaths } from "../__util/ImagePaths";
 import {
   FaBackspace,
   FaFileDownload,
@@ -9,11 +9,12 @@ import {
 } from "react-icons/fa";
 import * as S from "./App.styled";
 import * as htmlToImage from "html-to-image";
+import { NotationImage } from "../__types/PathTypes";
 
 function App() {
   const divRef = useRef(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [selectedCharacter, setSelectedCharacter] = useState<string>();
+  const [selectedCharacter, setSelectedCharacter] = useState<string>("bryan");
   const [comboNotation, setComboNotation] = useState<string[]>([]);
   const [lastKnownComboNotation, setLastKnownComboNotation] = useState<
     string[]
@@ -62,9 +63,7 @@ function App() {
 
   const handleCharacterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const characterName = e.target.value;
-    console.log("Changing character to:", characterName);
     setSelectedCharacter(characterName);
-    console.log(selectedCharacter);
   };
 
   const Output = () => {
@@ -89,37 +88,67 @@ function App() {
     );
   };
 
-  const images = Object.values(ImagePaths);
+  const images: NotationImage[] = Object.values(ImagePaths);
+  const characterImages = Object.values(
+    CharacterSpecificImagePaths[selectedCharacter] ?? {}
+  );
+
+  const EditorNotationButtons = (props: { image: NotationImage }) => {
+    const { image: key } = props;
+
+    return (
+      <S.NotationButton
+        src={key.src}
+        alt={key.text}
+        key={key.src}
+        onClick={() => pushImageSrc(key.src)}
+        draggable={false}
+      />
+    );
+  };
+
+  const CharacterDropdown = () => {
+    const characters: string[] = ["Bryan", "Lee", "Devil Jin", "Jack-8"];
+
+    function formatCharacterValue(name: string) {
+      let newName = name;
+      newName = newName.toLowerCase();
+      newName = newName.replace(" ", "_");
+      newName = newName.replace("-", "_");
+      return newName;
+    }
+
+    return (
+      <S.CharacterDropdown
+        name="character-dropdown"
+        value={selectedCharacter}
+        onChange={handleCharacterChange}
+      >
+        {characters.map((item) => (
+          <option value={formatCharacterValue(item)} key={item}>
+            {item}
+          </option>
+        ))}
+      </S.CharacterDropdown>
+    );
+  };
 
   return (
     <S.App>
       <Output />
       <S.EditorUI>
         <S.NotationButtons>
-          {images.map((key) => (
-            <S.NotationButton
-              src={key.src}
-              alt={key.text}
-              key={key.text}
-              onClick={() => pushImageSrc(key.src)}
-              draggable={false}
-            />
+          {images.map((key: NotationImage) => (
+            <EditorNotationButtons image={key} key={key.src} />
+          ))}
+          <S.HorizontalDivider />
+          {characterImages.map((key: NotationImage) => (
+            <EditorNotationButtons image={key} key={key.src} />
           ))}
         </S.NotationButtons>
         <S.VerticalDivider />
         <S.EditorNav>
-          {false && (
-            <>
-              <label htmlFor="character-dropdown">Character</label>
-              <S.CharacterDropdown
-                name="character-dropdown"
-                onChange={handleCharacterChange}
-              >
-                <option value="bryan">Bryan</option>
-                <option value="lee">Lee</option>
-              </S.CharacterDropdown>
-            </>
-          )}
+          <CharacterDropdown />
           <S.SaveButton onClick={() => generateImage()} disabled={isLoading}>
             <FaFileDownload />
           </S.SaveButton>
