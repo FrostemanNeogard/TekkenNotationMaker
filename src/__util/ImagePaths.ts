@@ -51,9 +51,8 @@ import wallbreak from "../assets/images/upscaled/stage/wallbreak.png";
 // MISC
 import heatdash from "../assets/images/upscaled/misc/heatdash.png";
 import tornado from "../assets/images/upscaled/misc/tornado.png";
-import heatburst from "../assets/images/upscaled/misc/heatburst.png";
+import heatburst from "../assets/images/upscaled/misc/hb!.png";
 import jf from "../assets/images/upscaled/misc/jf.png";
-import bt from "../assets/images/upscaled/misc/bt.png";
 import cc from "../assets/images/upscaled/misc/cc.png";
 import ch from "../assets/images/upscaled/misc/ch.png";
 import dash from "../assets/images/upscaled/misc/dash.png";
@@ -62,10 +61,11 @@ import ssl from "../assets/images/upscaled/misc/ssl.png";
 import ssr from "../assets/images/upscaled/misc/ssr.png";
 import swl from "../assets/images/upscaled/misc/swl.png";
 import swr from "../assets/images/upscaled/misc/swr.png";
-import w from "../assets/images/upscaled/misc/w.png";
+import w from "../assets/images/upscaled/misc/w!.png";
 import wr from "../assets/images/upscaled/misc/wr.png";
 import ws from "../assets/images/upscaled/misc/ws.png";
 import heat from "../assets/images/upscaled/misc/heat.png";
+import ssc from "../assets/images/upscaled/misc/ssc.png";
 
 // STANCES
 import hms from "../assets/images/upscaled/stances/hms.png";
@@ -242,6 +242,10 @@ export const ImagePaths: { [key: string]: NotationImage } = {
   },
 
   // MISC
+  jf: {
+    text: ":",
+    src: jf,
+  },
   heatdash: {
     text: "HD!",
     src: heatdash,
@@ -253,10 +257,6 @@ export const ImagePaths: { [key: string]: NotationImage } = {
   heatburst: {
     text: "HB!",
     src: heatburst,
-  },
-  bt: {
-    text: "BT",
-    src: bt,
   },
   cc: {
     text: "cc",
@@ -290,6 +290,10 @@ export const ImagePaths: { [key: string]: NotationImage } = {
     text: "swr",
     src: swr,
   },
+  ssc: {
+    text: "ssc",
+    src: ssc,
+  },
   w: {
     text: "W!",
     src: w,
@@ -305,10 +309,6 @@ export const ImagePaths: { [key: string]: NotationImage } = {
   heat: {
     text: "in heat",
     src: heat,
-  },
-  jf: {
-    text: ":",
-    src: jf,
   },
 };
 
