@@ -192,7 +192,7 @@ function App() {
       <Output />
       <S.EditorUI>
         <S.EditorOptions>
-          <div>
+          {/* <div>
             <label htmlFor="theme">Theme</label>
             <select name="theme" id="theme" onChange={handleThemeChange}>
               <option value="tekken8">TEKKEN 8</option>
@@ -200,7 +200,7 @@ function App() {
               <option value="playstation">Playstation</option>
               <option value="xbox">XBox</option>
             </select>
-          </div>
+          </div> */}
 
           <div>
             <label htmlFor="quality">Quality</label>
