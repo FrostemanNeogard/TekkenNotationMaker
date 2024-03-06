@@ -74,8 +74,8 @@ export const PreviewContainer = styled.div`
       }
 
       img {
-        width: min-content;
         height: 50px;
+        width: auto;
       }
     }
   }
@@ -122,7 +122,7 @@ export const NotationContainer = styled.div<{ $qualityMultiplier: number }>`
     }
 
     img {
-      width: min-content;
+      width: auto;
       height: calc(500px * ${(props) => props.$qualityMultiplier});
     }
   }
