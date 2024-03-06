@@ -205,7 +205,7 @@ function App() {
             <select name="theme" id="theme" onChange={handleThemeChange}>
               <option value="tekken8">TEKKEN 8</option>
               <option value="arcade">Arcade</option>
-              <option value="playstation">Playstation</option>
+              <option value="playstation">PlayStation</option>
               <option value="xbox">XBox</option>
             </select>
           </div>
