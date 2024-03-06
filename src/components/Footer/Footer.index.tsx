@@ -8,6 +8,10 @@ export const Footer = () => {
         <a href="https://twitter.com/funnyorangcat" target="_blank">
           @funnyorangcat
         </a>
+        . If you like what I do, consider supporting me here:{" "}
+        <a href="https://www.buymeacoffee.com/funnyorangcat" target="_blank">
+          https://www.buymeacoffee.com/funnyorangcat
+        </a>
         .
       </p>
     </S.Footer>
