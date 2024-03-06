@@ -68,7 +68,74 @@ import heat from "../assets/images/upscaled/misc/heat.png";
 import ssc from "../assets/images/upscaled/misc/ssc.png";
 
 // STANCES
+import aop from "../assets/images/upscaled/stances/aop.png";
+import bkp from "../assets/images/upscaled/stances/bkp.png";
+import bok from "../assets/images/upscaled/stances/bok.png";
+import bt from "../assets/images/upscaled/stances/bt.png";
+import cd from "../assets/images/upscaled/stances/cd.png";
+import dbt from "../assets/images/upscaled/stances/dbt.png";
+import dck from "../assets/images/upscaled/stances/dck.png";
+import den from "../assets/images/upscaled/stances/den.png";
+import des from "../assets/images/upscaled/stances/des.png";
+import dew from "../assets/images/upscaled/stances/dew.png";
+import dgf from "../assets/images/upscaled/stances/dgf.png";
+import dpd from "../assets/images/upscaled/stances/dpd.png";
+import dss from "../assets/images/upscaled/stances/dss.png";
+import ext_dck from "../assets/images/upscaled/stances/ext_dck.png";
+import flea from "../assets/images/upscaled/stances/flea.png";
+import flk from "../assets/images/upscaled/stances/flk.png";
+import fly from "../assets/images/upscaled/stances/fly.png";
+import gen from "../assets/images/upscaled/stances/gen.png";
+import gmc from "../assets/images/upscaled/stances/gmc.png";
+import gmh from "../assets/images/upscaled/stances/gmh.png";
+import gs from "../assets/images/upscaled/stances/gs.png";
+import hbs from "../assets/images/upscaled/stances/hbs.png";
 import hms from "../assets/images/upscaled/stances/hms.png";
+import hrm from "../assets/images/upscaled/stances/hrm.png";
+import hsp from "../assets/images/upscaled/stances/hsp.png";
+import hyp from "../assets/images/upscaled/stances/hyp.png";
+import iai from "../assets/images/upscaled/stances/iai.png";
+import ind from "../assets/images/upscaled/stances/ind.png";
+import isw from "../assets/images/upscaled/stances/isw.png";
+import izu from "../assets/images/upscaled/stances/izu.png";
+import jag from "../assets/images/upscaled/stances/jag.png";
+import jgs from "../assets/images/upscaled/stances/jgs.png";
+import kin from "../assets/images/upscaled/stances/kin.png";
+import knk from "../assets/images/upscaled/stances/knk.png";
+import len from "../assets/images/upscaled/stances/len.png";
+import lff from "../assets/images/upscaled/stances/lff.png";
+import lfs from "../assets/images/upscaled/stances/lfs.png";
+import lib from "../assets/images/upscaled/stances/lib.png";
+import lnh from "../assets/images/upscaled/stances/lnh.png";
+import mcr from "../assets/images/upscaled/stances/mcr.png";
+import med from "../assets/images/upscaled/stances/med.png";
+import mia from "../assets/images/upscaled/stances/mia.png";
+import mnt from "../assets/images/upscaled/stances/mnt.png";
+import nss from "../assets/images/upscaled/stances/nss.png";
+import nwg from "../assets/images/upscaled/stances/nwg.png";
+import pab from "../assets/images/upscaled/stances/pab.png";
+import prf from "../assets/images/upscaled/stances/prf.png";
+import rab from "../assets/images/upscaled/stances/rab.png";
+import rds from "../assets/images/upscaled/stances/rds.png";
+import rff from "../assets/images/upscaled/stances/rff.png";
+import rfs from "../assets/images/upscaled/stances/rfs.png";
+import rlx from "../assets/images/upscaled/stances/rlx.png";
+import roll from "../assets/images/upscaled/stances/roll.png";
+import sbt from "../assets/images/upscaled/stances/sbt.png";
+import scr from "../assets/images/upscaled/stances/scr.png";
+import sen from "../assets/images/upscaled/stances/sen.png";
+import sit from "../assets/images/upscaled/stances/sit.png";
+import sne from "../assets/images/upscaled/stances/sne.png";
+import snk from "../assets/images/upscaled/stances/snk.png";
+import stb from "../assets/images/upscaled/stances/stb.png";
+import stc from "../assets/images/upscaled/stances/stc.png";
+import swa from "../assets/images/upscaled/stances/swa.png";
+import swy from "../assets/images/upscaled/stances/swy.png";
+import szn from "../assets/images/upscaled/stances/szn.png";
+import trt from "../assets/images/upscaled/stances/trt.png";
+import uns from "../assets/images/upscaled/stances/uns.png";
+import wra from "../assets/images/upscaled/stances/wra.png";
+import zen from "../assets/images/upscaled/stances/zen.png";
 
 export const ImagePaths: { [key: string]: NotationImage } = {
   // ARROWS
@@ -314,287 +381,413 @@ export const ImagePaths: { [key: string]: NotationImage } = {
 
 export const CharacterSpecificImagePaths: CharacterNotationImage = {
   alisa: {
-    DES: {
+    des: {
       text: "DES",
-      src: "",
+      src: des,
     },
-    IDK: {
-      text: "IDK",
-      src: "",
+    sbt: {
+      text: "SBT",
+      src: sbt,
+    },
+    dbt: {
+      text: "DBT",
+      src: dbt,
+    },
+    bkp: {
+      text: "BKP",
+      src: bkp,
     },
   },
   asuka: {
-    install: {
-      text: "IDK",
-      src: "",
+    nwg: {
+      text: "NWG",
+      src: nwg,
     },
   },
   azucena: {
-    LIB: {
+    lib: {
       text: "LIB",
-      src: "",
+      src: lib,
     },
-    IDK: {
-      text: "IDK",
-      src: "",
+    bt: {
+      text: "BT",
+      src: bt,
     },
   },
   bryan: {
-    SNE: {
+    sne: {
       text: "SNE",
-      src: "",
+      src: sne,
+    },
+    swa: {
+      text: "SWA",
+      src: swa,
+    },
+    cs: {
+      text: "CD",
+      src: cd,
     },
   },
   claudio: {
-    STB: {
+    stb: {
       text: "STB",
-      src: "",
+      src: stb,
     },
   },
   devil_jin: {
-    MCR: {
+    mcr: {
       text: "MCR",
-      src: "",
+      src: mcr,
+    },
+    fly: {
+      text: "FLY",
+      src: fly,
+    },
+    cd: {
+      text: "CD",
+      src: cd,
     },
   },
   dragunov: {
-    SNK: {
+    snk: {
       text: "SNK",
-      src: "",
+      src: snk,
+    },
+  },
+  eddy: {
+    rlx: {
+      text: "RLX",
+      src: rlx,
+    },
+    hsp: {
+      text: "HSP",
+      src: hsp,
     },
   },
   feng: {
-    STC: {
+    stc: {
       text: "STC",
-      src: "",
+      src: stc,
     },
-    KNP: {
-      text: "KNP",
-      src: "",
+    bkp: {
+      text: "BKP",
+      src: bkp,
     },
-    IDK: {
-      text: "IDK",
-      src: "",
+    bt: {
+      text: "BT",
+      src: bt,
     },
   },
   hwoarang: {
-    LFS: {
+    lfs: {
       text: "LFS",
-      src: "",
+      src: lfs,
     },
-    RFS: {
+    rfs: {
       text: "RFS",
-      src: "",
+      src: rfs,
     },
-    RFF: {
+    rff: {
       text: "RFF",
-      src: "",
+      src: rff,
+    },
+    lff: {
+      text: "LFF",
+      src: lff,
     },
   },
   jack_8: {
-    GMH: {
+    gmh: {
       text: "GMH",
-      src: "",
+      src: gmh,
+    },
+    sit: {
+      text: "SIT",
+      src: sit,
+    },
+    gmc: {
+      text: "GMC",
+      src: gmc,
     },
   },
   jin: {
     ZEN: {
       text: "ZEN",
-      src: "",
+      src: zen,
     },
-    CDS: {
-      text: "CDS",
-      src: "",
+    cd: {
+      text: "CD",
+      src: cd,
     },
   },
   jun: {
-    IDK: {
-      text: "IDK",
-      src: "",
+    izu: {
+      text: "IZU",
+      src: izu,
+    },
+    gen: {
+      text: "GEN",
+      src: gen,
+    },
+    mia: {
+      text: "MIA",
+      src: mia,
     },
   },
   kazuya: {
-    IDK: {
-      text: "IDK",
-      src: "",
+    cd: {
+      text: "CD",
+      src: cd,
     },
   },
   king: {
-    IDK: {
-      text: "IDK",
-      src: "",
+    jag: {
+      text: "JAG",
+      src: jag,
+    },
+    jgs: {
+      text: "JGS",
+      src: jgs,
+    },
+    isw: {
+      text: "iSW",
+      src: isw,
+    },
+    gs: {
+      text: "GS",
+      src: gs,
     },
   },
   kuma: {
-    HBS: {
+    hbs: {
       text: "HBS",
-      src: "",
+      src: hbs,
     },
-    IDK: {
-      text: "IDK",
-      src: "",
+    sit: {
+      text: "SIT",
+      src: sit,
+    },
+    roll: {
+      text: "ROLL",
+      src: roll,
     },
   },
   lars: {
-    DEN: {
+    den: {
       text: "DEN",
-      src: "",
+      src: den,
     },
-    SEN: {
+    sen: {
       text: "SEN",
-      src: "",
+      src: sen,
     },
-    LEN: {
+    len: {
       text: "LEN",
-      src: "",
+      src: len,
     },
   },
   law: {
-    DSS: {
+    dss: {
       text: "DSS",
-      src: "",
+      src: dss,
     },
   },
   lee: {
-    HMS: {
+    hms: {
       text: "HMS",
       src: hms,
     },
   },
   leo: {
-    BOK: {
+    bok: {
       text: "BOK",
-      src: "",
+      src: bok,
     },
-    KNK: {
+    knk: {
       text: "KNK",
-      src: "",
+      src: knk,
     },
   },
   leroy: {
-    HRM: {
+    hrm: {
       text: "HRM",
-      src: "",
+      src: hrm,
     },
   },
   lili: {
-    DEW: {
+    dew: {
       text: "DEW",
-      src: "",
+      src: dew,
     },
-    RAB: {
+    rab: {
       text: "RAB",
-      src: "",
+      src: rab,
+    },
+    bt: {
+      text: "BT",
+      src: bt,
     },
   },
   nina: {
-    IDK: {
-      text: "IDK",
-      src: "",
+    cd: {
+      text: "CD",
+      src: cd,
+    },
+    swa: {
+      text: "SWA",
+      src: swa,
     },
   },
   panda: {
-    HBS: {
+    hbs: {
       text: "HBS",
-      src: "",
+      src: hbs,
     },
-    IDK: {
-      text: "IDK",
-      src: "",
+    sit: {
+      text: "SIT",
+      src: sit,
+    },
+    roll: {
+      text: "ROLL",
+      src: roll,
     },
   },
   paul: {
-    SWA: {
-      text: "SWA",
-      src: "",
+    dpd: {
+      text: "DPD",
+      src: dpd,
     },
-    IDK: {
-      text: "IDK",
-      src: "",
+    swa: {
+      text: "SWA",
+      src: swa,
     },
   },
   raven: {
-    IDK: {
-      text: "IDK",
-      src: "",
+    szn: {
+      text: "SZN",
+      src: szn,
+    },
+    bt: {
+      text: "BT",
+      src: bt,
     },
   },
   reina: {
-    HWR: {
-      text: "HWR",
-      src: "",
+    wra: {
+      text: "WRA",
+      src: wra,
     },
-    SEN: {
+    sen: {
       text: "SEN",
-      src: "",
+      src: sen,
+    },
+    uns: {
+      text: "UNS",
+      src: uns,
+    },
+    cd: {
+      text: "CD",
+      src: cd,
     },
   },
   shaheen: {
-    IDK: {
-      text: "IDK",
-      src: "",
+    snk: {
+      text: "SNK",
+      src: snk,
     },
   },
   steve: {
-    PAB: {
+    pab: {
       text: "PAB",
-      src: "",
+      src: pab,
     },
-    FLK: {
+    flk: {
       text: "FLK",
-      src: "",
+      src: flk,
     },
-    DCK: {
+    dck: {
       text: "DCK",
-      src: "",
+      src: dck,
     },
-    EXT_DCK: {
+    ext_dck: {
       text: "EXT DCK",
-      src: "",
+      src: ext_dck,
     },
-    IDK: {
-      text: "IDK",
-      src: "",
+    swy: {
+      text: "SWY",
+      src: swy,
+    },
+    lnh: {
+      text: "LNH",
+      src: lnh,
     },
   },
   victor: {
-    PRF: {
+    prf: {
       text: "PRF",
-      src: "",
+      src: prf,
     },
-    IAI: {
+    iai: {
       text: "IAI",
-      src: "",
+      src: iai,
     },
   },
   xiaoyu: {
-    AOP: {
+    aop: {
       text: "AOP",
-      src: "",
+      src: aop,
     },
-    IDK: {
-      text: "IDK",
-      src: "",
+    rds: {
+      text: "RDS",
+      src: rds,
+    },
+    hyp: {
+      text: "HYP",
+      src: hyp,
     },
   },
   yoshimitsu: {
-    IDK: {
-      text: "IDK",
-      src: "",
+    nss: {
+      text: "NSS",
+      src: nss,
+    },
+    bt: {
+      text: "BT",
+      src: bt,
+    },
+    kin: {
+      text: "KIN",
+      src: kin,
+    },
+    med: {
+      text: "MED",
+      src: med,
+    },
+    ind: {
+      text: "IND",
+      src: ind,
+    },
+    dgf: {
+      text: "DGF",
+      src: dgf,
+    },
+    flea: {
+      text: "FLEA",
+      src: flea,
     },
   },
   zafina: {
-    SCR: {
+    scr: {
       text: "SCR",
-      src: "",
+      src: scr,
     },
-    MNT: {
+    mnt: {
       text: "MNT",
-      src: "",
+      src: mnt,
     },
-    TRT: {
+    trt: {
       text: "TRT",
-      src: "",
+      src: trt,
     },
   },
 };
