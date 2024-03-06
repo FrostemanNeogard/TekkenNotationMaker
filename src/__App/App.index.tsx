@@ -95,14 +95,18 @@ function App() {
   );
 
   const EditorNotationButtons = (props: { image: NotationImage }) => {
-    const { image: key } = props;
+    const { image } = props;
+
+    if (!image.src) {
+      return;
+    }
 
     return (
       <S.NotationButton
-        src={key.src}
-        alt={key.text}
-        key={key.src}
-        onClick={() => pushImageSrc(key.src)}
+        src={image.src}
+        alt={image.text}
+        key={image.src}
+        onClick={() => pushImageSrc(image.src)}
         draggable={false}
       />
     );
