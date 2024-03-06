@@ -1,3 +1,5 @@
+import { CharacterNotationImage, NotationImage } from "../__types/PathTypes";
+
 // ARROWS
 import db from "../assets/images/upscaled/arrows/db.png";
 import d from "../assets/images/upscaled/arrows/d.png";
@@ -50,7 +52,6 @@ import wallbreak from "../assets/images/upscaled/stage/wallbreak.png";
 import heatdash from "../assets/images/upscaled/misc/heatdash.png";
 import tornado from "../assets/images/upscaled/misc/tornado.png";
 import heatburst from "../assets/images/upscaled/misc/heatburst.png";
-import hms from "../assets/images/upscaled/misc/hms.png";
 import jf from "../assets/images/upscaled/misc/jf.png";
 import bt from "../assets/images/upscaled/misc/bt.png";
 import cc from "../assets/images/upscaled/misc/cc.png";
@@ -65,7 +66,9 @@ import w from "../assets/images/upscaled/misc/w.png";
 import wr from "../assets/images/upscaled/misc/wr.png";
 import ws from "../assets/images/upscaled/misc/ws.png";
 import heat from "../assets/images/upscaled/misc/heat.png";
-import { CharacterNotationImage, NotationImage } from "../__types/PathTypes";
+
+// STANCES
+import hms from "../assets/images/upscaled/stances/hms.png";
 
 export const ImagePaths: { [key: string]: NotationImage } = {
   // ARROWS
