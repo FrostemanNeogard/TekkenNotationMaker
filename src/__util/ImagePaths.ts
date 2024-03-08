@@ -288,7 +288,7 @@ export const BaseIconPaths: { [key: string]: NotationImage } = {
     text: ":",
     src: jf,
   },
-  tile: {
+  tilde: {
     text: "~",
     src: tilde,
   },
