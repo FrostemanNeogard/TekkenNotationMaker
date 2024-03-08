@@ -126,24 +126,37 @@ function App() {
     );
   };
 
-  const images: NotationImage[] = Object.values(ImagePaths);
   const buttonImagesPath = () => {
     switch (theme) {
       case "tekken8":
-        return Object.values(Tekken8ButtonPaths);
+        return Tekken8ButtonPaths;
       case "arcade":
-        return Object.values(ArcadeButtonPaths);
+        return ArcadeButtonPaths;
       case "xbox":
-        return Object.values(XboxButtonPaths);
+        return XboxButtonPaths;
       case "playstation":
-        return Object.values(PlaystationButtonPaths);
+        return PlaystationButtonPaths;
       default:
-        return Object.values(Tekken8ButtonPaths);
+        return Tekken8ButtonPaths;
     }
   };
-  const buttonImages: NotationImage[] =
-    buttonImagesPath() ?? Object.values(Tekken8ButtonPaths);
-  const allImages = [...buttonImages, ...images];
+
+  const baseIcons = ImagePaths;
+  const themeOverrides = buttonImagesPath();
+  const mergedIcons: { [key: string]: { text: string; src: string } } = {};
+
+  for (const key in baseIcons) {
+    if (baseIcons.hasOwnProperty(key)) {
+      mergedIcons[key] = baseIcons[key];
+    }
+  }
+
+  for (const key in themeOverrides) {
+    if (themeOverrides.hasOwnProperty(key)) {
+      mergedIcons[key] = themeOverrides[key];
+    }
+  }
+  const allImages = Object.values(mergedIcons);
   const characterImages = Object.values(
     CharacterSpecificImagePaths[selectedCharacter] ?? {}
   );
@@ -181,8 +194,8 @@ function App() {
         value={selectedCharacter}
         onChange={handleCharacterChange}
       >
-        {characters.map((item) => (
-          <option value={formatCharacterValue(item)} key={item}>
+        {characters.map((item, index) => (
+          <option value={formatCharacterValue(item)} key={item + index}>
             {item}
           </option>
         ))}
@@ -247,12 +260,12 @@ function App() {
           </div>
         </S.EditorOptions>
         <S.NotationButtons>
-          {allImages.map((key: NotationImage) => (
-            <EditorNotationButtons image={key} key={key.src} />
+          {allImages.map((key: NotationImage, index) => (
+            <EditorNotationButtons image={key} key={key.src + index} />
           ))}
           <S.HorizontalDivider />
-          {characterImages.map((key: NotationImage) => (
-            <EditorNotationButtons image={key} key={key.src} />
+          {characterImages.map((key: NotationImage, index) => (
+            <EditorNotationButtons image={key} key={key.src + index} />
           ))}
         </S.NotationButtons>
         <S.EditorNav>
