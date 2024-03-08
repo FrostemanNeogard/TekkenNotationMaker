@@ -115,6 +115,8 @@ import wr from "../assets/images/upscaled/misc/wr.png";
 import ws from "../assets/images/upscaled/misc/ws.png";
 import heat from "../assets/images/upscaled/misc/heat.png";
 import ssc from "../assets/images/upscaled/misc/ssc.png";
+import tilde from "../assets/images/upscaled/misc/tilde.png";
+import comma from "../assets/images/upscaled/misc/comma.png";
 
 // STANCES
 import aop from "../assets/images/upscaled/stances/aop.png";
@@ -527,6 +529,14 @@ export const ImagePaths: { [key: string]: NotationImage } = {
   jf: {
     text: ":",
     src: jf,
+  },
+  tile: {
+    text: "~",
+    src: tilde,
+  },
+  comma: {
+    text: ",",
+    src: comma,
   },
 
   // STAGE
