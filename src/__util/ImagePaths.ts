@@ -188,7 +188,7 @@ import uns from "../assets/images/upscaled/stances/uns.png";
 import wra from "../assets/images/upscaled/stances/wra.png";
 import zen from "../assets/images/upscaled/stances/zen.png";
 
-export const Tekken8ButtonPaths: { [key: string]: NotationImage } = {
+export const Tekken8ThemeOverrides: { [key: string]: NotationImage } = {
   // BUTTONS
   one: {
     text: "1",
@@ -252,7 +252,7 @@ export const Tekken8ButtonPaths: { [key: string]: NotationImage } = {
   },
 };
 
-export const ArcadeButtonPaths: { [key: string]: NotationImage } = {
+export const ArcadeThemeOverrides: { [key: string]: NotationImage } = {
   // BUTTONS
   one: {
     text: "1",
@@ -316,7 +316,7 @@ export const ArcadeButtonPaths: { [key: string]: NotationImage } = {
   },
 };
 
-export const XboxButtonPaths: { [key: string]: NotationImage } = {
+export const XboxThemeOverrides: { [key: string]: NotationImage } = {
   // BUTTONS
   one: {
     text: "1",
@@ -380,7 +380,7 @@ export const XboxButtonPaths: { [key: string]: NotationImage } = {
   },
 };
 
-export const PlaystationButtonPaths: { [key: string]: NotationImage } = {
+export const PlaystationThemeOverrides: { [key: string]: NotationImage } = {
   // BUTTONS
   one: {
     text: "1",
@@ -444,7 +444,7 @@ export const PlaystationButtonPaths: { [key: string]: NotationImage } = {
   },
 };
 
-export const ImagePaths: { [key: string]: NotationImage } = {
+export const BaseIconPaths: { [key: string]: NotationImage } = {
   // BUTTONS
   one: {
     text: "1",

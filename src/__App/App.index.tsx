@@ -1,12 +1,12 @@
 import { useRef, useState } from "react";
 import { saveAs } from "file-saver";
 import {
-  ArcadeButtonPaths,
+  ArcadeThemeOverrides,
   CharacterSpecificImagePaths,
-  Tekken8ButtonPaths,
-  ImagePaths,
-  XboxButtonPaths,
-  PlaystationButtonPaths,
+  Tekken8ThemeOverrides,
+  BaseIconPaths,
+  XboxThemeOverrides,
+  PlaystationThemeOverrides,
 } from "../__util/ImagePaths";
 import {
   FaBackspace,
@@ -129,19 +129,19 @@ function App() {
   const buttonImagesPath = () => {
     switch (theme) {
       case "tekken8":
-        return Tekken8ButtonPaths;
+        return Tekken8ThemeOverrides;
       case "arcade":
-        return ArcadeButtonPaths;
+        return ArcadeThemeOverrides;
       case "xbox":
-        return XboxButtonPaths;
+        return XboxThemeOverrides;
       case "playstation":
-        return PlaystationButtonPaths;
+        return PlaystationThemeOverrides;
       default:
-        return Tekken8ButtonPaths;
+        return Tekken8ThemeOverrides;
     }
   };
 
-  const baseIcons = ImagePaths;
+  const baseIcons = BaseIconPaths;
   const themeOverrides = buttonImagesPath();
   const mergedIcons: { [key: string]: { text: string; src: string } } = {};
 
