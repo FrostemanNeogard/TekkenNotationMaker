@@ -3,9 +3,10 @@ import { saveAs } from "file-saver";
 import {
   ArcadeThemeOverrides,
   Tekken8ThemeOverrides,
-  XboxThemeOverrides,
-  PlaystationThemeOverrides,
-} from "../__util/themeOverrides";
+  T7XboxThemeOverrides,
+  T7PlaystationThemeOverrides,
+  JapaneseThemeOverrides,
+} from "../__util/ThemeOverrides";
 import {
   BaseIconPaths,
   CharacterSpecificImagePaths,
@@ -134,10 +135,12 @@ function App() {
         return Tekken8ThemeOverrides;
       case "arcade":
         return ArcadeThemeOverrides;
-      case "xbox":
-        return XboxThemeOverrides;
-      case "playstation":
-        return PlaystationThemeOverrides;
+      case "tekken7xbox":
+        return T7XboxThemeOverrides;
+      case "tekken7playstation":
+        return T7PlaystationThemeOverrides;
+      case "japanese":
+        return JapaneseThemeOverrides;
       default:
         return Tekken8ThemeOverrides;
     }
@@ -220,8 +223,9 @@ function App() {
             <select name="theme" id="theme" onChange={handleThemeChange}>
               <option value="tekken8">TEKKEN 8</option>
               <option value="arcade">Arcade</option>
-              <option value="playstation">PlayStation</option>
-              <option value="xbox">XBox</option>
+              <option value="tekken7playstation">PlayStation</option>
+              <option value="tekken7xbox">XBox</option>
+              <option value="japenese">Japanese</option>
             </select>
           </div>
 
