@@ -445,6 +445,68 @@ export const PlaystationButtonPaths: { [key: string]: NotationImage } = {
 };
 
 export const ImagePaths: { [key: string]: NotationImage } = {
+  // BUTTONS
+  one: {
+    text: "1",
+    src: oneArcade,
+  },
+  two: {
+    text: "2",
+    src: twoArcade,
+  },
+  three: {
+    text: "3",
+    src: threeArcade,
+  },
+  four: {
+    text: "4",
+    src: fourArcade,
+  },
+  onetwo: {
+    text: "1+2",
+    src: onetwoArcade,
+  },
+  threefour: {
+    text: "3+4",
+    src: threefourArcade,
+  },
+  onethree: {
+    text: "1+3",
+    src: onethreeArcade,
+  },
+  twofour: {
+    text: "2+4",
+    src: twofourArcade,
+  },
+  onefour: {
+    text: "1+4",
+    src: onefourArcade,
+  },
+  twothree: {
+    text: "2+3",
+    src: twothreeArcade,
+  },
+  onetwothree: {
+    text: "1+2+3",
+    src: onetwothreeArcade,
+  },
+  onetwofour: {
+    text: "1+2+4",
+    src: onetwofourArcade,
+  },
+  onethreefour: {
+    text: "1+3+4",
+    src: onethreefourArcade,
+  },
+  twothreefour: {
+    text: "2+3+4",
+    src: twothreefourArcade,
+  },
+  onetwothreefour: {
+    text: "1+2+3+4",
+    src: onetwothreefourArcade,
+  },
+
   // ARROWS
   n: {
     text: "n",
