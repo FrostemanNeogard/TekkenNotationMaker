@@ -2,11 +2,13 @@ import { useRef, useState } from "react";
 import { saveAs } from "file-saver";
 import {
   ArcadeThemeOverrides,
-  CharacterSpecificImagePaths,
   Tekken8ThemeOverrides,
-  BaseIconPaths,
   XboxThemeOverrides,
   PlaystationThemeOverrides,
+} from "../__util/themeOverrides";
+import {
+  BaseIconPaths,
+  CharacterSpecificImagePaths,
 } from "../__util/ImagePaths";
 import {
   FaBackspace,
