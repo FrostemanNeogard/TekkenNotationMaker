@@ -36,7 +36,7 @@ function App() {
   const [lastKnownComboNotation, setLastKnownComboNotation] = useState<
     string[]
   >([]);
-  const [t, i18n] = useTranslation("common");
+  const { t } = useTranslation("common");
 
   async function generateImage() {
     // setIsLoading(true);
