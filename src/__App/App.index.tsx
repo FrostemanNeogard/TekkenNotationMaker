@@ -21,6 +21,8 @@ import { NotationImage } from "../__types/PathTypes";
 import { characters } from "../__util/characters";
 import { Footer } from "../components/Footer/Footer.index";
 import { Theme } from "../__types/theme";
+import { useTranslation } from "react-i18next";
+import { LanguageSelector } from "../components/LanguageSelector/LanguageSelector.index";
 
 function App() {
   const divRef = useRef(null);
@@ -34,6 +36,7 @@ function App() {
   const [lastKnownComboNotation, setLastKnownComboNotation] = useState<
     string[]
   >([]);
+  const [t, i18n] = useTranslation("common");
 
   async function generateImage() {
     // setIsLoading(true);
@@ -86,7 +89,8 @@ function App() {
       <>
         <S.PreviewContainer>
           <S.PreviewHeader>
-            <h1>Output preview</h1>
+            <h1>{t("app.output_preview")}</h1>
+            <LanguageSelector />
           </S.PreviewHeader>
           <S.PreviewContent>
             <div>
@@ -207,48 +211,54 @@ function App() {
       <S.EditorUI>
         <S.EditorOptions>
           <div>
-            <label htmlFor="theme">Theme</label>
+            <label htmlFor="theme">{t("app.themes.theme")}</label>
             <select name="theme" id="theme" onChange={handleThemeChange}>
-              <option value="tekken8">TEKKEN 8</option>
-              <option value="tekken7">TEKKEN 7</option>
-              <option value="arcade">Arcade</option>
-              <option value="tekken8playstation">PlayStation</option>
-              <option value="tekken8xbox">XBox</option>
-              <option value="numpad">Numpad</option>
+              <option value="tekken8">{t("app.themes.tekken_8")}</option>
+              <option value="tekken7">{t("app.themes.tekken_7")}</option>
+              <option value="arcade">{t("app.themes.arcade")}</option>
+              <option value="tekken8playstation">
+                {t("app.themes.playstation")}
+              </option>
+              <option value="tekken8xbox">{t("app.themes.xbox")}</option>
+              <option value="numpad">{t("app.themes.numpad")}</option>
             </select>
           </div>
 
           <div>
-            <label htmlFor="quality">Quality</label>
+            <label htmlFor="quality">{t("app.qualities.quality")}</label>
             <select
               name="quality"
               id="quality"
               value={quality}
               onChange={(e) => setQuality(e.target.value)}
             >
-              <option value="high">High</option>
-              <option value="medium">Medium</option>
-              <option value="low">Low</option>
+              <option value="high">{t("app.qualities.high")}</option>
+              <option value="medium">{t("app.qualities.medium")}</option>
+              <option value="low">{t("app.qualities.low")}</option>
             </select>
           </div>
 
           <div>
-            <label htmlFor="top-text">Top Text (Optional)</label>
+            <label htmlFor="top-text">
+              {t("app.top_text")} ({t("app.optional")})
+            </label>
             <input
               type="text"
               name="top-text"
-              placeholder="Top text"
+              placeholder={t("app.top_text")}
               onChange={(e) => setTopText(e.target.value)}
               value={topText}
             />
           </div>
 
           <div>
-            <label htmlFor="bottom-text">Bottom Text (Optional)</label>
+            <label htmlFor="bottom-text">
+              {t("app.bottom_text")} ({t("app.optional")})
+            </label>
             <input
               type="text"
               name="bottom-text"
-              placeholder="Bottom text"
+              placeholder={t("app.bottom_text")}
               onChange={(e) => setBottomText(e.target.value)}
               value={bottomText}
             />
