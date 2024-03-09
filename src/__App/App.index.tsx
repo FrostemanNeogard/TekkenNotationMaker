@@ -3,14 +3,12 @@ import { saveAs } from "file-saver";
 import {
   ArcadeThemeOverrides,
   Tekken8ThemeOverrides,
-  T7XboxThemeOverrides,
-  T7PlaystationThemeOverrides,
-  JapaneseThemeOverrides,
+  XboxThemeOverrides,
+  PlaystationThemeOverrides,
+  NumpadThemeOverrides,
+  T7PCThemeOverrides,
 } from "../__util/ThemeOverrides";
-import {
-  BaseIconPaths,
-  CharacterSpecificImagePaths,
-} from "../__util/ImagePaths";
+import { CharacterSpecificImagePaths } from "../__util/ImagePaths";
 import {
   FaBackspace,
   FaFileDownload,
@@ -87,8 +85,10 @@ function App() {
     return (
       <>
         <S.PreviewContainer>
-          <h1>Output preview</h1>
-          <div>
+          <S.PreviewHeader>
+            <h1>Output preview</h1>
+          </S.PreviewHeader>
+          <S.PreviewContent>
             <div>
               {topText && <p>{topText}</p>}
               <section>
@@ -102,7 +102,7 @@ function App() {
               </section>
               {bottomText && <p>{bottomText}</p>}
             </div>
-          </div>
+          </S.PreviewContent>
         </S.PreviewContainer>
         <S.NotationContainer
           $qualityMultiplier={
@@ -135,33 +135,21 @@ function App() {
         return Tekken8ThemeOverrides;
       case "arcade":
         return ArcadeThemeOverrides;
-      case "tekken7xbox":
-        return T7XboxThemeOverrides;
-      case "tekken7playstation":
-        return T7PlaystationThemeOverrides;
-      case "japanese":
-        return JapaneseThemeOverrides;
+      case "tekken8xbox":
+        return XboxThemeOverrides;
+      case "tekken8playstation":
+        return PlaystationThemeOverrides;
+      case "tekken7":
+        return T7PCThemeOverrides;
+      case "numpad":
+        return NumpadThemeOverrides;
       default:
         return Tekken8ThemeOverrides;
     }
   };
 
-  const baseIcons = BaseIconPaths;
-  const themeOverrides = buttonImagesPath();
-  const mergedIcons: { [key: string]: { text: string; src: string } } = {};
-
-  for (const key in baseIcons) {
-    if (baseIcons.hasOwnProperty(key)) {
-      mergedIcons[key] = baseIcons[key];
-    }
-  }
-
-  for (const key in themeOverrides) {
-    if (themeOverrides.hasOwnProperty(key)) {
-      mergedIcons[key] = themeOverrides[key];
-    }
-  }
-  const allImages = Object.values(mergedIcons);
+  const themeIcons = buttonImagesPath();
+  const allImages = Object.values(themeIcons);
   const characterImages = Object.values(
     CharacterSpecificImagePaths[selectedCharacter] ?? {}
   );
@@ -222,10 +210,11 @@ function App() {
             <label htmlFor="theme">Theme</label>
             <select name="theme" id="theme" onChange={handleThemeChange}>
               <option value="tekken8">TEKKEN 8</option>
+              <option value="tekken7">TEKKEN 7</option>
               <option value="arcade">Arcade</option>
-              <option value="tekken7playstation">PlayStation</option>
-              <option value="tekken7xbox">XBox</option>
-              <option value="japenese">Japanese</option>
+              <option value="tekken8playstation">PlayStation</option>
+              <option value="tekken8xbox">XBox</option>
+              <option value="numpad">Numpad</option>
             </select>
           </div>
 
