@@ -1,30 +1,41 @@
-import { useState } from "react";
 import * as S from "./LanguageSelector.styled";
 import { useTranslation } from "react-i18next";
 
-export const LanguageSelector = () => {
-  const [t, i18n] = useTranslation();
+import ukFlag from "../../assets/images/languages/en.png";
+import jaFlag from "../../assets/images/languages/ja.png";
+import koFlag from "../../assets/images/languages/ko.png";
 
-  const [selectedLanguage, setSelectedLanguage] = useState("");
+export const LanguageSelector = () => {
+  const { i18n } = useTranslation("common");
+
+  const currentLang = i18n.language;
 
   const handleLanguageChange = async (
     e: React.ChangeEvent<HTMLSelectElement>
   ) => {
     const languageCode = e.target.value;
-    setSelectedLanguage(languageCode);
     i18n.changeLanguage(languageCode);
-    console.log("new value", selectedLanguage);
+  };
+
+  const flagImage = () => {
+    switch (currentLang) {
+      case "en":
+        return ukFlag;
+      case "ja":
+        return jaFlag;
+      case "ko":
+        return koFlag;
+    }
   };
 
   return (
     <S.LanguageDropdown>
-      <img src="src\assets\images\languages\en.png" alt="" />
-      <p>{selectedLanguage}</p>
+      <img src={flagImage()} alt={`${currentLang} flag`} />
       <select
         name="language-select"
         id="language-select"
         onChange={handleLanguageChange}
-        value={selectedLanguage}
+        value={currentLang}
       >
         <option value="en">English</option>
         <option value="ja">日本語</option>
