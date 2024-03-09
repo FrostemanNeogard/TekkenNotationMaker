@@ -1,0 +1,25 @@
+{
+  "app": {
+    "output_preview": "出力プレビュー",
+    "qualities": {
+      "quality": "品質",
+      "high": "高品質",
+      "medium": "中品質",
+      "low": "低品質"
+    },
+    "themes": {
+      "theme": "テーマ",
+      "tekken_8": "TEKKEN 8",
+      "tekken_7": "TEKKEN 7",
+      "arcade": "アーケード",
+      "xbox": "エックスボックス",
+      "playstation": "プレイステーション",
+      "numpad": "ヌンパッド表記"
+    },
+    "top_text": "トップテキスト",
+    "bottom_text": "ボトムテキスト",
+    "optional": "オプション",
+    "footer_start": "",
+    "footer_end": "が作成したアプリです。私の活動をサポートしてくれると嬉しいです: "
+  }
+}

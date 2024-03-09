@@ -1,0 +1,25 @@
+{
+  "app": {
+    "output_preview": "출력 미리보기",
+    "qualities": {
+      "quality": "품질",
+      "high": "높음",
+      "medium": "중간",
+      "low": "낮음"
+    },
+    "themes": {
+      "theme": "테마",
+      "tekken_8": "TEKKEN 8",
+      "tekken_7": "TEKKEN 7",
+      "arcade": "아케이드",
+      "xbox": "엑스박스",
+      "playstation": "플레이스테이션",
+      "numpad": "숫자 패드 표기법"
+    },
+    "top_text": "상단 텍스트",
+    "bottom_text": "하단 텍스트",
+    "optional": "선택 사항",
+    "footer_start": "",
+    "footer_end": "이(가) 만든 앱입니다. 제가 하는 일을 좋아하신다면, 여기에서 저를 지원해주세요: "
+  }
+}
