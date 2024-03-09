@@ -29,55 +29,55 @@ export const PreviewContainer = styled.div`
     font-size: 3rem;
     text-align: center;
   }
+`;
 
-  & > div {
-    border: 5px solid gray;
-    background-color: ${(props) => props.theme.colors.secondary};
-    border-radius: 10px;
-    padding: 1rem;
-    max-width: 100% !important;
-    height: min-content;
-    min-height: 50px;
+export const PreviewHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 
-    div {
-      display: grid;
-      grid-auto-flow: row;
-      grid-template-rows: auto 1fr auto;
-      grid-template-columns: 1fr;
-      width: 100%;
-      flex-wrap: wrap;
+export const PreviewContent = styled.div`
+  border: 5px solid gray;
+  background-color: ${(props) => props.theme.colors.secondary};
+  border-radius: 10px;
+  padding: 1rem;
+  max-width: 100% !important;
+  height: min-content;
+  min-height: 50px;
 
-      section {
-        /* flex-wrap: wrap;
-        width: max-content; */
-      }
+  div {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr;
+    width: 100%;
+    flex-wrap: wrap;
+  }
 
-      p {
-        display: inline;
-        font-size: 2.3rem;
-        width: min-content;
-        justify-self: center;
-        margin: 1rem 0;
-        white-space: nowrap;
+  p {
+    display: inline;
+    font-size: 2.3rem;
+    width: min-content;
+    justify-self: center;
+    margin: 1rem 0;
+    white-space: nowrap;
 
-        &:first-child {
-          grid-row: 1;
-          grid-column: 1 / -1;
-          margin-top: 0;
-        }
-
-        &:nth-child(3) {
-          grid-row: 3;
-          grid-column: 1 / -1;
-          margin-bottom: 0 !important;
-        }
-      }
-
-      img {
-        height: 50px;
-        width: auto;
-      }
+    &:first-child {
+      grid-row: 1;
+      grid-column: 1 / -1;
+      margin-top: 0;
     }
+
+    &:nth-child(3) {
+      grid-row: 3;
+      grid-column: 1 / -1;
+      margin-bottom: 0 !important;
+    }
+  }
+
+  img {
+    height: 50px;
+    width: auto;
   }
 `;
 
