@@ -1,0 +1,25 @@
+{
+  "app": {
+    "output_preview": "Podgląd",
+    "qualities": {
+      "quality": "Jakość",
+      "high": "Wysoka",
+      "medium": "Średnia",
+      "low": "Niska"
+    },
+    "themes": {
+      "theme": "Motyw",
+      "tekken_8": "TEKKEN 8",
+      "tekken_7": "TEKKEN 7",
+      "arcade": "Automaty",
+      "xbox": "Xbox",
+      "playstation": "PlayStation",
+      "numpad": "Notacja numeryczna"
+    },
+    "top_text": "Tekst na górze",
+    "bottom_text": "Tekst na dole",
+    "optional": "opcjonalny",
+    "footer_start": "Stworzone przez ",
+    "footer_end": ". Jeśli podoba Ci się to, co robię, możesz mnie wesprzeć tutaj: "
+  }
+}
