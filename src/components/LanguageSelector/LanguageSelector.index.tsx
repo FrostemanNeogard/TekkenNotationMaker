@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import ukFlag from "../../assets/images/languages/en.png";
 import jaFlag from "../../assets/images/languages/ja.png";
 import koFlag from "../../assets/images/languages/ko.png";
+import ptFlag from "../../assets/images/languages/pt.png";
 
 export const LanguageSelector = () => {
   const { i18n } = useTranslation("common");
@@ -25,6 +26,8 @@ export const LanguageSelector = () => {
         return jaFlag;
       case "ko":
         return koFlag;
+      case "pt":
+        return ptFlag;
     }
   };
 
@@ -40,6 +43,7 @@ export const LanguageSelector = () => {
         <option value="en">English</option>
         <option value="ja">日本語</option>
         <option value="ko">한국어</option>
+        <option value="pt">Português Brasileiro</option>
       </select>
     </S.LanguageDropdown>
   );
