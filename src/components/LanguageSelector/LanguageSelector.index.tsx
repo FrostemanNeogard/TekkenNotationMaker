@@ -5,6 +5,7 @@ import ukFlag from "../../assets/images/languages/en.png";
 import jaFlag from "../../assets/images/languages/ja.png";
 import koFlag from "../../assets/images/languages/ko.png";
 import ptFlag from "../../assets/images/languages/pt.png";
+import plFlag from "../../assets/images/languages/pl.png";
 
 export const LanguageSelector = () => {
   const { i18n } = useTranslation("common");
@@ -28,6 +29,8 @@ export const LanguageSelector = () => {
         return koFlag;
       case "pt":
         return ptFlag;
+      case "pl":
+        return plFlag;
     }
   };
 
@@ -44,6 +47,7 @@ export const LanguageSelector = () => {
         <option value="ja">日本語</option>
         <option value="ko">한국어</option>
         <option value="pt">Português Brasileiro</option>
+        <option value="pl">Polski</option>
       </select>
     </S.LanguageDropdown>
   );

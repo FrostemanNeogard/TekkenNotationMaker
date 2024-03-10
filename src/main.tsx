@@ -10,6 +10,7 @@ import common_en from "./translations/en/common.json";
 import common_ja from "./translations/ja/common.json";
 import common_ko from "./translations/ko/common.json";
 import common_pt from "./translations/pt/common.json";
+import common_pl from "./translations/pl/common.json";
 
 i18next.init({
   interpolation: { escapeValue: false },
@@ -26,6 +27,9 @@ i18next.init({
     },
     pt: {
       common: common_pt,
+    },
+    pl: {
+      common: common_pl,
     },
   },
 });
