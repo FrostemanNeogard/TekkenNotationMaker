@@ -1,4 +1,4 @@
-import { CharacterNotationImage, NotationImage } from "../__types/PathTypes";
+import { CharacterNotationImage, NotationImage } from "../__types/commonTypes";
 
 // ARROWS
 import db from "../assets/images/upscaled/arrows/db.png";
