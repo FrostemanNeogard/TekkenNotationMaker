@@ -228,6 +228,10 @@ export const CharacterDropdown = styled.select``;
 
 export const SaveButton = styled.button`
   background-color: #3d3;
+
+  &:disabled {
+    pointer-events: none;
+  }
 `;
 
 export const CursorNavigationButtons = styled.div`
