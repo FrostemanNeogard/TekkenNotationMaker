@@ -2,10 +2,10 @@
   "app": {
     "output_preview": "出力プレビュー",
     "qualities": {
-      "quality": "品質",
-      "high": "高品質",
-      "medium": "中品質",
-      "low": "低品質"
+      "quality": "素質",
+      "high": "上段",
+      "medium": "中段",
+      "low": "下段"
     },
     "themes": {
       "theme": "テーマ",
@@ -14,11 +14,11 @@
       "arcade": "アーケード",
       "xbox": "エックスボックス",
       "playstation": "プレイステーション",
-      "numpad": "ヌンパッド表記"
+      "numpad": "テンキー"
     },
-    "top_text": "トップテキスト",
-    "bottom_text": "ボトムテキスト",
-    "optional": "オプション",
+    "top_text": "上部文字",
+    "bottom_text": "下部文字",
+    "optional": "任意",
     "footer_start": "",
     "footer_end": "が作成したアプリです。私の活動をサポートしてくれると嬉しいです: "
   }
