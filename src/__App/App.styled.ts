@@ -230,6 +230,39 @@ export const SaveButton = styled.button`
   background-color: #3d3;
 `;
 
+export const CursorNavigationButtons = styled.div`
+  display: grid;
+  column-gap: 0.5rem;
+  grid-template-columns: 1fr 1fr 3fr;
+`;
+
+export const CursorButton = styled.button`
+  background-color: #f93;
+`;
+
+export const Cursor = styled.span`
+  border-right: 2px solid white;
+  height: 100%;
+  width: auto;
+  display: inline-block;
+  animation: cursor-blink infinite ease 1300ms;
+
+  @keyframes cursor-blink {
+    0% {
+      opacity: 100;
+    }
+    49% {
+      opacity: 100;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+`;
+
 export const BackButton = styled.button`
   background-color: #dd3;
 `;
