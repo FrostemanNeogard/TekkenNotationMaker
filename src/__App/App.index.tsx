@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { saveAs } from "file-saver";
+import { Fragment } from "react";
 import {
   ArcadeThemeOverrides,
   Tekken8ThemeOverrides,
@@ -25,9 +26,9 @@ import { useTranslation } from "react-i18next";
 import { LanguageSelector } from "../components/LanguageSelector/LanguageSelector.index";
 
 function App() {
-  const divRef = useRef(null);
+  const divRef = useRef<HTMLDivElement | null>(null);
+  const generationButtonRef = useRef<HTMLButtonElement | null>(null);
   const [theme, setTheme] = useState<Theme>("tekken8");
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [topText, setTopText] = useState<string>("");
   const [bottomText, setBottomText] = useState<string>("");
   const [quality, setQuality] = useState<string>("medium");
@@ -36,10 +37,26 @@ function App() {
   const [lastKnownComboNotation, setLastKnownComboNotation] = useState<
     string[]
   >([]);
+  const [cursorIndex, setCursorIndex] = useState<number>(0);
   const { t } = useTranslation("common");
 
+  function decrementCursorIndex() {
+    if (cursorIndex <= 0) {
+      setCursorIndex(-1);
+      return;
+    }
+    setCursorIndex(cursorIndex - 1);
+  }
+
+  function incrementCursorIndex() {
+    if (cursorIndex >= comboNotation.length - 1) {
+      setCursorIndex(comboNotation.length);
+      return;
+    }
+    setCursorIndex(cursorIndex + 1);
+  }
+
   async function generateImage() {
-    // setIsLoading(true);
     const node = divRef.current;
 
     if (!node) {
@@ -47,18 +64,36 @@ function App() {
       return;
     }
 
+    if (generationButtonRef.current) {
+      generationButtonRef.current.disabled = true;
+    }
     const dataUrl = await htmlToImage.toPng(node);
     saveAs(dataUrl, `T8ComboNotation_${quality}res.png`);
-    setIsLoading(false);
+    if (generationButtonRef.current) {
+      generationButtonRef.current.disabled = false;
+    }
   }
 
   const pushImageSrc = (imageSrc: string) => {
-    setComboNotation([...comboNotation, imageSrc]);
+    // const newArray = [...comboNotation, imageSrc];
+    if (cursorIndex >= comboNotation.length - 1) {
+      setComboNotation([...comboNotation, imageSrc]);
+      incrementCursorIndex();
+      return;
+    }
+    const newArray = [
+      ...comboNotation.slice(0, cursorIndex + 1),
+      imageSrc,
+      ...comboNotation.slice(cursorIndex + 1),
+    ];
+    setComboNotation(newArray);
+    incrementCursorIndex();
   };
 
-  const removeLastNotation = () => {
+  const removeNotationAtIndex = (index: number) => {
     const data = [...comboNotation];
-    data.pop();
+    data.splice(index, 1);
+    decrementCursorIndex();
     setComboNotation(data);
   };
 
@@ -96,12 +131,16 @@ function App() {
             <div>
               {topText && <p>{topText}</p>}
               <section>
+                {cursorIndex == -1 && <S.Cursor />}
                 {comboNotation.map((imageSrc, index) => (
-                  <S.NotationOutput
-                    key={index}
-                    src={imageSrc}
-                    draggable={false}
-                  />
+                  <Fragment key={`fragment-${index}`}>
+                    <S.NotationOutput
+                      key={`${index}`}
+                      src={imageSrc}
+                      draggable={false}
+                    />
+                    {index === cursorIndex && <S.Cursor key={`s-${index}`} />}
+                  </Fragment>
                 ))}
               </section>
               {bottomText && <p>{bottomText}</p>}
@@ -123,7 +162,10 @@ function App() {
             {topText && <p>{topText}</p>}
             <section>
               {comboNotation.map((imageSrc, index) => (
-                <S.NotationOutput key={index} src={imageSrc} />
+                <S.NotationOutput
+                  key={`r-${index}-${imageSrc}`}
+                  src={imageSrc}
+                />
               ))}
             </section>
             {bottomText && <p>{bottomText}</p>}
@@ -275,12 +317,23 @@ function App() {
         </S.NotationButtons>
         <S.EditorNav>
           <CharacterDropdown />
-          <S.SaveButton onClick={() => generateImage()} disabled={isLoading}>
+          <S.SaveButton
+            ref={generationButtonRef}
+            onClick={() => generateImage()}
+          >
             <FaFileDownload />
           </S.SaveButton>
-          <S.BackButton onClick={() => removeLastNotation()}>
-            <FaBackspace />
-          </S.BackButton>
+          <S.CursorNavigationButtons>
+            <S.CursorButton onClick={() => decrementCursorIndex()}>
+              {"<"}
+            </S.CursorButton>
+            <S.CursorButton onClick={() => incrementCursorIndex()}>
+              {">"}
+            </S.CursorButton>
+            <S.BackButton onClick={() => removeNotationAtIndex(cursorIndex)}>
+              <FaBackspace />
+            </S.BackButton>
+          </S.CursorNavigationButtons>
           <S.ResetButton onClick={() => resetNotation()}>
             <FaTrashAlt />
           </S.ResetButton>
