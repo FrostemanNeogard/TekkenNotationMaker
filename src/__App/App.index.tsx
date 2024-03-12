@@ -75,7 +75,6 @@ function App() {
   }
 
   const pushImageSrc = (imageSrc: string) => {
-    // const newArray = [...comboNotation, imageSrc];
     if (cursorIndex >= comboNotation.length - 1) {
       setComboNotation([...comboNotation, imageSrc]);
       incrementCursorIndex();
