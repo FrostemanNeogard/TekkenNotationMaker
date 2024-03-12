@@ -102,6 +102,9 @@ function App() {
   };
 
   const removeNotationAtIndex = (index: number) => {
+    if (index < 0) {
+      return;
+    }
     const data = [...comboNotation];
     data.splice(index, 1);
     decrementCursorIndex();

@@ -246,7 +246,8 @@ export const CursorButton = styled.button`
 
 export const Cursor = styled.span`
   border-right: 2px solid white;
-  height: 100%;
+  height: 50px;
+  align-self: center;
   width: auto;
   display: inline-block;
   animation: cursor-blink infinite ease 1300ms;
