@@ -18,10 +18,10 @@ import {
 } from "react-icons/fa";
 import * as S from "./App.styled";
 import * as htmlToImage from "html-to-image";
-import { NotationImage } from "../__types/PathTypes";
-import { characters } from "../__util/characters";
+import { Character, NotationImage } from "../__types/commonTypes";
+import { enCharacters, jpCharacters } from "../__util/characters";
 import { Footer } from "../components/Footer/Footer.index";
-import { Theme } from "../__types/theme";
+import { Theme } from "../__types/commonTypes";
 import { useTranslation } from "react-i18next";
 import { LanguageSelector } from "../components/LanguageSelector/LanguageSelector.index";
 
@@ -32,13 +32,25 @@ function App() {
   const [topText, setTopText] = useState<string>("");
   const [bottomText, setBottomText] = useState<string>("");
   const [quality, setQuality] = useState<string>("medium");
-  const [selectedCharacter, setSelectedCharacter] = useState<string>("bryan");
+  const [selectedCharacter, setSelectedCharacter] = useState<Character>(
+    enCharacters[0]
+  );
   const [comboNotation, setComboNotation] = useState<string[]>([]);
   const [lastKnownComboNotation, setLastKnownComboNotation] = useState<
     string[]
   >([]);
   const [cursorIndex, setCursorIndex] = useState<number>(0);
-  const { t } = useTranslation("common");
+  const { t, i18n } = useTranslation("common");
+  const currentLang = i18n.language;
+
+  const characters = () => {
+    switch (currentLang) {
+      case "ja":
+        return jpCharacters;
+      default:
+        return enCharacters;
+    }
+  };
 
   function decrementCursorIndex() {
     if (cursorIndex <= 0) {
@@ -115,7 +127,14 @@ function App() {
 
   const handleCharacterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const characterName = e.target.value;
-    setSelectedCharacter(characterName);
+    const character = characters().filter(
+      (value) => value.displayName === characterName
+    );
+    if (character.length <= 0) {
+      alert("Something went wrong.");
+      return;
+    }
+    setSelectedCharacter(character[0]);
   };
 
   const Output = () => {
@@ -196,7 +215,7 @@ function App() {
   const themeIcons = buttonImagesPath();
   const allImages = Object.values(themeIcons);
   const characterImages = Object.values(
-    CharacterSpecificImagePaths[selectedCharacter] ?? {}
+    CharacterSpecificImagePaths[selectedCharacter.pathName] ?? {}
   );
 
   const EditorNotationButtons = (props: { image: NotationImage }) => {
@@ -218,23 +237,15 @@ function App() {
   };
 
   const CharacterDropdown = () => {
-    function formatCharacterValue(name: string) {
-      let newName = name;
-      newName = newName.toLowerCase();
-      newName = newName.replace(" ", "_");
-      newName = newName.replace("-", "_");
-      return newName;
-    }
-
     return (
       <S.CharacterDropdown
         name="character-dropdown"
-        value={selectedCharacter}
+        value={selectedCharacter.displayName}
         onChange={handleCharacterChange}
       >
-        {characters.map((item, index) => (
-          <option value={formatCharacterValue(item)} key={item + index}>
-            {item}
+        {characters().map((item: Character, index: number) => (
+          <option value={item.displayName} key={item.pathName + index}>
+            {item.displayName}
           </option>
         ))}
       </S.CharacterDropdown>
