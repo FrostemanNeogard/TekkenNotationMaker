@@ -264,4 +264,8 @@ export const jpCharacters: Character[] = [
     displayName: "麗奈",
     pathName: "reina",
   },
+  {
+    displayName: "エディ",
+    pathName: "eddy",
+  },
 ];
