@@ -52,6 +52,8 @@ import ssc from "../assets/images/upscaled/misc/ssc.png";
 import tilde from "../assets/images/upscaled/misc/tilde.png";
 import comma from "../assets/images/upscaled/misc/comma.png";
 import rage from "../assets/images/upscaled/misc/rage.png";
+import microdash from "../assets/images/upscaled/misc/microdash.png";
+import deepdash from "../assets/images/upscaled/misc/deepdash.png";
 
 // BUTTONS
 // TEKKEN 8
@@ -285,6 +287,14 @@ const standardTekkenMisc: { [key: string]: NotationImage } = {
   ws: {
     text: "ws",
     src: ws,
+  },
+  microdash: {
+    text: "microdash",
+    src: microdash,
+  },
+  deepdash: {
+    text: "deep dash",
+    src: deepdash,
   },
 };
 
