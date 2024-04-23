@@ -1,6 +1,8 @@
 # TekkenNotationMaker
 
-Frontend application to generate images of combo notation for the TEKKEN series of games.
+Currently live at https://frostemanneogard.github.io/TekkenNotationMaker/
+
+This is a frontend application to generate images of combo notation for the TEKKEN series of games.
 
 ## How to use
 1. Select from the variety of themes from the "Theme" dropdown.
