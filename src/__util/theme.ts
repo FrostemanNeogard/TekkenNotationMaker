@@ -4,4 +4,7 @@ export const theme = {
     secondary: "#ffffff11",
     teal: "#1fcfdf",
   },
+  breakpoints: {
+    mobile: "1000px",
+  },
 };
