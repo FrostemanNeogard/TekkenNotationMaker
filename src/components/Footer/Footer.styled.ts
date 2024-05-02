@@ -16,4 +16,8 @@ export const Footer = styled.footer`
       filter: brightness(80%);
     }
   }
+
+  @media screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    display: none;
+  }
 `;

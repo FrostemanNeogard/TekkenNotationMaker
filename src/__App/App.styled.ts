@@ -29,6 +29,14 @@ export const PreviewContainer = styled.div`
     font-size: 3rem;
     text-align: center;
   }
+
+  @media screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    padding: 0;
+
+    h1 {
+      display: none;
+    }
+  }
 `;
 
 export const PreviewHeader = styled.div`
@@ -162,6 +170,12 @@ export const EditorUI = styled.div`
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+
+  @media screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    grid-template-columns: 1fr;
+    grid-auto-flow: column;
+    grid-template-rows: auto auto auto;
+  }
 `;
 
 export const NotationButtons = styled.nav`
@@ -221,6 +235,10 @@ export const EditorNav = styled.nav`
       cursor: pointer;
       filter: brightness(80%);
     }
+  }
+
+  @media screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    column-span: all;
   }
 `;
 
