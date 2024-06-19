@@ -86,6 +86,10 @@ export const enCharacters: Character[] = [
     pathName: "leroy",
   },
   {
+    displayName: "Lidia",
+    pathName: "lidia",
+  },
+  {
     displayName: "Lili",
     pathName: "lili",
   },
@@ -267,5 +271,9 @@ export const jpCharacters: Character[] = [
   {
     displayName: "エディ",
     pathName: "eddy",
+  },
+  {
+    displayName: "リディア",
+    pathName: "lidia",
   },
 ];
