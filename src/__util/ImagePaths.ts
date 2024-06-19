@@ -139,6 +139,11 @@ import trt from "../assets/images/upscaled/stances/trt.webp";
 import uns from "../assets/images/upscaled/stances/uns.webp";
 import wra from "../assets/images/upscaled/stances/wra.webp";
 import zen from "../assets/images/upscaled/stances/zen.webp";
+import cfo from "../assets/images/upscaled/stances/cfo.png";
+import cft from "../assets/images/upscaled/stances/cft.png";
+import hae from "../assets/images/upscaled/stances/hae.png";
+import taw from "../assets/images/upscaled/stances/taw.png";
+import vac from "../assets/images/upscaled/stances/vac.png";
 
 export const BaseIconPaths: { [key: string]: NotationImage } = {
   // BUTTONS
@@ -623,6 +628,28 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
     hrm: {
       text: "HRM",
       src: hrm,
+    },
+  },
+  lidia: {
+    cfo: {
+      text: "CFO",
+      src: cfo,
+    },
+    cft: {
+      text: "CFT",
+      src: cft,
+    },
+    taw: {
+      text: "TAW",
+      src: taw,
+    },
+    hae: {
+      text: "HAE",
+      src: hae,
+    },
+    vac: {
+      text: "VAC",
+      src: vac,
     },
   },
   lili: {
