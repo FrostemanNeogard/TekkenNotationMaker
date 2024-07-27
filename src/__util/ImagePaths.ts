@@ -139,11 +139,14 @@ import trt from "../assets/images/upscaled/stances/trt.webp";
 import uns from "../assets/images/upscaled/stances/uns.webp";
 import wra from "../assets/images/upscaled/stances/wra.webp";
 import zen from "../assets/images/upscaled/stances/zen.webp";
-import cfo from "../assets/images/upscaled/stances/cfo.png";
-import cft from "../assets/images/upscaled/stances/cft.png";
+// import cfo from "../assets/images/upscaled/stances/cfo.png";
+// import cft from "../assets/images/upscaled/stances/cft.png";
+// import taw from "../assets/images/upscaled/stances/taw.png";
+// import vac from "../assets/images/upscaled/stances/vac.png";
 import hae from "../assets/images/upscaled/stances/hae.png";
-import taw from "../assets/images/upscaled/stances/taw.png";
-import vac from "../assets/images/upscaled/stances/vac.png";
+import cat from "../assets/images/upscaled/stances/cat.png";
+import wlf from "../assets/images/upscaled/stances/wlf.png";
+import hrs from "../assets/images/upscaled/stances/hrs.png";
 
 export const BaseIconPaths: { [key: string]: NotationImage } = {
   // BUTTONS
@@ -631,25 +634,37 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
     },
   },
   lidia: {
-    cfo: {
-      text: "CFO",
-      src: cfo,
-    },
-    cft: {
-      text: "CFT",
-      src: cft,
-    },
-    taw: {
-      text: "TAW",
-      src: taw,
-    },
+    // cfo: {
+    //   text: "CFO",
+    //   src: cfo,
+    // },
+    // cft: {
+    //   text: "CFT",
+    //   src: cft,
+    // },
+    // taw: {
+    //   text: "TAW",
+    //   src: taw,
+    // },
+    // vac: {
+    //   text: "VAC",
+    //   src: vac,
+    //   },
     hae: {
       text: "HAE",
       src: hae,
     },
-    vac: {
-      text: "VAC",
-      src: vac,
+    cat: {
+      text: "CAT",
+      src: cat,
+    },
+    wlf: {
+      text: "WLF",
+      src: wlf,
+    },
+    hrs: {
+      text: "HRS",
+      src: hrs,
     },
   },
   lili: {
