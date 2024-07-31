@@ -142,6 +142,13 @@ import numpadLk from "../assets/images/upscaled/numpad/lk.png";
 import numpadRp from "../assets/images/upscaled/numpad/rp.png";
 import numpadRk from "../assets/images/upscaled/numpad/rk.png";
 import plus from "../assets/images/upscaled/numpad/plus.png";
+// STREET FIGHTER
+import lk from "../assets/images/upscaled/sf icons/icon_kick_l.png";
+import mk from "../assets/images/upscaled/sf icons/icon_kick_m.png";
+import hk from "../assets/images/upscaled/sf icons/icon_kick.png";
+import lp from "../assets/images/upscaled/sf icons/icon_punch_l.png";
+import mp from "../assets/images/upscaled/sf icons/icon_punch_m.png";
+import hp from "../assets/images/upscaled/sf icons/icon_punch.png";
 
 const standardTekkenArrows: { [key: string]: NotationImage } = {
   // ARROWS
@@ -538,6 +545,33 @@ const numpadDirections: { [key: string]: NotationImage } = {
   },
 };
 
+const sfIcons: { [key: string]: NotationImage } = {
+  lp: {
+    text: "lp",
+    src: lp,
+  },
+  mp: {
+    text: "mp",
+    src: mp,
+  },
+  hp: {
+    text: "hp",
+    src: hp,
+  },
+  lk: {
+    text: "lk",
+    src: lk,
+  },
+  mk: {
+    text: "mk",
+    src: mk,
+  },
+  hk: {
+    text: "hk",
+    src: hk,
+  },
+};
+
 export const Tekken8ThemeOverrides: { [key: string]: NotationImage } = {
   // BUTTONS
   one: {
@@ -748,4 +782,8 @@ export const NumpadThemeOverrides: { [key: string]: NotationImage } = {
     src: comma,
   },
   ...tekken8Icons,
+};
+
+export const StreetFighterThemeOverrides: { [key: string]: NotationImage } = {
+  ...sfIcons,
 };
