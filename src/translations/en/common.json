@@ -14,7 +14,8 @@
       "arcade": "Arcade",
       "xbox": "Xbox",
       "playstation": "Playstation",
-      "numpad": "Numpad Notation"
+      "numpad": "Numpad Notation",
+      "sf": "Street Fighter"
     },
     "top_text": "Top Text",
     "bottom_text": "Bottom Text",
