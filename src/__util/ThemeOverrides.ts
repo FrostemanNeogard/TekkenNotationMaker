@@ -54,6 +54,7 @@ import comma from "../assets/images/upscaled/misc/comma.png";
 import rage from "../assets/images/upscaled/misc/rage.png";
 import microdash from "../assets/images/upscaled/misc/microdash.png";
 import deepdash from "../assets/images/upscaled/misc/deepdash.png";
+import delay from "../assets/images/upscaled/misc/delay.png";
 
 // BUTTONS
 // TEKKEN 8
@@ -236,6 +237,10 @@ const standardTekkenArrows: { [key: string]: NotationImage } = {
   comma: {
     text: ",",
     src: comma,
+  },
+  delay: {
+    text: "<",
+    src: delay,
   },
 };
 
