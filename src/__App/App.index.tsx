@@ -8,6 +8,7 @@ import {
   PlaystationThemeOverrides,
   NumpadThemeOverrides,
   T7PCThemeOverrides,
+  StreetFighterThemeOverrides,
 } from "../__util/ThemeOverrides";
 import { CharacterSpecificImagePaths } from "../__util/ImagePaths";
 import {
@@ -210,6 +211,8 @@ function App() {
         return T7PCThemeOverrides;
       case "numpad":
         return NumpadThemeOverrides;
+      case "sf":
+        return StreetFighterThemeOverrides;
       default:
         return Tekken8ThemeOverrides;
     }
@@ -276,6 +279,7 @@ function App() {
               </option>
               <option value="tekken8xbox">{t("app.themes.xbox")}</option>
               <option value="numpad">{t("app.themes.numpad")}</option>
+              <option value="sf">{t("app.themes.sf")}</option>
             </select>
           </div>
 
