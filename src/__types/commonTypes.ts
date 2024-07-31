@@ -17,4 +17,5 @@ export type Theme =
   | "tekken7"
   | "tekken8xbox"
   | "tekken8playstation"
+  | "sf"
   | "numpad";
