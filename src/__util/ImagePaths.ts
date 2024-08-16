@@ -143,6 +143,7 @@ import hae from "../assets/images/upscaled/stances/hae.png";
 import cat from "../assets/images/upscaled/stances/cat.png";
 import wlf from "../assets/images/upscaled/stances/wlf.png";
 import hrs from "../assets/images/upscaled/stances/hrs.png";
+import rai from "../assets/images/upscaled/stances/rai.png";
 
 export const BaseIconPaths: { [key: string]: NotationImage } = {
   // BUTTONS
@@ -491,6 +492,12 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
     bt: {
       text: "BT",
       src: bt,
+    },
+  },
+  heihachi: {
+    rai: {
+      text: "RAI",
+      src: rai,
     },
   },
   hwoarang: {
