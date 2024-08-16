@@ -38,6 +38,10 @@ export const enCharacters: Character[] = [
     pathName: "feng",
   },
   {
+    displayName: "Heihachi",
+    pathName: "heihachi",
+  },
+  {
     displayName: "Hwoarang",
     pathName: "hwoarang",
   },
@@ -275,5 +279,9 @@ export const jpCharacters: Character[] = [
   {
     displayName: "リディア",
     pathName: "lidia",
+  },
+  {
+    displayName: "三島 平八",
+    pathName: "heihachi",
   },
 ];
