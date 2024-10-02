@@ -144,6 +144,9 @@ import cat from "../assets/images/upscaled/stances/cat.png";
 import wlf from "../assets/images/upscaled/stances/wlf.png";
 import hrs from "../assets/images/upscaled/stances/hrs.png";
 import rai from "../assets/images/upscaled/stances/rai.png";
+import fuj from "../assets/images/upscaled/stances/fuj.png";
+import wgk from "../assets/images/upscaled/stances/wgk.png";
+import tgk from "../assets/images/upscaled/stances/tgk.png";
 
 export const BaseIconPaths: { [key: string]: NotationImage } = {
   // BUTTONS
@@ -498,6 +501,18 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
     rai: {
       text: "RAI",
       src: rai,
+    },
+    fuj: {
+      text: "FUJ",
+      src: fuj,
+    },
+    wgk: {
+      text: "WGK",
+      src: wgk,
+    },
+    tgk: {
+      text: "TGK",
+      src: tgk,
     },
   },
   hwoarang: {
