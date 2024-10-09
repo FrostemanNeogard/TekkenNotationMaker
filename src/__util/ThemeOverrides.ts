@@ -55,6 +55,8 @@ import rage from "../assets/images/upscaled/misc/rage.png";
 import microdash from "../assets/images/upscaled/misc/microdash.png";
 import deepdash from "../assets/images/upscaled/misc/deepdash.png";
 import delay from "../assets/images/upscaled/misc/delay.png";
+import ss from "../assets/images/upscaled/misc/ss.png";
+import hold from "../assets/images/upscaled/misc/hold.png";
 
 // BUTTONS
 // TEKKEN 8
@@ -260,6 +262,14 @@ const standardTekkenMisc: { [key: string]: NotationImage } = {
   fc: {
     text: "fc",
     src: fc,
+  },
+  hold: {
+    text: "*",
+    src: hold,
+  },
+  ss: {
+    text: "ss",
+    src: ss,
   },
   ssl: {
     text: "ssl",
