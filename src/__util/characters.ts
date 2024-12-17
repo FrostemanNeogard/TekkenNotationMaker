@@ -22,6 +22,10 @@ export const enCharacters: Character[] = [
     pathName: "claudio",
   },
   {
+    displayName: "Clive",
+    pathName: "clive",
+  },
+  {
     displayName: "Devil Jin",
     pathName: "devil_jin",
   },
@@ -283,5 +287,9 @@ export const jpCharacters: Character[] = [
   {
     displayName: "三島 平八",
     pathName: "heihachi",
+  },
+  {
+    displayName: "クライヴ",
+    pathName: "clive",
   },
 ];

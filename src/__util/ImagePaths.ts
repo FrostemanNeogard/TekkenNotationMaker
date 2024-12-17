@@ -77,6 +77,9 @@ import rai from "../assets/images/upscaled/stances/rai.png";
 import fuj from "../assets/images/upscaled/stances/fuj.png";
 import wgk from "../assets/images/upscaled/stances/wgk.png";
 import tgk from "../assets/images/upscaled/stances/tgk.png";
+import phx from "../assets/images/upscaled/stances/phx.png";
+import wol from "../assets/images/upscaled/stances/wol.png";
+import gar from "../assets/images/upscaled/stances/gar.png";
 
 export const CharacterSpecificImagePaths: CharacterNotationImage = {
   alisa: {
@@ -131,6 +134,20 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
     stb: {
       text: "STB",
       src: stb,
+    },
+  },
+  clive: {
+    phx: {
+      text: "PHX",
+      src: phx,
+    },
+    wol: {
+      text: "WOL",
+      src: wol,
+    },
+    gar: {
+      text: "GAR",
+      src: gar,
     },
   },
   devil_jin: {
