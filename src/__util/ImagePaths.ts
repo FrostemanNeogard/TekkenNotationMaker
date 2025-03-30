@@ -349,22 +349,6 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
     },
   },
   lidia: {
-    // cfo: {
-    //   text: "CFO",
-    //   src: cfo,
-    // },
-    // cft: {
-    //   text: "CFT",
-    //   src: cft,
-    // },
-    // taw: {
-    //   text: "TAW",
-    //   src: taw,
-    // },
-    // vac: {
-    //   text: "VAC",
-    //   src: vac,
-    //   },
     hae: {
       text: "HAE",
       src: hae,
