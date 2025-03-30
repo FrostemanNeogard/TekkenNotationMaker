@@ -22,6 +22,8 @@ import uf_h from "../assets/images/upscaled/arrows/uf_h.webp";
 import bracket_l from "../assets/images/upscaled/arrows/bracket_left.webp";
 import bracket_r from "../assets/images/upscaled/arrows/bracket_right.webp";
 import next from "../assets/images/upscaled/arrows/next.webp";
+import open_parenthesis from "../assets/images/upscaled/misc/parenthesis1.png";
+import close_parenthesis from "../assets/images/upscaled/misc/parenthesis2.png";
 
 // STAGE GIMMICKS
 import balcony from "../assets/images/upscaled/stage/balconybreak.webp";
@@ -243,6 +245,14 @@ const standardTekkenArrows: { [key: string]: NotationImage } = {
   delay: {
     text: "<",
     src: delay,
+  },
+  open_parenthesis: {
+    text: "(",
+    src: open_parenthesis,
+  },
+  close_parenthesis: {
+    text: ")",
+    src: close_parenthesis,
   },
 };
 
