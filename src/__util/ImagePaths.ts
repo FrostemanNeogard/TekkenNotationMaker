@@ -80,9 +80,9 @@ import tgk from "../assets/images/upscaled/stances/tgk.png";
 import phx from "../assets/images/upscaled/stances/phx.png";
 import wol from "../assets/images/upscaled/stances/wol.png";
 import gar from "../assets/images/upscaled/stances/gar.png";
-// import hmc from "../assets/images/upscaled/stances/hmc.png";
-// import cjm from "../assets/images/upscaled/stances/cjm.png";
-// import plt from "../assets/images/upscaled/stances/plt.png";
+import hmc from "../assets/images/upscaled/stances/hmc.png";
+import cjm from "../assets/images/upscaled/stances/cjm.png";
+import plt from "../assets/images/upscaled/stances/plt.png";
 
 export const CharacterSpecificImagePaths: CharacterNotationImage = {
   alisa: {
@@ -103,20 +103,20 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
       src: bkp,
     },
   },
-  // anna: {
-  //   hmc: {
-  //     text: "HMC",
-  //     src: hmc,
-  //   },
-  //   cjm: {
-  //     text: "CJM",
-  //     src: cjm,
-  //   },
-  //   plt: {
-  //     text: "PLT",
-  //     src: plt,
-  //   },
-  // },
+  anna: {
+    hmc: {
+      text: "HMC",
+      src: hmc,
+    },
+    cjm: {
+      text: "CJM",
+      src: cjm,
+    },
+    plt: {
+      text: "PLT",
+      src: plt,
+    },
+  },
   asuka: {
     nwg: {
       text: "NWG",
