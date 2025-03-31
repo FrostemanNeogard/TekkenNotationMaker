@@ -136,7 +136,7 @@ export const NotationContainer = styled.div<{ $qualityMultiplier: number }>`
   }
 
   /* article {
-    margin: 50px;
+    margin: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -149,10 +149,12 @@ export const NotationContainer = styled.div<{ $qualityMultiplier: number }>`
       font-weight: 600;
       font-style: normal;
       height: 720px;
-      padding: 50px 0;
+      padding: 0;
+      margin: 0;
       font-size: 720px;
-      -webkit-text-stroke-width: 20px;
+      -webkit-text-stroke-width: 40px;
       -webkit-text-stroke-color: black;
+      paint-order: stroke fill;
     }
   } */
 `;
