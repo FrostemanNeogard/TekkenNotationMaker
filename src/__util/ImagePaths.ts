@@ -83,6 +83,7 @@ import gar from "../assets/images/upscaled/stances/gar.png";
 import hmc from "../assets/images/upscaled/stances/hmc.png";
 import cjm from "../assets/images/upscaled/stances/cjm.png";
 import plt from "../assets/images/upscaled/stances/plt.png";
+import ram from "../assets/images/upscaled/stances/ram.png";
 
 export const CharacterSpecificImagePaths: CharacterNotationImage = {
   alisa: {
@@ -195,6 +196,16 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
     hsp: {
       text: "HSP",
       src: hsp,
+    },
+  },
+  fahkumram: {
+    ram: {
+      text: "RAM",
+      src: ram,
+    },
+    gar: {
+      text: "GAR",
+      src: gar,
     },
   },
   feng: {
