@@ -10,6 +10,10 @@ export const enCharacters: Character[] = [
     pathName: "anna",
   },
   {
+    displayName: "Armor King",
+    pathName: "armor_king",
+  },
+  {
     displayName: "Asuka",
     pathName: "asuka",
   },
@@ -307,5 +311,9 @@ export const jpCharacters: Character[] = [
   {
     displayName: "ファーカムラム",
     pathName: "fahkumram",
+  },
+  {
+    displayName: "アーマーキング",
+    pathName: "armor_king",
   },
 ];

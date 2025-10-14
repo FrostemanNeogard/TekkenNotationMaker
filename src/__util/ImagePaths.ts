@@ -2,10 +2,14 @@ import { CharacterNotationImage } from "../__types/commonTypes";
 
 // STANCES
 import aop from "../assets/images/upscaled/stances/aop.webp";
+import bad from "../assets/images/upscaled/stances/bad.png";
+import bj from "../assets/images/upscaled/stances/bj.png";
 import bkp from "../assets/images/upscaled/stances/bkp.webp";
 import bok from "../assets/images/upscaled/stances/bok.webp";
 import bt from "../assets/images/upscaled/stances/bt.webp";
+import cat from "../assets/images/upscaled/stances/cat.png";
 import cd from "../assets/images/upscaled/stances/cd.webp";
+import cjm from "../assets/images/upscaled/stances/cjm.png";
 import dbt from "../assets/images/upscaled/stances/dbt.webp";
 import dck from "../assets/images/upscaled/stances/dck.webp";
 import den from "../assets/images/upscaled/stances/den.webp";
@@ -18,13 +22,18 @@ import ext_dck from "../assets/images/upscaled/stances/ext_dck.webp";
 import flea from "../assets/images/upscaled/stances/flea.webp";
 import flk from "../assets/images/upscaled/stances/flk.webp";
 import fly from "../assets/images/upscaled/stances/fly.webp";
+import fuj from "../assets/images/upscaled/stances/fuj.png";
+import gar from "../assets/images/upscaled/stances/gar.png";
 import gen from "../assets/images/upscaled/stances/gen.webp";
 import gmc from "../assets/images/upscaled/stances/gmc.webp";
 import gmh from "../assets/images/upscaled/stances/gmh.webp";
 import gs from "../assets/images/upscaled/stances/gs.webp";
+import hae from "../assets/images/upscaled/stances/hae.png";
 import hbs from "../assets/images/upscaled/stances/hbs.webp";
+import hmc from "../assets/images/upscaled/stances/hmc.png";
 import hms from "../assets/images/upscaled/stances/hms.webp";
 import hrm from "../assets/images/upscaled/stances/hrm.webp";
+import hrs from "../assets/images/upscaled/stances/hrs.png";
 import hsp from "../assets/images/upscaled/stances/hsp.webp";
 import hyp from "../assets/images/upscaled/stances/hyp.webp";
 import iai from "../assets/images/upscaled/stances/iai.webp";
@@ -47,8 +56,12 @@ import mnt from "../assets/images/upscaled/stances/mnt.webp";
 import nss from "../assets/images/upscaled/stances/nss.webp";
 import nwg from "../assets/images/upscaled/stances/nwg.webp";
 import pab from "../assets/images/upscaled/stances/pab.webp";
+import phx from "../assets/images/upscaled/stances/phx.png";
+import plt from "../assets/images/upscaled/stances/plt.png";
 import prf from "../assets/images/upscaled/stances/prf.webp";
 import rab from "../assets/images/upscaled/stances/rab.webp";
+import rai from "../assets/images/upscaled/stances/rai.png";
+import ram from "../assets/images/upscaled/stances/ram.png";
 import rds from "../assets/images/upscaled/stances/rds.webp";
 import rff from "../assets/images/upscaled/stances/rff.webp";
 import rfs from "../assets/images/upscaled/stances/rfs.webp";
@@ -65,25 +78,14 @@ import stc from "../assets/images/upscaled/stances/stc.webp";
 import swa from "../assets/images/upscaled/stances/swa.webp";
 import swy from "../assets/images/upscaled/stances/swy.webp";
 import szn from "../assets/images/upscaled/stances/szn.webp";
+import tgk from "../assets/images/upscaled/stances/tgk.png";
 import trt from "../assets/images/upscaled/stances/trt.webp";
 import uns from "../assets/images/upscaled/stances/uns.webp";
+import wgk from "../assets/images/upscaled/stances/wgk.png";
+import wlf from "../assets/images/upscaled/stances/wlf.png";
+import wol from "../assets/images/upscaled/stances/wol.png";
 import wra from "../assets/images/upscaled/stances/wra.webp";
 import zen from "../assets/images/upscaled/stances/zen.webp";
-import hae from "../assets/images/upscaled/stances/hae.png";
-import cat from "../assets/images/upscaled/stances/cat.png";
-import wlf from "../assets/images/upscaled/stances/wlf.png";
-import hrs from "../assets/images/upscaled/stances/hrs.png";
-import rai from "../assets/images/upscaled/stances/rai.png";
-import fuj from "../assets/images/upscaled/stances/fuj.png";
-import wgk from "../assets/images/upscaled/stances/wgk.png";
-import tgk from "../assets/images/upscaled/stances/tgk.png";
-import phx from "../assets/images/upscaled/stances/phx.png";
-import wol from "../assets/images/upscaled/stances/wol.png";
-import gar from "../assets/images/upscaled/stances/gar.png";
-import hmc from "../assets/images/upscaled/stances/hmc.png";
-import cjm from "../assets/images/upscaled/stances/cjm.png";
-import plt from "../assets/images/upscaled/stances/plt.png";
-import ram from "../assets/images/upscaled/stances/ram.png";
 
 export const CharacterSpecificImagePaths: CharacterNotationImage = {
   alisa: {
@@ -116,6 +118,16 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
     plt: {
       text: "PLT",
       src: plt,
+    },
+  },
+  armor_king: {
+    bj: {
+      text: "BJ",
+      src: bj,
+    },
+    bad: {
+      text: "BAD",
+      src: bad,
     },
   },
   asuka: {
