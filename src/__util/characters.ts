@@ -157,6 +157,10 @@ export const enCharacters: Character[] = [
     displayName: "Zafina",
     pathName: "zafina",
   },
+  {
+    displayName: "Miary Zo",
+    pathName: "miary",
+  },
 ];
 
 export const jpCharacters: Character[] = [
@@ -315,5 +319,9 @@ export const jpCharacters: Character[] = [
   {
     displayName: "アーマーキング",
     pathName: "armor_king",
+  },
+  {
+    displayName: "ミアリズ",
+    pathName: "miary",
   },
 ];

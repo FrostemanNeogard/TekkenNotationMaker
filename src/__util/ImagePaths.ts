@@ -43,6 +43,7 @@ import izu from "../assets/images/upscaled/stances/izu.webp";
 import jag from "../assets/images/upscaled/stances/jag.webp";
 import jgs from "../assets/images/upscaled/stances/jgs.webp";
 import kin from "../assets/images/upscaled/stances/kin.webp";
+import kmh from "../assets/images/upscaled/stances/kmh.png";
 import knk from "../assets/images/upscaled/stances/knk.webp";
 import len from "../assets/images/upscaled/stances/len.webp";
 import lff from "../assets/images/upscaled/stances/lff.webp";
@@ -52,6 +53,7 @@ import lnh from "../assets/images/upscaled/stances/lnh.webp";
 import mcr from "../assets/images/upscaled/stances/mcr.webp";
 import med from "../assets/images/upscaled/stances/med.webp";
 import mia from "../assets/images/upscaled/stances/mia.webp";
+import mmo from "../assets/images/upscaled/stances/mmo.png";
 import mnt from "../assets/images/upscaled/stances/mnt.webp";
 import nss from "../assets/images/upscaled/stances/nss.webp";
 import nwg from "../assets/images/upscaled/stances/nwg.webp";
@@ -418,6 +420,16 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
     bt: {
       text: "BT",
       src: bt,
+    },
+  },
+  miary: {
+    mmo: {
+      text: "MMO",
+      src: mmo,
+    },
+    kmh: {
+      text: "KMH",
+      src: kmh,
     },
   },
   nina: {
