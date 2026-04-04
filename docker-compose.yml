@@ -2,6 +2,6 @@ services:
   web-app:
     build: .
     ports:
-      - "5173:80"
+      - "5173:5173"
     command: npm run dev -- --host
     restart: always
