@@ -20,7 +20,7 @@ jobs:
 
       - name: Deploy Webserver
         run: |
-          ssh -o StrictHostKeyChecking=no -p 2222 ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} "
+          ssh -o StrictHostKeyChecking=no -p 22 ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} "
             cd ~/projects/TekkenNotationMaker &&
             git pull &&
             sudo docker-compose -f docker-compose.yml down &&
