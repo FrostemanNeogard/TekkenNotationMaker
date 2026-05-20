@@ -1,17 +1,194 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tekken Notation Maker</title>
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2465784261274841"
-      crossorigin="anonymous"
-    ></script>
+    <title>Tekken 8 Combo Notation Maker - Generate Fighting Game Inputs</title>
+    <style>
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+          sans-serif;
+        background-color: #121214;
+        color: #e0e0e0;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+      }
+      .hero {
+        text-align: center;
+        max-width: 800px;
+        padding: 40px 20px;
+        position: relative;
+        z-index: 2;
+      }
+      h1 {
+        color: #ffffff;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+      }
+      p {
+        color: #b0b0b8;
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-bottom: 30px;
+      }
+      .cta-button {
+        display: inline-block;
+        background-color: #4dadff;
+        color: #121214;
+        padding: 15px 35px;
+        font-size: 1.3rem;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 6px;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+      .cta-button:hover {
+        background-color: #3593e6;
+      }
+      .features {
+        margin-top: 50px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        text-align: left;
+      }
+      .feature-card {
+        background: #1a1a1e;
+        padding: 20px;
+        border-radius: 6px;
+        border: 1px solid #25252b;
+      }
+      .feature-card h3 {
+        color: #ffffff;
+        margin-top: 0;
+      }
+      footer {
+        margin-top: 60px;
+        padding-top: 20px;
+      }
+      footer a {
+        color: #4dadff;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+
+      .bg-notation {
+        position: absolute;
+        z-index: 1;
+        opacity: 0.25;
+        min-width: 20vw;
+        height: auto;
+        pointer-events: none;
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+      }
+
+      .bg-left {
+        left: 10%;
+        top: 35%;
+        animation: floatLeft 8s ease-in-out infinite;
+      }
+
+      .bg-right {
+        right: 8%;
+        bottom: 30%;
+        animation: floatRight 9s ease-in-out infinite;
+      }
+
+      @keyframes floatLeft {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-2deg);
+        }
+        50% {
+          transform: translateY(-15px) rotate(1deg);
+        }
+      }
+
+      @keyframes floatRight {
+        0%,
+        100% {
+          transform: translateY(0) rotate(3deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(-1deg);
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .bg-notation {
+          opacity: 0.08;
+          max-width: 200px;
+        }
+        .bg-left {
+          left: -5%;
+        }
+        .bg-right {
+          right: -5%;
+        }
+      }
+      @media (max-width: 768px) {
+        .features {
+          grid-template-columns: 1fr;
+        }
+        .bg-notation {
+          display: none;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <img
+      src="/images/tju.png"
+      alt="Combo example left"
+      class="bg-notation bg-left"
+    />
+    <img
+      src="/images/ewgf.png"
+      alt="Combo example right"
+      class="bg-notation bg-right"
+    />
+
+    <div class="hero">
+      <h1>Fighting Game Notation Maker</h1>
+      <p>
+        This is a visual tool for the Fighting Game Community to create easily
+        shareable images of combo notation.
+      </p>
+
+      <a href="/tool/" class="cta-button">Launch Notation Maker</a>
+
+      <div class="features">
+        <div class="feature-card">
+          <h3>Multiple Controller Themes</h3>
+          <p>
+            Support for multiple styles of input methods, including themes such
+            as PlayStation and Xbox controller schemes along with more unique
+            themes such as Tekken 7 Arcade buttons.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h3>Character Specific Notation</h3>
+          <p>
+            Stances, installs, and other character specific notation is
+            available through the character dropdown.
+          </p>
+        </div>
+      </div>
+
+      <footer>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+        <a href="/contact.html">Contact</a>
+      </footer>
+    </div>
   </body>
 </html>
