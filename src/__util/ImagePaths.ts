@@ -6,7 +6,8 @@ import bad from "../assets/images/upscaled/stances/bad.png";
 import bj from "../assets/images/upscaled/stances/bj.png";
 import bkp from "../assets/images/upscaled/stances/bkp.webp";
 import bok from "../assets/images/upscaled/stances/bok.webp";
-import bt from "../assets/images/upscaled/stances/bt.webp";
+import bt from "../assets/images/upscaled/stances/bt.png";
+import bt_old from "../assets/images/upscaled/stances/bt_old.webp";
 import cat from "../assets/images/upscaled/stances/cat.png";
 import cd from "../assets/images/upscaled/stances/cd.webp";
 import cjm from "../assets/images/upscaled/stances/cjm.png";
@@ -42,6 +43,7 @@ import isw from "../assets/images/upscaled/stances/isw.webp";
 import izu from "../assets/images/upscaled/stances/izu.webp";
 import jag from "../assets/images/upscaled/stances/jag.webp";
 import jgs from "../assets/images/upscaled/stances/jgs.webp";
+import kat from "../assets/images/upscaled/stances/kat.png";
 import kin from "../assets/images/upscaled/stances/kin.webp";
 import kmh from "../assets/images/upscaled/stances/kmh.png";
 import knk from "../assets/images/upscaled/stances/knk.webp";
@@ -72,6 +74,7 @@ import roll from "../assets/images/upscaled/stances/roll.webp";
 import sbt from "../assets/images/upscaled/stances/sbt.webp";
 import scr from "../assets/images/upscaled/stances/scr.webp";
 import sen from "../assets/images/upscaled/stances/sen.webp";
+import set from "../assets/images/upscaled/stances/set.png";
 import sit from "../assets/images/upscaled/stances/sit.webp";
 import sne from "../assets/images/upscaled/stances/sne.webp";
 import snk from "../assets/images/upscaled/stances/snk.webp";
@@ -145,7 +148,7 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
     },
     bt: {
       text: "BT",
-      src: bt,
+      src: bt_old,
     },
   },
   bryan: {
@@ -233,7 +236,7 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
     },
     bt: {
       text: "BT",
-      src: bt,
+      src: bt_old,
     },
   },
   heihachi: {
@@ -348,6 +351,20 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
       src: roll,
     },
   },
+  kunimitsu: {
+    set: {
+      text: "SET",
+      src: set,
+    },
+    kat: {
+      text: "KAT",
+      src: kat,
+    },
+    bt: {
+      text: "BT",
+      src: bt,
+    },
+  },
   lars: {
     den: {
       text: "DEN",
@@ -419,7 +436,7 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
     },
     bt: {
       text: "BT",
-      src: bt,
+      src: bt_old,
     },
   },
   miary: {
@@ -473,7 +490,7 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
     },
     bt: {
       text: "BT",
-      src: bt,
+      src: bt_old,
     },
   },
   reina: {
@@ -557,7 +574,7 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
     },
     bt: {
       text: "BT",
-      src: bt,
+      src: bt_old,
     },
     kin: {
       text: "KIN",
