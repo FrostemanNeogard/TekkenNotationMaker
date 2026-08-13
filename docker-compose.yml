@@ -1,7 +1,8 @@
 services:
   web-app:
-    build: .
+    image: nginx:alpine
     ports:
-      - "5173:5173"
-    command: npm run dev -- --host
+      - "5174:80"
+    volumes:
+      - ./dist:/usr/share/nginx/html:ro
     restart: always
