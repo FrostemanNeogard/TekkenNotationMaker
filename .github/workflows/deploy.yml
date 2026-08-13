@@ -23,6 +23,6 @@ jobs:
           ssh -o StrictHostKeyChecking=no -p 22 ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} "
             cd ~/projects/TekkenNotationMaker &&
             git pull &&
-            sudo docker-compose -f docker-compose.yml down &&
-            sudo docker-compose -f docker-compose.yml up --build -d
+            npm run build &&
+            sudo docker compose -f docker-compose.yml up -d --force-recreate
           "
