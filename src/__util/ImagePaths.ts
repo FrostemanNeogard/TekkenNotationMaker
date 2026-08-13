@@ -71,6 +71,7 @@ import rff from "../assets/images/upscaled/stances/rff.webp";
 import rfs from "../assets/images/upscaled/stances/rfs.webp";
 import rlx from "../assets/images/upscaled/stances/rlx.webp";
 import roll from "../assets/images/upscaled/stances/roll.webp";
+import sb from "../assets/images/upscaled/stances/sb.png";
 import sbt from "../assets/images/upscaled/stances/sbt.webp";
 import scr from "../assets/images/upscaled/stances/scr.webp";
 import sen from "../assets/images/upscaled/stances/sen.webp";
@@ -78,6 +79,7 @@ import set from "../assets/images/upscaled/stances/set.png";
 import sit from "../assets/images/upscaled/stances/sit.webp";
 import sne from "../assets/images/upscaled/stances/sne.webp";
 import snk from "../assets/images/upscaled/stances/snk.webp";
+import spb from "../assets/images/upscaled/stances/spb.png";
 import stb from "../assets/images/upscaled/stances/stb.webp";
 import stc from "../assets/images/upscaled/stances/stc.webp";
 import swa from "../assets/images/upscaled/stances/swa.webp";
@@ -150,6 +152,16 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
       text: "BT",
       src: bt_old,
     },
+  },
+  bob: {
+    sb: {
+      text: "SB",
+      src: sb
+    },
+    spb: {
+      text: "SPB",
+      src: spb
+    }
   },
   bryan: {
     sne: {
