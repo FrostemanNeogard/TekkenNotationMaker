@@ -90,6 +90,10 @@ export const enCharacters: Character[] = [
     pathName: "kuma",
   },
   {
+    displayName: "Kunimitsu",
+    pathName: "kunimitsu",
+  },
+  {
     displayName: "Lars",
     pathName: "lars",
   },
@@ -327,5 +331,9 @@ export const jpCharacters: Character[] = [
   {
     displayName: "ミアリズ",
     pathName: "miary",
+  },
+  {
+    displayName: "州光",
+    pathName: "kunimitsu",
   },
 ];

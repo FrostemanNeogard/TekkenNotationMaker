@@ -1,17 +1,523 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tekken Notation Maker</title>
+    <title>
+      Notation Maker - Create Tekken Combo Notation Images
+    </title>
+    <meta
+      name="description"
+      content="A free visual tool for the Fighting Game Community to build and share Tekken combo notation images. Learn how combo notation works, then generate clean, downloadable PNGs for TEKKEN 8, TEKKEN 7 and more."
+    />
+    <meta
+      name="keywords"
+      content="tekken notation, combo notation, fighting game notation, tekken 8 combos, tekken 7 combos, notation maker, combo image generator, numpad notation"
+    />
+    <meta
+      property="og:title"
+      content="Notation Maker"
+    />
+    <meta
+      property="og:description"
+      content="Build and share Tekken combo notation images with a free visual editor. Includes a full guide to reading and writing fighting game notation."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://notationmaker.com/" />
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2465784261274841"
       crossorigin="anonymous"
     ></script>
+    <style>
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+          sans-serif;
+        background-color: #121214;
+        color: #e0e0e0;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        position: relative;
+        line-height: 1.65;
+      }
+      .wrapper {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 40px 20px 80px;
+        position: relative;
+        z-index: 2;
+      }
+      .hero {
+        text-align: center;
+        padding: 20px 0 30px;
+      }
+      h1 {
+        color: #ffffff;
+        font-size: 2.4rem;
+        margin-bottom: 16px;
+      }
+      h2 {
+        color: #ffffff;
+        font-size: 1.6rem;
+        margin-top: 48px;
+        border-bottom: 1px solid #25252b;
+        padding-bottom: 8px;
+      }
+      h3 {
+        color: #ffffff;
+        margin-bottom: 6px;
+      }
+      p {
+        color: #b0b0b8;
+        font-size: 1.08rem;
+        margin-bottom: 18px;
+      }
+      .lead {
+        font-size: 1.2rem;
+      }
+      a {
+        color: #4dadff;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .cta-button {
+        display: inline-block;
+        background-color: #4dadff;
+        color: #121214;
+        padding: 15px 35px;
+        font-size: 1.25rem;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 6px;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+      .cta-button:hover {
+        background-color: #3593e6;
+        text-decoration: none;
+      }
+      .features {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        text-align: left;
+      }
+      .feature-card {
+        background: #1a1a1e;
+        padding: 20px;
+        border-radius: 6px;
+        border: 1px solid #25252b;
+      }
+      .feature-card h3 {
+        margin-top: 0;
+      }
+      .feature-card p {
+        margin-bottom: 0;
+        font-size: 1rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0 26px;
+        font-size: 0.98rem;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 10px 12px;
+        border-bottom: 1px solid #25252b;
+      }
+      th {
+        color: #ffffff;
+        background: #1a1a1e;
+      }
+      td code,
+      p code,
+      li code {
+        background: #25252b;
+        color: #ffd580;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.95em;
+      }
+      .example {
+        background: #1a1a1e;
+        border-left: 4px solid #4dadff;
+        padding: 16px 20px;
+        border-radius: 6px;
+        margin: 20px 0;
+      }
+      .faq-item {
+        margin-bottom: 22px;
+      }
+      .ad-slot {
+        margin: 40px 0;
+        text-align: center;
+        min-height: 90px;
+      }
+      .ad-label {
+        display: block;
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #55555c;
+        margin-bottom: 6px;
+      }
+      footer {
+        margin-top: 60px;
+        padding-top: 24px;
+        border-top: 1px solid #25252b;
+        text-align: center;
+      }
+      footer a {
+        margin: 0 10px;
+      }
+      .bg-notation {
+        position: fixed;
+        z-index: 1;
+        opacity: 0.12;
+        min-width: 18vw;
+        height: auto;
+        pointer-events: none;
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+      }
+      .bg-left {
+        left: 2%;
+        animation: floatLeft 9s ease-in-out infinite;
+        top: 30%;
+      }
+      .bg-right {
+        right: 2%;
+        animation: floatRight 9s ease-in-out infinite;
+        bottom: 20%;
+      }
+
+     @keyframes floatLeft {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-2deg);
+        }
+        50% {
+          transform: translateY(-15px) rotate(1deg);
+        }
+      }
+
+      @keyframes floatRight {
+        0%,
+        100% {
+          transform: translateY(0) rotate(3deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(-1deg);
+        }
+      }
+
+      @media (max-width: 1100px) {
+        .bg-notation {
+          display: none;
+        }
+      }
+      @media (max-width: 768px) {
+        .features {
+          grid-template-columns: 1fr;
+        }
+        h1 {
+          font-size: 2rem;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <img
+      src="/images/tju.png"
+      alt="Tekken combo notation example"
+      class="bg-notation bg-left"
+    />
+    <img
+      src="/images/ewgf.png"
+      alt="Electric Wind God Fist notation example"
+      class="bg-notation bg-right"
+    />
+
+    <div class="wrapper">
+      <div class="hero">
+        <h1>Fighting Game Notation Maker</h1>
+        <p class="lead">
+          A free visual tool for the Fighting Game Community to create clean,
+          easily shareable images of combo notation. Build a sequence
+          input-by-input, pick a controller theme, and export it as a PNG for
+          guides, social media, or your own practice notes.
+        </p>
+        <a href="/tool/" class="cta-button">Launch Notation Maker</a>
+        <p style="margin-top: 18px; font-size: 1rem">
+          New to combo strings? Read the
+          <a href="/guide.html">complete guide to Tekken notation</a> first.
+        </p>
+      </div>
+
+      <div class="features">
+        <div class="feature-card">
+          <h3>Multiple Controller Themes</h3>
+          <p>
+            Support for several input styles, including PlayStation and Xbox
+            face-button layouts, TEKKEN 8 and TEKKEN 7 button icons, arcade
+            buttons, and classic numpad notation.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h3>Character-Specific Notation</h3>
+          <p>
+            Stances, installs, and other character-specific inputs are available
+            through the character dropdown, covering the full TEKKEN 8 and TEKKEN 7 roster and
+            their unique mechanics.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h3>Instant PNG Export</h3>
+          <p>
+            Everything renders locally in your browser. Choose low, medium, or
+            high resolution and download a transparent-ready PNG in one click —
+            no account and no uploads required.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h3>Add Your Own Labels</h3>
+          <p>
+            Add optional top and bottom text to caption a combo with its damage,
+            the situation it works in, or the character it belongs to before you
+            export.
+          </p>
+        </div>
+      </div>
+
+      <h2>What is fighting game combo notation?</h2>
+      <p>
+        Combo notation is a shorthand language the fighting game community uses to
+        write down a sequence of inputs so that another player can reproduce it.
+        Instead of describing a combo in full sentences, players write a compact
+        string of directions and attack buttons. A well-written notation tells you
+        exactly what to press, in what order, and often includes timing hints.
+      </p>
+      <p>
+        There are two common styles: <strong>button/icon notation</strong>, which uses the actual controller icons for
+        each attack, and <strong>numpad notation</strong>, which maps the
+        nine directions to the number keys on a keyboard's numpad. This tool can produce both, though is tailored toward the icon style, so you can match whatever your
+        community prefers.
+      </p>
+      
+      <h2>Tekken Notation</h2>
+      <p>
+        Many parts of the Tekken community write directions as relative to the opponent character, meaning you say "forward" instead of "left" (if facing right).
+        These directions as written as shorthand versions of their descriptive names.
+      </p>
+            <table>
+        <thead>
+          <tr>
+            <th>Notation</th>
+            <th>Direction</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>u/b</code> <code>u</code> <code>u/f</code></td>
+            <td>Up-back / Up / Up-forward</td>
+          </tr>
+          <tr>
+            <td><code>b</code> <code>n</code> <code>f</code></td>
+            <td>Back / Neutral / Forward</td>
+          </tr>
+          <tr>
+            <td><code>d/b</code> <code>d</code> <code>d/f</code></td>
+            <td>Down-back / Down / Down-forward</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        In Tekken specifically you will also see capital letters and symbols:
+        <code>f</code> means tap forward, while <code>F</code> means hold forward.
+        <code>WS</code> means "while standing" (referring to the stance you briefly enter as you
+        rise from crouch, otherwise known as "while rising"), and <code>~</code> links inputs that must be done
+        immediately after one another.
+      </p>
+      <p>
+        Tekken uses a four-button layout, one for each limb. Most communities
+        write these as numbers, which map cleanly to the icons this tool renders:
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Notation</th>
+            <th>Limb</th>
+            <th>PlayStation</th>
+            <th>Xbox</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>1</code></td>
+            <td>Left punch</td>
+            <td>Square</td>
+            <td>X</td>
+          </tr>
+          <tr>
+            <td><code>2</code></td>
+            <td>Right punch</td>
+            <td>Triangle</td>
+            <td>Y</td>
+          </tr>
+          <tr>
+            <td><code>3</code></td>
+            <td>Left kick</td>
+            <td>X</td>
+            <td>A</td>
+          </tr>
+          <tr>
+            <td><code>4</code></td>
+            <td>Right kick</td>
+            <td>Circle</td>
+            <td>B</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Combined button presses are notated by a "+" sign. For example,
+        <code>1+2</code> means both punches at the
+        same time, and <code>1+2+3+4</code> presses everything at once.
+      </p>
+
+      <h2>Numpad notation directions explained</h2>
+      <p>
+        Numpad notation treats your character as if they are always on the left
+        side of the screen, facing right. Each number corresponds to a direction,
+        just like the layout of a numeric keypad:
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Numpad</th>
+            <th>Direction</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>7</code> <code>8</code> <code>9</code></td>
+            <td>Up-back / Up / Up-forward</td>
+          </tr>
+          <tr>
+            <td><code>4</code> <code>5</code> <code>6</code></td>
+            <td>Back / Neutral / Forward</td>
+          </tr>
+          <tr>
+            <td><code>1</code> <code>2</code> <code>3</code></td>
+            <td>Down-back / Down / Down-forward</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Reading a full combo, step by step</h2>
+      <p>
+        Once you know the directions and buttons, a combo string reads left to
+        right like a sentence. Consider a combo starter such as an EWGF from Tekken:
+      </p>
+      <div class="example">
+        <p style="margin-bottom: 8px">
+          <code>f,n,d,df+2</code>
+        </p>
+        <p style="margin-bottom: 0">
+          This is the Electric Wind God Fist. You tap <code>forward</code>, return
+          to <code>neutral</code>, tap <code>down</code>, then press
+          <code>down-forward + right punch</code> with tight timing. Each comma
+          marks a separate, deliberate input.
+        </p>
+      </div>
+      <p>
+        A longer juggle combo simply chains more of these fragments together,
+        often separated by commas or the launcher that starts the sequence. The
+        Notation Maker lets you place each of these pieces visually so the final
+        image is unambiguous, even for players who read a different text
+        convention than you do.
+      </p>
+      <p>
+        Want the full breakdown of every symbol, stance prefix, and timing marker?
+        Read the
+        <a href="/guide.html">complete guide to reading and writing Tekken notation</a>.
+      </p>
+
+      <h2>Why use images instead of plain text?</h2>
+      <p>
+        Plain-text notation is compact, but it assumes the reader already knows
+        the convention. Different games and even different communities disagree on
+        symbols, and text can be misread. A rendered image removes ambiguity: the
+        arrows show exactly which direction to hold, and the button icons match
+        what a player sees on their own controller. Images are also far easier to
+        drop into a Discord message, a YouTube thumbnail, a match-up spreadsheet,
+        or a printed practice sheet.
+      </p>
+
+      <h2>How to use the Notation Maker</h2>
+      <p>
+        Getting a finished image takes only a few steps:
+      </p>
+      <ol>
+        <li>Open the editor and choose a controller theme that matches your audience.</li>
+        <li>Pick your character from the dropdown to unlock stance and install inputs.</li>
+        <li>Click the direction and button icons in order to build the sequence.</li>
+        <li>Use the cursor arrows and backspace to insert or fix inputs mid-string.</li>
+        <li>Optionally add top and bottom text, such as the damage value or situation.</li>
+        <li>Select a resolution and download your PNG.</li>
+      </ol>
+      <p style="text-align: center; margin-top: 30px">
+        <a href="/tool/" class="cta-button">Open the Notation Maker</a>
+      </p>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-item">
+        <h3>Is the Notation Maker free?</h3>
+        <p>
+          Yes. The editor is completely free to use, requires no account, and does
+          not upload your combos anywhere. Image rendering happens locally in your
+          browser.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>Which games does it support?</h3>
+        <p>
+          The tool focuses on the Tekken series, with themes for TEKKEN 8, TEKKEN
+          7, arcade buttons, and PlayStation/Xbox face buttons, plus a universal
+          numpad style that works for some 2D and 3D fighters.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I use the images I make?</h3>
+        <p>
+          You can use exported images for personal use, community content, social
+          media, and strategy guides. Game names, characters, and button designs
+          belong to their respective publishers. See our
+          <a href="/terms.html">Terms of Service</a> for details.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>What resolution should I export at?</h3>
+        <p>
+          Use high resolution for guides and thumbnails where the image will be
+          enlarged, and medium or low for quick Discord shares where file size
+          matters more than sharpness.
+        </p>
+      </div>
+
+      <footer>
+        <a href="/tool/">Notation Maker</a>
+        <a href="/guide.html">Notation Guide</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+        <a href="/contact.html">Contact</a>
+      </footer>
+    </div>
   </body>
 </html>
