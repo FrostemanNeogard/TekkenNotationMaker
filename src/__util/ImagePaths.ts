@@ -1,97 +1,96 @@
 import { CharacterNotationImage } from "../__types/commonTypes";
 
 // STANCES
-import aop from "../assets/images/upscaled/stances/aop.webp";
+import aop from "../assets/images/upscaled/stances/aop.png";
 import bad from "../assets/images/upscaled/stances/bad.png";
 import bal from "../assets/images/upscaled/stances/bal.png";
 import bj from "../assets/images/upscaled/stances/bj.png";
-import bkp from "../assets/images/upscaled/stances/bkp.webp";
-import bok from "../assets/images/upscaled/stances/bok.webp";
+import bkp from "../assets/images/upscaled/stances/bkp.png";
+import bok from "../assets/images/upscaled/stances/bok.png";
 import bt from "../assets/images/upscaled/stances/bt.png";
-import bt_old from "../assets/images/upscaled/stances/bt_old.webp";
 import cat from "../assets/images/upscaled/stances/cat.png";
-import cd from "../assets/images/upscaled/stances/cd.webp";
+import cd from "../assets/images/upscaled/stances/cd.png";
 import cjm from "../assets/images/upscaled/stances/cjm.png";
-import dbt from "../assets/images/upscaled/stances/dbt.webp";
-import dck from "../assets/images/upscaled/stances/dck.webp";
-import den from "../assets/images/upscaled/stances/den.webp";
-import des from "../assets/images/upscaled/stances/des.webp";
-import dew from "../assets/images/upscaled/stances/dew.webp";
-import dgf from "../assets/images/upscaled/stances/dgf.webp";
-import dpd from "../assets/images/upscaled/stances/dpd.webp";
-import dss from "../assets/images/upscaled/stances/dss.webp";
-import ext_dck from "../assets/images/upscaled/stances/ext_dck.webp";
-import flea from "../assets/images/upscaled/stances/flea.webp";
-import flk from "../assets/images/upscaled/stances/flk.webp";
-import fly from "../assets/images/upscaled/stances/fly.webp";
+import dbt from "../assets/images/upscaled/stances/dbt.png";
+import dck from "../assets/images/upscaled/stances/dck.png";
+import den from "../assets/images/upscaled/stances/den.png";
+import des from "../assets/images/upscaled/stances/des.png";
+import dew from "../assets/images/upscaled/stances/dew.png";
+import dgf from "../assets/images/upscaled/stances/dgf.png";
+import dpd from "../assets/images/upscaled/stances/dpd.png";
+import dss from "../assets/images/upscaled/stances/dss.png";
+import ext_dck from "../assets/images/upscaled/stances/ext_dck.png";
+import flea from "../assets/images/upscaled/stances/flea.png";
+import flk from "../assets/images/upscaled/stances/flk.png";
+import fly from "../assets/images/upscaled/stances/fly.png";
 import fuj from "../assets/images/upscaled/stances/fuj.png";
 import gar from "../assets/images/upscaled/stances/gar.png";
-import gen from "../assets/images/upscaled/stances/gen.webp";
-import gmc from "../assets/images/upscaled/stances/gmc.webp";
-import gmh from "../assets/images/upscaled/stances/gmh.webp";
-import gs from "../assets/images/upscaled/stances/gs.webp";
+import gen from "../assets/images/upscaled/stances/gen.png";
+import gmc from "../assets/images/upscaled/stances/gmc.png";
+import gmh from "../assets/images/upscaled/stances/gmh.png";
+import gs from "../assets/images/upscaled/stances/gs.png";
 import hae from "../assets/images/upscaled/stances/hae.png";
-import hbs from "../assets/images/upscaled/stances/hbs.webp";
+import hbs from "../assets/images/upscaled/stances/hbs.png";
 import hmc from "../assets/images/upscaled/stances/hmc.png";
-import hms from "../assets/images/upscaled/stances/hms.webp";
-import hrm from "../assets/images/upscaled/stances/hrm.webp";
+import hms from "../assets/images/upscaled/stances/hms.png";
+import hrm from "../assets/images/upscaled/stances/hrm.png";
 import hrs from "../assets/images/upscaled/stances/hrs.png";
-import hsp from "../assets/images/upscaled/stances/hsp.webp";
-import hyp from "../assets/images/upscaled/stances/hyp.webp";
-import iai from "../assets/images/upscaled/stances/iai.webp";
-import ind from "../assets/images/upscaled/stances/ind.webp";
-import isw from "../assets/images/upscaled/stances/isw.webp";
-import izu from "../assets/images/upscaled/stances/izu.webp";
-import jag from "../assets/images/upscaled/stances/jag.webp";
-import jgs from "../assets/images/upscaled/stances/jgs.webp";
+import hsp from "../assets/images/upscaled/stances/hsp.png";
+import hyp from "../assets/images/upscaled/stances/hyp.png";
+import iai from "../assets/images/upscaled/stances/iai.png";
+import ind from "../assets/images/upscaled/stances/ind.png";
+import isw from "../assets/images/upscaled/stances/isw.png";
+import izu from "../assets/images/upscaled/stances/izu.png";
+import jag from "../assets/images/upscaled/stances/jag.png";
+import jgs from "../assets/images/upscaled/stances/jgs.png";
 import kat from "../assets/images/upscaled/stances/kat.png";
-import kin from "../assets/images/upscaled/stances/kin.webp";
+import kin from "../assets/images/upscaled/stances/kin.png";
 import kmh from "../assets/images/upscaled/stances/kmh.png";
-import knk from "../assets/images/upscaled/stances/knk.webp";
-import len from "../assets/images/upscaled/stances/len.webp";
-import lff from "../assets/images/upscaled/stances/lff.webp";
-import lfs from "../assets/images/upscaled/stances/lfs.webp";
-import lib from "../assets/images/upscaled/stances/lib.webp";
-import lnh from "../assets/images/upscaled/stances/lnh.webp";
-import mcr from "../assets/images/upscaled/stances/mcr.webp";
-import med from "../assets/images/upscaled/stances/med.webp";
-import mia from "../assets/images/upscaled/stances/mia.webp";
+import knk from "../assets/images/upscaled/stances/knk.png";
+import len from "../assets/images/upscaled/stances/len.png";
+import lff from "../assets/images/upscaled/stances/lff.png";
+import lfs from "../assets/images/upscaled/stances/lfs.png";
+import lib from "../assets/images/upscaled/stances/lib.png";
+import lnh from "../assets/images/upscaled/stances/lnh.png";
+import mcr from "../assets/images/upscaled/stances/mcr.png";
+import med from "../assets/images/upscaled/stances/med.png";
+import mia from "../assets/images/upscaled/stances/mia.png";
 import mmo from "../assets/images/upscaled/stances/mmo.png";
-import mnt from "../assets/images/upscaled/stances/mnt.webp";
-import nss from "../assets/images/upscaled/stances/nss.webp";
-import nwg from "../assets/images/upscaled/stances/nwg.webp";
-import pab from "../assets/images/upscaled/stances/pab.webp";
+import mnt from "../assets/images/upscaled/stances/mnt.png";
+import nss from "../assets/images/upscaled/stances/nss.png";
+import nwg from "../assets/images/upscaled/stances/nwg.png";
+import pab from "../assets/images/upscaled/stances/pab.png";
 import phx from "../assets/images/upscaled/stances/phx.png";
 import plt from "../assets/images/upscaled/stances/plt.png";
-import prf from "../assets/images/upscaled/stances/prf.webp";
-import rab from "../assets/images/upscaled/stances/rab.webp";
+import prf from "../assets/images/upscaled/stances/prf.png";
+import rab from "../assets/images/upscaled/stances/rab.png";
 import rai from "../assets/images/upscaled/stances/rai.png";
 import ram from "../assets/images/upscaled/stances/ram.png";
-import rds from "../assets/images/upscaled/stances/rds.webp";
-import rff from "../assets/images/upscaled/stances/rff.webp";
-import rfs from "../assets/images/upscaled/stances/rfs.webp";
-import rlx from "../assets/images/upscaled/stances/rlx.webp";
-import roll from "../assets/images/upscaled/stances/roll.webp";
-import sbt from "../assets/images/upscaled/stances/sbt.webp";
-import scr from "../assets/images/upscaled/stances/scr.webp";
-import sen from "../assets/images/upscaled/stances/sen.webp";
+import rds from "../assets/images/upscaled/stances/rds.png";
+import rff from "../assets/images/upscaled/stances/rff.png";
+import rfs from "../assets/images/upscaled/stances/rfs.png";
+import rlx from "../assets/images/upscaled/stances/rlx.png";
+import rol from "../assets/images/upscaled/stances/rol.png";
+import sbt from "../assets/images/upscaled/stances/sbt.png";
+import scr from "../assets/images/upscaled/stances/scr.png";
+import sen from "../assets/images/upscaled/stances/sen.png";
 import set from "../assets/images/upscaled/stances/set.png";
-import sit from "../assets/images/upscaled/stances/sit.webp";
-import sne from "../assets/images/upscaled/stances/sne.webp";
-import snk from "../assets/images/upscaled/stances/snk.webp";
-import stb from "../assets/images/upscaled/stances/stb.webp";
-import stc from "../assets/images/upscaled/stances/stc.webp";
-import swa from "../assets/images/upscaled/stances/swa.webp";
-import swy from "../assets/images/upscaled/stances/swy.webp";
-import szn from "../assets/images/upscaled/stances/szn.webp";
+import sit from "../assets/images/upscaled/stances/sit.png";
+import sne from "../assets/images/upscaled/stances/sne.png";
+import snk from "../assets/images/upscaled/stances/snk.png";
+import stb from "../assets/images/upscaled/stances/stb.png";
+import stc from "../assets/images/upscaled/stances/stc.png";
+import swa from "../assets/images/upscaled/stances/swa.png";
+import swy from "../assets/images/upscaled/stances/swy.png";
+import szn from "../assets/images/upscaled/stances/szn.png";
 import tgk from "../assets/images/upscaled/stances/tgk.png";
-import trt from "../assets/images/upscaled/stances/trt.webp";
-import uns from "../assets/images/upscaled/stances/uns.webp";
+import trt from "../assets/images/upscaled/stances/trt.png";
+import uns from "../assets/images/upscaled/stances/uns.png";
 import wgk from "../assets/images/upscaled/stances/wgk.png";
 import wlf from "../assets/images/upscaled/stances/wlf.png";
 import wol from "../assets/images/upscaled/stances/wol.png";
-import wra from "../assets/images/upscaled/stances/wra.webp";
-import zen from "../assets/images/upscaled/stances/zen.webp";
+import wra from "../assets/images/upscaled/stances/wra.png";
+import zen from "../assets/images/upscaled/stances/zen.png";
 
 export const CharacterSpecificImagePaths: CharacterNotationImage = {
   alisa: {
@@ -149,7 +148,7 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
     },
     bt: {
       text: "BT",
-      src: bt_old,
+      src: bt,
     },
   },
   bob: {
@@ -251,7 +250,7 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
     },
     bt: {
       text: "BT",
-      src: bt_old,
+      src: bt,
     },
   },
   heihachi: {
@@ -361,9 +360,9 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
       text: "SIT",
       src: sit,
     },
-    roll: {
-      text: "ROLL",
-      src: roll,
+    rol: {
+      text: "ROL",
+      src: rol,
     },
   },
   kunimitsu: {
@@ -451,7 +450,7 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
     },
     bt: {
       text: "BT",
-      src: bt_old,
+      src: bt,
     },
   },
   miary: {
@@ -483,9 +482,9 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
       text: "SIT",
       src: sit,
     },
-    roll: {
-      text: "ROLL",
-      src: roll,
+    rol: {
+      text: "ROL",
+      src: rol,
     },
   },
   paul: {
@@ -505,7 +504,7 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
     },
     bt: {
       text: "BT",
-      src: bt_old,
+      src: bt,
     },
   },
   reina: {
@@ -589,7 +588,7 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
     },
     bt: {
       text: "BT",
-      src: bt_old,
+      src: bt,
     },
     kin: {
       text: "KIN",
