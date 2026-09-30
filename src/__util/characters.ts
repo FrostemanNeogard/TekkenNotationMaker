@@ -122,6 +122,10 @@ export const enCharacters: Character[] = [
     pathName: "lili",
   },
   {
+    displayName: "Miary Zo",
+    pathName: "miary",
+  },
+  {
     displayName: "Nina",
     pathName: "nina",
   },
@@ -164,10 +168,6 @@ export const enCharacters: Character[] = [
   {
     displayName: "Zafina",
     pathName: "zafina",
-  },
-  {
-    displayName: "Miary Zo",
-    pathName: "miary",
   },
 ];
 
