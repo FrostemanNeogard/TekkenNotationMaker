@@ -22,6 +22,10 @@ export const enCharacters: Character[] = [
     pathName: "azucena",
   },
   {
+    displayName: "Bob",
+    pathName: "bob",
+  },
+  {
     displayName: "Bryan",
     pathName: "bryan",
   },
@@ -332,4 +336,8 @@ export const jpCharacters: Character[] = [
     displayName: "州光",
     pathName: "kunimitsu",
   },
+  {
+    displayName: "ボブ",
+    pathName: "bob"
+  }
 ];

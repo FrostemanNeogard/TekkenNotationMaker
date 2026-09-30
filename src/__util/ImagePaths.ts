@@ -3,6 +3,7 @@ import { CharacterNotationImage } from "../__types/commonTypes";
 // STANCES
 import aop from "../assets/images/upscaled/stances/aop.webp";
 import bad from "../assets/images/upscaled/stances/bad.png";
+import bal from "../assets/images/upscaled/stances/bal.png";
 import bj from "../assets/images/upscaled/stances/bj.png";
 import bkp from "../assets/images/upscaled/stances/bkp.webp";
 import bok from "../assets/images/upscaled/stances/bok.webp";
@@ -150,6 +151,20 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
       text: "BT",
       src: bt_old,
     },
+  },
+  bob: {
+    bal: {
+      text: "BAL",
+      src: bal
+    },
+    bt: {
+      text: "BT",
+      src: bt,
+    },
+    cd: {
+      text: "CD",
+      src: cd
+    }
   },
   bryan: {
     sne: {
