@@ -281,13 +281,13 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
       text: "RFS",
       src: rfs,
     },
-    rff: {
-      text: "RFF",
-      src: rff,
-    },
     lff: {
       text: "LFF",
       src: lff,
+    },
+    rff: {
+      text: "RFF",
+      src: rff,
     },
   },
   jack_8: {
