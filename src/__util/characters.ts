@@ -2,6 +2,10 @@ import { Character } from "../__types/commonTypes";
 
 export const enCharacters: Character[] = [
   {
+    displayName: "Roger JR.",
+    pathName: "rogerjr",
+  },
+  {
     displayName: "Alisa",
     pathName: "alisa",
   },

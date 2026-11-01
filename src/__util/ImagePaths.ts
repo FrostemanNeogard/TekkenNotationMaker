@@ -2,6 +2,9 @@ import { CharacterNotationImage } from "../__types/commonTypes";
 
 // STANCES
 import aop from "../assets/images/upscaled/stances/aop.png";
+import bd from "../assets/images/upscaled/stances/bd.png";
+import ast from "../assets/images/upscaled/stances/ast.png";
+import rs from "../assets/images/upscaled/stances/rs.png";
 import bad from "../assets/images/upscaled/stances/bad.png";
 import bal from "../assets/images/upscaled/stances/bal.png";
 import bj from "../assets/images/upscaled/stances/bj.png";
@@ -523,6 +526,28 @@ export const CharacterSpecificImagePaths: CharacterNotationImage = {
     cd: {
       text: "CD",
       src: cd,
+    },
+  },
+  rogerjr: {
+    bd: {
+      text: "BD",
+      src: bd
+    },
+        ast: {
+      text: "AST",
+      src: ast
+    },
+        rs: {
+      text: "RS",
+      src: rs
+    },
+        cd: {
+      text: "CD",
+      src: cd
+    },
+            bt: {
+      text: "BT",
+      src: bt
     },
   },
   shaheen: {
