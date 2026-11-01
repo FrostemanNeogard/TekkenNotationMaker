@@ -2,10 +2,6 @@ import { Character } from "../__types/commonTypes";
 
 export const enCharacters: Character[] = [
   {
-    displayName: "Bob",
-    pathName: "bob",
-  },
-  {
     displayName: "Alisa",
     pathName: "alisa",
   },
@@ -24,6 +20,10 @@ export const enCharacters: Character[] = [
   {
     displayName: "Azucena",
     pathName: "azucena",
+  },
+  {
+    displayName: "Bob",
+    pathName: "bob",
   },
   {
     displayName: "Bryan",
@@ -122,6 +122,10 @@ export const enCharacters: Character[] = [
     pathName: "lili",
   },
   {
+    displayName: "Miary Zo",
+    pathName: "miary",
+  },
+  {
     displayName: "Nina",
     pathName: "nina",
   },
@@ -164,10 +168,6 @@ export const enCharacters: Character[] = [
   {
     displayName: "Zafina",
     pathName: "zafina",
-  },
-  {
-    displayName: "Miary Zo",
-    pathName: "miary",
   },
 ];
 
