@@ -2,7 +2,7 @@ services:
   web-app:
     image: nginx:alpine
     ports:
-      - "5174:80"
+      - "5173:80"
     volumes:
       - ./dist:/usr/share/nginx/html:ro
     restart: always
