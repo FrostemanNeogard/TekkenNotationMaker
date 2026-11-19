@@ -17,3 +17,18 @@ export type Theme =
   | "tekken8xbox"
   | "tekken8playstation"
   | "numpad";
+
+export type NotationStyle = {
+  name: string;
+  stanceFill: string;
+  stanceOutline: string;
+  stanceOutlineWidth: number;
+  stanceFont: string;
+  labelBackground: string;
+  labelText: string;
+  labelRadius: number;
+  labelFont: string;
+  labelOpacity: number;
+};
+
+export type SavedNotationStyle = NotationStyle & { id: string };

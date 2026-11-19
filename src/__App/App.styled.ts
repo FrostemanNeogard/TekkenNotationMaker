@@ -1,8 +1,5 @@
-import styled, { css } from "styled-components";
-
-const notationHeight = (height: string) => css`
-  --notation-height: ${height};
-`;
+import styled from "styled-components";
+import { notationHeight } from "../components/NotationText/NotationText.styled";
 
 export const App = styled.div`
   background-color: ${(props) => props.theme.colors.primary};
@@ -12,36 +9,6 @@ export const App = styled.div`
   display: grid;
   grid-template-rows: auto auto min-content min-content;
   column-gap: 2rem;
-`;
-
-const notationText = css`
-  display: inline-block;
-  vertical-align: bottom;
-  height: var(--notation-height);
-  line-height: var(--notation-height);
-  font-family: "Roboto", sans-serif;
-  font-weight: 900;
-  white-space: nowrap;
-  color: white;
-`;
-
-export const StanceText = styled.span`
-  ${notationText}
-  font-size: var(--notation-height);
-  padding: 0 0.1em;
-  -webkit-text-stroke: 0.06em black;
-  paint-order: stroke fill;
-  stroke-linejoin: round;
-`;
-
-export const LabelText = styled.span`
-  ${notationText}
-  font-family: "Roboto Condensed", "Roboto", sans-serif;
-  font-size: calc(var(--notation-height) * 0.8);
-  font-weight: 700;
-  padding: 0 calc(var(--notation-height) * 0.12);
-  background-color: salmon;
-  border-radius: calc(var(--notation-height) * 0.09);
 `;
 
 export const NotationButton = styled.img`

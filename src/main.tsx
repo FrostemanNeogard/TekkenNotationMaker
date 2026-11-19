@@ -15,6 +15,7 @@ import common_pl from "./translations/pl/common.json";
 i18next.init({
   interpolation: { escapeValue: false },
   lng: "en",
+  fallbackLng: "en",
   resources: {
     en: {
       common: common_en,

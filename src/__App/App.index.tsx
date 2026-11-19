@@ -19,11 +19,23 @@ import {
 } from "react-icons/fa";
 import * as S from "./App.styled";
 import * as htmlToImage from "html-to-image";
-import { Character, ComboItem, NotationImage } from "../__types/commonTypes";
+import {
+  Character,
+  ComboItem,
+  NotationImage,
+  NotationStyle,
+} from "../__types/commonTypes";
 import { enCharacters, jpCharacters } from "../__util/characters";
 import { Footer } from "../components/Footer/Footer.index";
 import { Theme } from "../__types/commonTypes";
 import { useTranslation } from "react-i18next";
+import { StyleEditor } from "../components/StyleEditor/StyleEditor.index";
+import {
+  LabelText,
+  StanceText,
+} from "../components/NotationText/NotationText.styled";
+import { defaultStyleId, notationStyleVars } from "../__util/notationStyles";
+import { useNotationStyles } from "../__util/useNotationStyles";
 import { LanguageSelector } from "../components/LanguageSelector/LanguageSelector.index";
 
 function App() {
@@ -34,13 +46,15 @@ function App() {
   const [bottomText, setBottomText] = useState<string>("");
   const [quality, setQuality] = useState<string>("medium");
   const [selectedCharacter, setSelectedCharacter] = useState<Character>(
-    enCharacters[0]
+    enCharacters[0],
   );
   const [comboNotation, setComboNotation] = useState<ComboItem[]>([]);
   const [lastKnownComboNotation, setLastKnownComboNotation] = useState<
     ComboItem[]
   >([]);
   const [cursorIndex, setCursorIndex] = useState<number>(0);
+  const notationStyles = useNotationStyles();
+  const [styleDraft, setStyleDraft] = useState<NotationStyle | null>(null);
   const { t, i18n } = useTranslation("common");
   const currentLang = i18n.language;
 
@@ -132,7 +146,7 @@ function App() {
   const handleCharacterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const characterName = e.target.value;
     const character = characters().filter(
-      (value) => value.displayName === characterName
+      (value) => value.displayName === characterName,
     );
     if (character.length <= 0) {
       alert("Something went wrong.");
@@ -144,9 +158,9 @@ function App() {
   const renderItem = (item: ComboItem, key: string) => {
     switch (item.type) {
       case "stance":
-        return <S.StanceText key={key}>{item.text}</S.StanceText>;
+        return <StanceText key={key}>{item.text}</StanceText>;
       case "label":
-        return <S.LabelText key={key}>{item.text}</S.LabelText>;
+        return <LabelText key={key}>{item.text}</LabelText>;
       default:
         return <S.NotationOutput key={key} src={item.src} draggable={false} />;
     }
@@ -181,17 +195,17 @@ function App() {
             quality === "high"
               ? 1
               : quality === "medium"
-              ? 0.5
-              : quality === "low"
-              ? 0.1
-              : 1
+                ? 0.5
+                : quality === "low"
+                  ? 0.1
+                  : 1
           }
         >
           <div ref={divRef}>
             {topText && <p>{topText}</p>}
             <section>
               {comboNotation.map((item, index) =>
-                renderItem(item, `r-${index}`)
+                renderItem(item, `r-${index}`),
               )}
             </section>
             {bottomText && <p>{bottomText}</p>}
@@ -265,7 +279,7 @@ function App() {
   };
 
   return (
-    <S.App>
+    <S.App style={notationStyleVars(styleDraft ?? notationStyles.selected)}>
       <Output />
       <S.EditorUI>
         <S.EditorOptions>
@@ -322,29 +336,49 @@ function App() {
               value={bottomText}
             />
           </div>
+
+          <StyleEditor
+            styles={notationStyles.styles}
+            selected={notationStyles.selected}
+            draft={styleDraft}
+            onSelect={notationStyles.select}
+            onDraftChange={setStyleDraft}
+            onSave={(style) => {
+              const { id } = notationStyles.selected;
+              notationStyles.save(
+                style,
+                id === defaultStyleId ? undefined : id,
+              );
+              setStyleDraft(null);
+            }}
+            onDelete={() => {
+              notationStyles.remove(notationStyles.selected.id);
+              setStyleDraft(null);
+            }}
+          />
         </S.EditorOptions>
         <S.NotationButtons>
           {allImages.map((key: NotationImage, index) => (
             <EditorNotationButtons image={key} key={key.src + index} />
           ))}
           {themeLabels.map((text) => (
-            <S.LabelText
+            <LabelText
               key={text}
               role="button"
               onClick={() => pushItem({ type: "label", text })}
             >
               {text}
-            </S.LabelText>
+            </LabelText>
           ))}
           <S.HorizontalDivider />
           {characterStances.map((text) => (
-            <S.StanceText
+            <StanceText
               key={text}
               role="button"
               onClick={() => pushItem({ type: "stance", text })}
             >
               {text}
-            </S.StanceText>
+            </StanceText>
           ))}
         </S.NotationButtons>
         <S.EditorNav>
