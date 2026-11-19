@@ -9,7 +9,7 @@ import {
   NumpadThemeOverrides,
   T7PCThemeOverrides,
 } from "../__util/ThemeOverrides";
-import { CharacterSpecificImagePaths } from "../__util/ImagePaths";
+import { CharacterStances } from "../__util/CharacterStances";
 import {
   FaBackspace,
   FaFileDownload,
@@ -18,7 +18,7 @@ import {
 } from "react-icons/fa";
 import * as S from "./App.styled";
 import * as htmlToImage from "html-to-image";
-import { Character, NotationImage } from "../__types/commonTypes";
+import { Character, ComboItem, NotationImage } from "../__types/commonTypes";
 import { enCharacters, jpCharacters } from "../__util/characters";
 import { Footer } from "../components/Footer/Footer.index";
 import { Theme } from "../__types/commonTypes";
@@ -35,9 +35,9 @@ function App() {
   const [selectedCharacter, setSelectedCharacter] = useState<Character>(
     enCharacters[0]
   );
-  const [comboNotation, setComboNotation] = useState<string[]>([]);
+  const [comboNotation, setComboNotation] = useState<ComboItem[]>([]);
   const [lastKnownComboNotation, setLastKnownComboNotation] = useState<
-    string[]
+    ComboItem[]
   >([]);
   const [cursorIndex, setCursorIndex] = useState<number>(0);
   const { t, i18n } = useTranslation("common");
@@ -86,15 +86,15 @@ function App() {
     }
   }
 
-  const pushImageSrc = (imageSrc: string) => {
+  const pushItem = (item: ComboItem) => {
     if (cursorIndex >= comboNotation.length - 1) {
-      setComboNotation([...comboNotation, imageSrc]);
+      setComboNotation([...comboNotation, item]);
       incrementCursorIndex();
       return;
     }
     const newArray = [
       ...comboNotation.slice(0, cursorIndex + 1),
-      imageSrc,
+      item,
       ...comboNotation.slice(cursorIndex + 1),
     ];
     setComboNotation(newArray);
@@ -140,6 +140,13 @@ function App() {
     setSelectedCharacter(character[0]);
   };
 
+  const renderItem = (item: ComboItem, key: string) =>
+    item.type === "text" ? (
+      <S.StanceText key={key}>{item.text}</S.StanceText>
+    ) : (
+      <S.NotationOutput key={key} src={item.src} draggable={false} />
+    );
+
   const Output = () => {
     return (
       <>
@@ -153,13 +160,9 @@ function App() {
               {topText && <p>{topText}</p>}
               <section>
                 {cursorIndex == -1 && <S.Cursor />}
-                {comboNotation.map((imageSrc, index) => (
+                {comboNotation.map((item, index) => (
                   <Fragment key={`fragment-${index}`}>
-                    <S.NotationOutput
-                      key={`${index}`}
-                      src={imageSrc}
-                      draggable={false}
-                    />
+                    {renderItem(item, `${index}`)}
                     {index === cursorIndex && <S.Cursor key={`s-${index}`} />}
                   </Fragment>
                 ))}
@@ -182,12 +185,9 @@ function App() {
           <div ref={divRef}>
             {topText && <p>{topText}</p>}
             <section>
-              {comboNotation.map((imageSrc, index) => (
-                <S.NotationOutput
-                  key={`r-${index}-${imageSrc}`}
-                  src={imageSrc}
-                />
-              ))}
+              {comboNotation.map((item, index) =>
+                renderItem(item, `r-${index}`)
+              )}
             </section>
             {bottomText && <p>{bottomText}</p>}
           </div>
@@ -217,9 +217,7 @@ function App() {
 
   const themeIcons = buttonImagesPath();
   const allImages = Object.values(themeIcons);
-  const characterImages = Object.values(
-    CharacterSpecificImagePaths[selectedCharacter.pathName] ?? {}
-  );
+  const characterStances = CharacterStances[selectedCharacter.pathName] ?? [];
 
   const EditorNotationButtons = (props: { image: NotationImage }) => {
     const { image } = props;
@@ -233,7 +231,7 @@ function App() {
         src={image.src}
         alt={image.text}
         key={image.src}
-        onClick={() => pushImageSrc(image.src)}
+        onClick={() => pushItem({ type: "image", src: image.src })}
         draggable={false}
       />
     );
@@ -324,8 +322,14 @@ function App() {
             <EditorNotationButtons image={key} key={key.src + index} />
           ))}
           <S.HorizontalDivider />
-          {characterImages.map((key: NotationImage, index) => (
-            <EditorNotationButtons image={key} key={key.src + index} />
+          {characterStances.map((text) => (
+            <S.StanceText
+              key={text}
+              role="button"
+              onClick={() => pushItem({ type: "text", text })}
+            >
+              {text}
+            </S.StanceText>
           ))}
         </S.NotationButtons>
         <S.EditorNav>

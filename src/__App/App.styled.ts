@@ -1,4 +1,15 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+const stanceText = (height: string) => css`
+  .stance-text {
+    display: inline-block;
+    vertical-align: bottom;
+    font-size: ${height};
+    height: 1em;
+    line-height: 1;
+    padding: 0 0.1em;
+  }
+`;
 
 export const App = styled.div`
   background-color: ${(props) => props.theme.colors.primary};
@@ -8,6 +19,16 @@ export const App = styled.div`
   display: grid;
   grid-template-rows: auto auto min-content min-content;
   column-gap: 2rem;
+`;
+
+export const StanceText = styled.span.attrs({ className: "stance-text" })`
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  white-space: nowrap;
+  color: white;
+  -webkit-text-stroke: 0.06em black;
+  paint-order: stroke fill;
+  stroke-linejoin: round;
 `;
 
 export const NotationButton = styled.img`
@@ -87,6 +108,7 @@ export const PreviewContent = styled.div`
     height: 50px;
     width: auto;
   }
+  ${stanceText("50px")}
 `;
 
 export const NotationOutput = styled.img`
@@ -133,6 +155,7 @@ export const NotationContainer = styled.div<{ $qualityMultiplier: number }>`
       width: auto;
       height: calc(500px * ${(props) => props.$qualityMultiplier});
     }
+    ${(props) => stanceText(`calc(500px * ${props.$qualityMultiplier})`)}
   }
 
   /* article {
@@ -187,6 +210,15 @@ export const NotationButtons = styled.nav`
   gap: 0.2rem;
   img {
     height: 3.5em;
+  }
+  ${stanceText("3.5em")}
+
+  .stance-text[role="button"] {
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(80%);
+    }
   }
 `;
 
