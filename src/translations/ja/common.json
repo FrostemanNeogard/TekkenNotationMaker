@@ -37,7 +37,14 @@
       "save": "保存",
       "cancel": "キャンセル",
       "delete": "削除",
-      "restore_defaults": "デフォルトに戻す"
+      "restore_defaults": "デフォルトに戻す",
+      "stance_size": "構え文字のサイズ",
+      "stance_padding": "構え文字の内側余白",
+      "stance_margin": "構え文字の外側余白",
+      "label_backdrop": "ラベルの背景を表示",
+      "label_size": "ラベルの文字サイズ",
+      "label_padding": "ラベルの内側余白",
+      "label_margin": "ラベルの外側余白"
     },
     "top_text": "上部文字",
     "bottom_text": "下部文字",

@@ -37,7 +37,14 @@
       "save": "Zapisz",
       "cancel": "Anuluj",
       "delete": "Usuń",
-      "restore_defaults": "Przywróć domyślne"
+      "restore_defaults": "Przywróć domyślne",
+      "stance_size": "Rozmiar tekstu postaw",
+      "stance_padding": "Odstęp wewnętrzny postaw",
+      "stance_margin": "Margines postaw",
+      "label_backdrop": "Pokaż tło etykiet",
+      "label_size": "Rozmiar tekstu etykiet",
+      "label_padding": "Odstęp wewnętrzny etykiet",
+      "label_margin": "Margines etykiet"
     },
     "top_text": "Tekst na górze",
     "bottom_text": "Tekst na dole",

@@ -37,7 +37,14 @@
       "save": "저장",
       "cancel": "취소",
       "delete": "삭제",
-      "restore_defaults": "기본값으로 복원"
+      "restore_defaults": "기본값으로 복원",
+      "stance_size": "자세 텍스트 크기",
+      "stance_padding": "자세 텍스트 안쪽 여백",
+      "stance_margin": "자세 텍스트 바깥 여백",
+      "label_backdrop": "라벨 배경 표시",
+      "label_size": "라벨 텍스트 크기",
+      "label_padding": "라벨 안쪽 여백",
+      "label_margin": "라벨 바깥 여백"
     },
     "top_text": "상단 텍스트",
     "bottom_text": "하단 텍스트",
