@@ -1,14 +1,19 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { theme } from "../__util/theme";
 import { notationHeight } from "../components/NotationText/NotationText.styled";
+
+const mobile = `@media screen and (max-width: ${theme.breakpoints.mobile})`;
 
 export const App = styled.div`
   background-color: ${(props) => props.theme.colors.primary};
   font-family: "Roboto", sans-serif;
   color: white;
   min-height: 100vh;
-  display: grid;
-  grid-template-rows: auto auto min-content min-content;
-  column-gap: 2rem;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 `;
 
 export const NotationButton = styled.img`
@@ -20,39 +25,67 @@ export const NotationButton = styled.img`
   }
 `;
 
-export const PreviewContainer = styled.div`
-  padding: 2rem 4rem;
+// Preview and toolbar stay pinned to the top so the result is always visible
+// while building the combo or tweaking a style further down the page.
+export const Header = styled.header`
+  position: sticky;
+  top: 0;
+  z-index: 10;
   display: grid;
-  height: min-content;
-  row-gap: 1rem;
+  row-gap: 0.6rem;
+  padding: 0.75rem max(2rem, calc((100% - 1500px) / 2 + 2rem));
+  background-color: ${(props) => props.theme.colors.primary};
+  border-bottom: 1px solid #ffffff1f;
+  box-shadow: 0 6px 16px #0007;
 
-  h1 {
-    font-size: 3rem;
-    text-align: center;
+  ${mobile} {
+    padding: 0.5rem 0.75rem;
+    row-gap: 0.5rem;
   }
 
-  @media screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    padding: 0;
+  /* Landscape phones: a pinned header would eat most of the screen. */
+  @media screen and (max-height: 500px) {
+    position: static;
+  }
+`;
 
-    h1 {
-      display: none;
+export const PreviewContainer = styled.div`
+  display: grid;
+  row-gap: 0.5rem;
+  min-width: 0;
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+
+    ${mobile} {
+      font-size: 1rem;
     }
   }
 `;
 
 export const PreviewHeader = styled.div`
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  gap: 1rem;
 `;
 
 export const PreviewContent = styled.div`
-  border: 5px solid gray;
+  border: 3px solid gray;
   background-color: ${(props) => props.theme.colors.secondary};
   border-radius: 10px;
-  padding: 1rem;
+  padding: 0.75rem 1rem;
   max-width: 100% !important;
-  height: min-content;
   min-height: 50px;
+  max-height: min(28vh, 240px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  ${mobile} {
+    padding: 0.5rem 0.75rem;
+    max-height: 26vh;
+  }
 
   div {
     display: grid;
@@ -70,6 +103,11 @@ export const PreviewContent = styled.div`
     justify-self: center;
     margin: 1rem 0;
     white-space: nowrap;
+
+    ${mobile} {
+      font-size: 1.5rem;
+      margin: 0.5rem 0;
+    }
 
     &:first-child {
       grid-row: 1;
@@ -98,7 +136,10 @@ export const NotationOutput = styled.img`
 export const NotationContainer = styled.div<{ $qualityMultiplier: number }>`
   overflow: hidden;
   width: max-content;
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
   transform: translateY(-300vw);
   z-index: -90000;
 
@@ -167,37 +208,62 @@ export const NotationContainer = styled.div<{ $qualityMultiplier: number }>`
 `;
 
 export const EditorUI = styled.div`
-  background-color: ${(props) => props.theme.colors.secondary};
+  flex: 1;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem 2rem;
   display: grid;
-  grid-template-columns: 20% auto 20%;
-  column-gap: 1rem;
-  justify-content: center;
-  padding: 2vmin 4vmin;
-
-  align-self: flex-end;
+  grid-template-columns: 340px minmax(0, 1fr);
+  grid-template-areas: "options main";
+  align-items: start;
+  gap: 1.5rem;
 
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
 
-  @media screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    grid-template-columns: 1fr;
-    grid-auto-flow: column;
-    grid-template-rows: auto auto auto;
+  ${mobile} {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "main" "options";
+    padding: 0.75rem 0.75rem 1.5rem;
+    gap: 0.75rem;
   }
 `;
 
+const card = css`
+  background-color: ${(props) => props.theme.colors.secondary};
+  border-radius: 10px;
+  padding: 1rem;
+  min-width: 0;
+
+  ${mobile} {
+    padding: 0.75rem;
+  }
+`;
+
+export const EditorMain = styled.div`
+  grid-area: main;
+  display: grid;
+  gap: 0.75rem;
+  min-width: 0;
+`;
+
 export const NotationButtons = styled.nav`
+  ${card}
   display: flex;
   height: min-content;
-  padding: 1rem 0;
   flex-wrap: wrap;
   gap: 0.2rem;
   row-gap: calc(0.2rem + var(--notation-height) * var(--icon-reach));
   img {
-    height: 3.5em;
+    height: var(--notation-height);
   }
   ${notationHeight("3.5rem")}
+
+  ${mobile} {
+    ${notationHeight("3rem")}
+  }
 
   span[role="button"] {
     cursor: pointer;
@@ -208,74 +274,123 @@ export const NotationButtons = styled.nav`
   }
 `;
 
-export const EditorOptions = styled.div`
+export const CharacterSection = styled.section`
+  ${card}
   display: flex;
-  flex-direction: column;
-  row-gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  ${notationHeight("3.5rem")}
 
-  div {
-    display: flex;
-    flex-direction: column;
-  }
-
-  label {
-    padding: 0.5rem 0;
-  }
-
-  input {
-    padding: 1rem;
+  ${mobile} {
+    ${notationHeight("3rem")}
   }
 
   select {
-    font-size: 1.2rem;
-    filter: drop-shadow(#0008 3px 3px 5px);
+    width: 100%;
+    margin-bottom: 0.6rem;
+    padding: 0.6rem;
+    font-size: 1rem;
     border: none;
-    padding: 1rem;
+    border-radius: 4px;
   }
+
+  span[role="button"] {
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(80%);
+    }
+  }
+`;
+
+export const CustomSection = styled.section`
+  ${card}
+  ${notationHeight("3.5rem")}
+
+  ${mobile} {
+    ${notationHeight("3rem")}
+  }
+`;
+
+export const EditorOptions = styled.div`
+  ${card}
+  grid-area: options;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+
+  label {
+    font-size: 0.85rem;
+    opacity: 0.85;
+  }
+
+  input,
+  select {
+    width: 100%;
+    min-width: 0;
+    padding: 0.6rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+  }
+`;
+
+export const OptionField = styled.div<{ $wide?: boolean }>`
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.25rem;
+  min-width: 0;
+  grid-column: ${(props) => (props.$wide ? "1 / -1" : "auto")};
+
+  ${mobile} {
+    grid-column: auto;
+  }
+`;
+
+export const EditorOptionsWide = styled.div`
+  grid-column: 1 / -1;
+  min-width: 0;
 `;
 
 export const EditorNav = styled.nav`
   display: grid;
-  row-gap: 1rem;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) minmax(0, 2fr);
+  gap: 0.4rem;
+  max-width: 34rem;
 
-  button,
-  select {
-    font-size: 1.2rem;
-    filter: drop-shadow(#0008 3px 3px 5px);
-    border: none;
-    padding: 1rem;
+  ${mobile} {
+    max-width: none;
   }
 
   button {
-    width: 100%;
-    width: 100%;
-    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.15rem;
+    color: black;
 
     &:hover {
       cursor: pointer;
       filter: brightness(80%);
     }
-  }
 
-  @media screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    column-span: all;
+    &:active {
+      transform: scale(0.96);
+    }
   }
 `;
-
-export const CharacterDropdown = styled.select``;
 
 export const SaveButton = styled.button`
   background-color: #3d3;
 
   &:disabled {
     pointer-events: none;
+    opacity: 0.6;
   }
-`;
-
-export const CursorNavigationButtons = styled.div`
-  display: grid;
-  column-gap: 0.5rem;
-  grid-template-columns: 1fr 1fr 3fr;
 `;
 
 export const CursorButton = styled.button`
@@ -314,7 +429,14 @@ export const ResetButton = styled.button`
   background-color: #d33;
 `;
 
-export const UndoButton = styled.button``;
+export const UndoButton = styled.button`
+  background-color: #ffffffdd;
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.4;
+  }
+`;
 
 export const VerticalDivider = styled.div`
   width: 1px;

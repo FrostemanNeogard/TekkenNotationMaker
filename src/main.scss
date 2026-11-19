@@ -6,6 +6,12 @@
 // Stylesheets
 @import './__util/styling/reset.scss';
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   height: 100vh;
   overflow-x: hidden;

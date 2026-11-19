@@ -198,100 +198,126 @@ export const StyleEditor = (props: Props) => {
               alt=""
             />
           </S.Sample>
-          <S.Row>
+
+          <S.Group>
             {colorField("stanceFill", t("app.styles.stance_fill"))}
             {colorField("stanceOutline", t("app.styles.stance_outline"))}
-          </S.Row>
-          {sliderField(
-            "stanceOutlineWidth",
-            t("app.styles.outline_width"),
-            0,
-            0.2,
-          )}
-          {sliderField("stanceSize", t("app.styles.stance_size"), 0.5, 1.3)}
-          {sliderField("stanceMargin", t("app.styles.stance_margin"), 0, 0.5)}
-          {fontField("stanceFont", t("app.styles.stance_font"))}
-          <S.CheckField>
-            <input
-              type="checkbox"
-              id="labelBackdrop"
-              checked={draft.labelBackdrop}
-              onChange={(e) => update("labelBackdrop", e.target.checked)}
-            />
-            <label htmlFor="labelBackdrop">
-              {t("app.styles.label_backdrop")}
-            </label>
-          </S.CheckField>
-          {draft.labelBackdrop && (
-            <>
-              {colorField("labelBackground", t("app.styles.label_background"))}
-              {sliderField("labelOpacity", t("app.styles.label_opacity"), 0, 1)}
-              {sliderField("labelRadius", t("app.styles.label_radius"), 0, 0.5)}
-              {sliderField(
-                "labelPadding",
-                t("app.styles.label_padding"),
-                0,
-                0.5,
-              )}
-            </>
-          )}
-          {colorField("labelText", t("app.styles.label_text"))}
-          {sliderField("labelSize", t("app.styles.label_size"), 0.4, 1.2)}
-          {sliderField("labelMargin", t("app.styles.label_margin"), 0, 0.5)}
-          {fontField("labelFont", t("app.styles.label_font"))}
-          <S.CheckField>
-            <input
-              type="checkbox"
-              id="borderIcons"
-              checked={draft.borderIcons}
-              onChange={(e) => update("borderIcons", e.target.checked)}
-            />
-            <label htmlFor="borderIcons">{t("app.styles.border_icons")}</label>
-          </S.CheckField>
-          <S.CheckField>
-            <input
-              type="checkbox"
-              id="borderLabels"
-              checked={draft.borderLabels}
-              onChange={(e) => update("borderLabels", e.target.checked)}
-            />
-            <label htmlFor="borderLabels">
-              {t("app.styles.border_labels")}
-            </label>
-          </S.CheckField>
-          {(draft.borderIcons || draft.borderLabels) && (
-            <>
-              {colorField("borderColor", t("app.styles.border_color"))}
-              {sliderField(
-                "borderWidth",
-                t("app.styles.border_width"),
-                0,
-                0.15,
-              )}
-              {sliderField("borderGlow", t("app.styles.border_glow"), 0, 0.15)}
-            </>
-          )}
-          <S.Button onClick={restoreDefaults}>
-            {t("app.styles.restore_defaults")}
-          </S.Button>
-          <S.Row>
-            <S.Button onClick={() => onSave(draft)}>
+            {sliderField(
+              "stanceOutlineWidth",
+              t("app.styles.outline_width"),
+              0,
+              0.2,
+            )}
+            {sliderField("stanceSize", t("app.styles.stance_size"), 0.5, 1.3)}
+            {sliderField("stanceMargin", t("app.styles.stance_margin"), 0, 0.5)}
+            {fontField("stanceFont", t("app.styles.stance_font"))}
+          </S.Group>
+
+          <S.Group>
+            <S.CheckField $wide>
+              <input
+                type="checkbox"
+                id="labelBackdrop"
+                checked={draft.labelBackdrop}
+                onChange={(e) => update("labelBackdrop", e.target.checked)}
+              />
+              <label htmlFor="labelBackdrop">
+                {t("app.styles.label_backdrop")}
+              </label>
+            </S.CheckField>
+            {draft.labelBackdrop && (
+              <>
+                {colorField(
+                  "labelBackground",
+                  t("app.styles.label_background"),
+                )}
+                {sliderField(
+                  "labelOpacity",
+                  t("app.styles.label_opacity"),
+                  0,
+                  1,
+                )}
+                {sliderField(
+                  "labelRadius",
+                  t("app.styles.label_radius"),
+                  0,
+                  0.5,
+                )}
+                {sliderField(
+                  "labelPadding",
+                  t("app.styles.label_padding"),
+                  0,
+                  0.5,
+                )}
+              </>
+            )}
+            {colorField("labelText", t("app.styles.label_text"))}
+            {sliderField("labelSize", t("app.styles.label_size"), 0.4, 1.2)}
+            {sliderField("labelMargin", t("app.styles.label_margin"), 0, 0.5)}
+            {fontField("labelFont", t("app.styles.label_font"))}
+          </S.Group>
+
+          <S.Group>
+            <S.CheckField>
+              <input
+                type="checkbox"
+                id="borderIcons"
+                checked={draft.borderIcons}
+                onChange={(e) => update("borderIcons", e.target.checked)}
+              />
+              <label htmlFor="borderIcons">
+                {t("app.styles.border_icons")}
+              </label>
+            </S.CheckField>
+            <S.CheckField>
+              <input
+                type="checkbox"
+                id="borderLabels"
+                checked={draft.borderLabels}
+                onChange={(e) => update("borderLabels", e.target.checked)}
+              />
+              <label htmlFor="borderLabels">
+                {t("app.styles.border_labels")}
+              </label>
+            </S.CheckField>
+            {(draft.borderIcons || draft.borderLabels) && (
+              <>
+                {colorField("borderColor", t("app.styles.border_color"))}
+                {sliderField(
+                  "borderWidth",
+                  t("app.styles.border_width"),
+                  0,
+                  0.15,
+                )}
+                {sliderField(
+                  "borderGlow",
+                  t("app.styles.border_glow"),
+                  0,
+                  0.15,
+                )}
+              </>
+            )}
+          </S.Group>
+
+          <S.Actions>
+            <S.Button $primary onClick={() => onSave(draft)}>
               {t("app.styles.save")}
             </S.Button>
             <S.Button onClick={() => onDraftChange(null)}>
               {t("app.styles.cancel")}
             </S.Button>
-          </S.Row>
-          <S.Row>
             <S.Button onClick={() => copyLink(draft)}>
               {copied ? t("app.styles.copied") : t("app.styles.share")}
+            </S.Button>
+            <S.Button onClick={restoreDefaults}>
+              {t("app.styles.restore_defaults")}
             </S.Button>
             {!isDefault && (
               <S.Button $danger onClick={onDelete}>
                 {t("app.styles.delete")}
               </S.Button>
             )}
-          </S.Row>
+          </S.Actions>
         </S.Panel>
       )}
     </S.StyleEditor>

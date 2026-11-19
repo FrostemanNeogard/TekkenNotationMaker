@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { saveAs } from "file-saver";
 import { Fragment } from "react";
 import {
@@ -45,6 +45,8 @@ import { LanguageSelector } from "../components/LanguageSelector/LanguageSelecto
 function App() {
   const divRef = useRef<HTMLDivElement | null>(null);
   const generationButtonRef = useRef<HTMLButtonElement | null>(null);
+  const previewRef = useRef<HTMLDivElement | null>(null);
+  const headerRef = useRef<HTMLElement | null>(null);
   const [theme, setTheme] = useState<Theme>("tekken8");
   const [topText, setTopText] = useState<string>("");
   const [bottomText, setBottomText] = useState<string>("");
@@ -63,6 +65,47 @@ function App() {
   const activeStyle = styleDraft ?? notationStyles.selected;
   const { t, i18n } = useTranslation("common");
   const currentLang = i18n.language;
+
+  // The preview scrolls once the combo gets long: keep the cursor in view.
+  useEffect(() => {
+    const container = previewRef.current;
+    const cursor = container?.querySelector<HTMLElement>("[data-cursor]");
+    if (!container || !cursor) {
+      return;
+    }
+    const top = cursor.offsetTop - container.offsetTop;
+    const bottom = top + cursor.offsetHeight;
+    if (top < container.scrollTop) {
+      container.scrollTop = top - 8;
+    } else if (bottom > container.scrollTop + container.clientHeight) {
+      container.scrollTop = bottom - container.clientHeight + 8;
+    }
+  }, [cursorIndex, comboNotation.length]);
+
+  // Expose the pinned header's height so sticky elements below it (the style
+  // sample) can sit right underneath it.
+  useEffect(() => {
+    const header = headerRef.current;
+    const root = header?.parentElement;
+    if (!header || !root) {
+      return;
+    }
+    const measure = () => {
+      const pinned = getComputedStyle(header).position === "sticky";
+      root.style.setProperty(
+        "--header-height",
+        pinned ? `${header.offsetHeight}px` : "0px",
+      );
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(header);
+    window.addEventListener("resize", measure);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", measure);
+    };
+  }, []);
 
   const characters = () => {
     switch (currentLang) {
@@ -200,44 +243,45 @@ function App() {
     }
   };
 
-  const Output = () => {
-    return (
-      <>
-        <S.PreviewContainer>
-          <S.PreviewHeader>
-            <h1>{t("app.output_preview")}</h1>
-            <LanguageSelector />
-          </S.PreviewHeader>
-          <S.PreviewContent>
-            <div>
-              {topText && <p>{topText}</p>}
-              <section>
-                {cursorIndex == -1 && <S.Cursor />}
-                {comboNotation.map((item, index) => (
-                  <Fragment key={`fragment-${index}`}>
-                    {renderItem(item, `${index}`, displayHeight)}
-                    {index === cursorIndex && <S.Cursor key={`s-${index}`} />}
-                  </Fragment>
-                ))}
-              </section>
-              {bottomText && <p>{bottomText}</p>}
-            </div>
-          </S.PreviewContent>
-        </S.PreviewContainer>
-        <S.NotationContainer $qualityMultiplier={qualityMultiplier}>
-          <div ref={divRef}>
-            {topText && <p>{topText}</p>}
-            <section>
-              {comboNotation.map((item, index) =>
-                renderItem(item, `r-${index}`, exportHeight),
-              )}
-            </section>
-            {bottomText && <p>{bottomText}</p>}
-          </div>
-        </S.NotationContainer>
-      </>
-    );
-  };
+  const previewSection = (
+    <S.PreviewContainer>
+      <S.PreviewHeader>
+        <h1>{t("app.output_preview")}</h1>
+        <LanguageSelector />
+      </S.PreviewHeader>
+      <S.PreviewContent ref={previewRef}>
+        <div>
+          {topText && <p>{topText}</p>}
+          <section>
+            {cursorIndex == -1 && <S.Cursor data-cursor />}
+            {comboNotation.map((item, index) => (
+              <Fragment key={`fragment-${index}`}>
+                {renderItem(item, `${index}`, displayHeight)}
+                {index === cursorIndex && (
+                  <S.Cursor key={`s-${index}`} data-cursor />
+                )}
+              </Fragment>
+            ))}
+          </section>
+          {bottomText && <p>{bottomText}</p>}
+        </div>
+      </S.PreviewContent>
+    </S.PreviewContainer>
+  );
+
+  const exportSection = (
+    <S.NotationContainer $qualityMultiplier={qualityMultiplier}>
+      <div ref={divRef}>
+        {topText && <p>{topText}</p>}
+        <section>
+          {comboNotation.map((item, index) =>
+            renderItem(item, `r-${index}`, exportHeight),
+          )}
+        </section>
+        {bottomText && <p>{bottomText}</p>}
+      </div>
+    </S.NotationContainer>
+  );
 
   const buttonImagesPath = () => {
     switch (theme) {
@@ -284,22 +328,6 @@ function App() {
     );
   };
 
-  const CharacterDropdown = () => {
-    return (
-      <S.CharacterDropdown
-        name="character-dropdown"
-        value={selectedCharacter.displayName}
-        onChange={handleCharacterChange}
-      >
-        {characters().map((item: Character, index: number) => (
-          <option value={item.displayName} key={item.pathName + index}>
-            {item.displayName}
-          </option>
-        ))}
-      </S.CharacterDropdown>
-    );
-  };
-
   const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value as Theme;
     setTheme(value);
@@ -307,10 +335,85 @@ function App() {
 
   return (
     <S.App style={notationStyleVars(activeStyle)}>
-      <Output />
+      <S.Header ref={headerRef}>
+        {previewSection}
+        <S.EditorNav>
+          <S.CursorButton onClick={() => decrementCursorIndex()}>
+            {"<"}
+          </S.CursorButton>
+          <S.CursorButton onClick={() => incrementCursorIndex()}>
+            {">"}
+          </S.CursorButton>
+          <S.BackButton onClick={() => removeNotationAtIndex(cursorIndex)}>
+            <FaBackspace />
+          </S.BackButton>
+          <S.ResetButton onClick={() => resetNotation()}>
+            <FaTrashAlt />
+          </S.ResetButton>
+          <S.UndoButton
+            onClick={() => undoReset()}
+            disabled={lastKnownComboNotation.length <= 0}
+          >
+            <FaUndo />
+          </S.UndoButton>
+          <S.SaveButton
+            ref={generationButtonRef}
+            onClick={() => generateImage()}
+          >
+            <FaFileDownload />
+          </S.SaveButton>
+        </S.EditorNav>
+      </S.Header>
+      {exportSection}
       <S.EditorUI>
+        <S.EditorMain>
+          <S.NotationButtons>
+            {allImages.map((key: NotationImage, index) => (
+              <EditorNotationButtons image={key} key={key.src + index} />
+            ))}
+            {themeLabels.map((text) => (
+              <LabelText
+                key={text}
+                role="button"
+                onClick={() => pushItem({ type: "label", text })}
+              >
+                {text}
+              </LabelText>
+            ))}
+          </S.NotationButtons>
+          <S.CharacterSection>
+            <select
+              name="character-dropdown"
+              value={selectedCharacter.displayName}
+              onChange={handleCharacterChange}
+            >
+              {characters().map((item: Character, index: number) => (
+                <option value={item.displayName} key={item.pathName + index}>
+                  {item.displayName}
+                </option>
+              ))}
+            </select>
+            {characterStances.map((text) => (
+              <StanceText
+                key={text}
+                role="button"
+                onClick={() => pushItem({ type: "stance", text })}
+              >
+                {text}
+              </StanceText>
+            ))}
+          </S.CharacterSection>
+          <S.CustomSection>
+            <CustomNotations
+              items={customNotations.items}
+              onInsert={pushItem}
+              onAdd={customNotations.add}
+              onRemove={customNotations.remove}
+            />
+          </S.CustomSection>
+        </S.EditorMain>
         <S.EditorOptions>
-          <div>
+          <S.OptionField>
             <label htmlFor="theme">{t("app.themes.theme")}</label>
             <select name="theme" id="theme" onChange={handleThemeChange}>
               <option value="tekken8">{t("app.themes.tekken_8")}</option>
@@ -322,9 +425,9 @@ function App() {
               <option value="tekken8xbox">{t("app.themes.xbox")}</option>
               <option value="numpad">{t("app.themes.numpad")}</option>
             </select>
-          </div>
+          </S.OptionField>
 
-          <div>
+          <S.OptionField>
             <label htmlFor="quality">{t("app.qualities.quality")}</label>
             <select
               name="quality"
@@ -336,113 +439,58 @@ function App() {
               <option value="medium">{t("app.qualities.medium")}</option>
               <option value="low">{t("app.qualities.low")}</option>
             </select>
-          </div>
+          </S.OptionField>
 
-          <div>
+          <S.OptionField $wide>
             <label htmlFor="top-text">
               {t("app.top_text")} ({t("app.optional")})
             </label>
             <input
               type="text"
               name="top-text"
+              id="top-text"
               placeholder={t("app.top_text")}
               onChange={(e) => setTopText(e.target.value)}
               value={topText}
             />
-          </div>
+          </S.OptionField>
 
-          <div>
+          <S.OptionField $wide>
             <label htmlFor="bottom-text">
               {t("app.bottom_text")} ({t("app.optional")})
             </label>
             <input
               type="text"
               name="bottom-text"
+              id="bottom-text"
               placeholder={t("app.bottom_text")}
               onChange={(e) => setBottomText(e.target.value)}
               value={bottomText}
             />
-          </div>
+          </S.OptionField>
 
-          <StyleEditor
-            styles={notationStyles.styles}
-            selected={notationStyles.selected}
-            draft={styleDraft}
-            onSelect={notationStyles.select}
-            onDraftChange={setStyleDraft}
-            onSave={(style) => {
-              const { id } = notationStyles.selected;
-              notationStyles.save(
-                style,
-                id === defaultStyleId ? undefined : id,
-              );
-              setStyleDraft(null);
-            }}
-            onDelete={() => {
-              notationStyles.remove(notationStyles.selected.id);
-              setStyleDraft(null);
-            }}
-          />
+          <S.EditorOptionsWide>
+            <StyleEditor
+              styles={notationStyles.styles}
+              selected={notationStyles.selected}
+              draft={styleDraft}
+              onSelect={notationStyles.select}
+              onDraftChange={setStyleDraft}
+              onSave={(style) => {
+                const { id } = notationStyles.selected;
+                notationStyles.save(
+                  style,
+                  id === defaultStyleId ? undefined : id,
+                );
+                setStyleDraft(null);
+              }}
+              onDelete={() => {
+                notationStyles.remove(notationStyles.selected.id);
+                setStyleDraft(null);
+              }}
+            />
+          </S.EditorOptionsWide>
         </S.EditorOptions>
-        <S.NotationButtons>
-          {allImages.map((key: NotationImage, index) => (
-            <EditorNotationButtons image={key} key={key.src + index} />
-          ))}
-          {themeLabels.map((text) => (
-            <LabelText
-              key={text}
-              role="button"
-              onClick={() => pushItem({ type: "label", text })}
-            >
-              {text}
-            </LabelText>
-          ))}
-          <S.HorizontalDivider />
-          {characterStances.map((text) => (
-            <StanceText
-              key={text}
-              role="button"
-              onClick={() => pushItem({ type: "stance", text })}
-            >
-              {text}
-            </StanceText>
-          ))}
-          <CustomNotations
-            items={customNotations.items}
-            onInsert={pushItem}
-            onAdd={customNotations.add}
-            onRemove={customNotations.remove}
-          />
-        </S.NotationButtons>
-        <S.EditorNav>
-          <CharacterDropdown />
-          <S.SaveButton
-            ref={generationButtonRef}
-            onClick={() => generateImage()}
-          >
-            <FaFileDownload />
-          </S.SaveButton>
-          <S.CursorNavigationButtons>
-            <S.CursorButton onClick={() => decrementCursorIndex()}>
-              {"<"}
-            </S.CursorButton>
-            <S.CursorButton onClick={() => incrementCursorIndex()}>
-              {">"}
-            </S.CursorButton>
-            <S.BackButton onClick={() => removeNotationAtIndex(cursorIndex)}>
-              <FaBackspace />
-            </S.BackButton>
-          </S.CursorNavigationButtons>
-          <S.ResetButton onClick={() => resetNotation()}>
-            <FaTrashAlt />
-          </S.ResetButton>
-          <S.UndoButton
-            onClick={() => undoReset()}
-            disabled={lastKnownComboNotation.length <= 0}
-          >
-            <FaUndo />
-          </S.UndoButton>
-        </S.EditorNav>
       </S.EditorUI>
       <Footer />
     </S.App>
