@@ -35,6 +35,11 @@ export type NotationStyle = {
   labelMargin: number;
   labelPadding: number;
   labelBackdrop: boolean;
+  borderColor: string;
+  borderWidth: number;
+  borderGlow: number;
+  borderIcons: boolean;
+  borderLabels: boolean;
 };
 
 export type SavedNotationStyle = NotationStyle & { id: string };

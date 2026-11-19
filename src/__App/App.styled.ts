@@ -135,6 +135,9 @@ export const NotationContainer = styled.div<{ $qualityMultiplier: number }>`
       width: auto;
       height: calc(500px * ${(props) => props.$qualityMultiplier});
     }
+    section {
+      padding: calc(var(--notation-height) * var(--border-room));
+    }
     ${(props) =>
       notationHeight(`calc(500px * ${props.$qualityMultiplier})`)}
   }
@@ -189,6 +192,7 @@ export const NotationButtons = styled.nav`
   height: min-content;
   flex-wrap: wrap;
   gap: 0.2rem;
+  row-gap: calc(0.2rem + var(--notation-height) * var(--icon-reach));
   img {
     height: 3.5em;
   }

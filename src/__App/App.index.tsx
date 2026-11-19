@@ -38,6 +38,8 @@ import {
 } from "../components/NotationText/NotationText.styled";
 import { defaultStyleId, notationStyleVars } from "../__util/notationStyles";
 import { useNotationStyles } from "../__util/useNotationStyles";
+import { BorderedImage } from "../components/BorderedImage/BorderedImage.index";
+import { bordersSettled } from "../__util/borderedImage";
 import { LanguageSelector } from "../components/LanguageSelector/LanguageSelector.index";
 
 function App() {
@@ -58,6 +60,7 @@ function App() {
   const notationStyles = useNotationStyles();
   const customNotations = useCustomNotations();
   const [styleDraft, setStyleDraft] = useState<NotationStyle | null>(null);
+  const activeStyle = styleDraft ?? notationStyles.selected;
   const { t, i18n } = useTranslation("common");
   const currentLang = i18n.language;
 
@@ -97,6 +100,7 @@ function App() {
     if (generationButtonRef.current) {
       generationButtonRef.current.disabled = true;
     }
+    await bordersSettled();
     const dataUrl = await htmlToImage.toPng(node);
     saveAs(dataUrl, `T8ComboNotation_${quality}res.png`);
     if (generationButtonRef.current) {
@@ -158,14 +162,41 @@ function App() {
     setSelectedCharacter(character[0]);
   };
 
-  const renderItem = (item: ComboItem, key: string) => {
+  const displayHeight = 128;
+  const qualityMultiplier =
+    quality === "high"
+      ? 1
+      : quality === "medium"
+        ? 0.5
+        : quality === "low"
+          ? 0.1
+          : 1;
+  const exportHeight = 500 * qualityMultiplier;
+  const iconBorder = activeStyle.borderIcons
+    ? {
+        color: activeStyle.borderColor,
+        width: activeStyle.borderWidth,
+        glow: activeStyle.borderGlow,
+      }
+    : null;
+
+  const renderItem = (item: ComboItem, key: string, renderHeight: number) => {
     switch (item.type) {
       case "stance":
         return <StanceText key={key}>{item.text}</StanceText>;
       case "label":
         return <LabelText key={key}>{item.text}</LabelText>;
       default:
-        return <S.NotationOutput key={key} src={item.src} draggable={false} />;
+        return (
+          <BorderedImage
+            component={S.NotationOutput}
+            key={key}
+            src={item.src}
+            border={iconBorder}
+            renderHeight={renderHeight}
+            draggable={false}
+          />
+        );
     }
   };
 
@@ -184,7 +215,7 @@ function App() {
                 {cursorIndex == -1 && <S.Cursor />}
                 {comboNotation.map((item, index) => (
                   <Fragment key={`fragment-${index}`}>
-                    {renderItem(item, `${index}`)}
+                    {renderItem(item, `${index}`, displayHeight)}
                     {index === cursorIndex && <S.Cursor key={`s-${index}`} />}
                   </Fragment>
                 ))}
@@ -193,22 +224,12 @@ function App() {
             </div>
           </S.PreviewContent>
         </S.PreviewContainer>
-        <S.NotationContainer
-          $qualityMultiplier={
-            quality === "high"
-              ? 1
-              : quality === "medium"
-                ? 0.5
-                : quality === "low"
-                  ? 0.1
-                  : 1
-          }
-        >
+        <S.NotationContainer $qualityMultiplier={qualityMultiplier}>
           <div ref={divRef}>
             {topText && <p>{topText}</p>}
             <section>
               {comboNotation.map((item, index) =>
-                renderItem(item, `r-${index}`),
+                renderItem(item, `r-${index}`, exportHeight),
               )}
             </section>
             {bottomText && <p>{bottomText}</p>}
@@ -250,7 +271,10 @@ function App() {
     }
 
     return (
-      <S.NotationButton
+      <BorderedImage
+        component={S.NotationButton}
+        border={iconBorder}
+        renderHeight={displayHeight}
         src={image.src}
         alt={image.text}
         key={image.src}
@@ -282,7 +306,7 @@ function App() {
   };
 
   return (
-    <S.App style={notationStyleVars(styleDraft ?? notationStyles.selected)}>
+    <S.App style={notationStyleVars(activeStyle)}>
       <Output />
       <S.EditorUI>
         <S.EditorOptions>

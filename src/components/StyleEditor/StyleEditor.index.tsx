@@ -9,7 +9,9 @@ import {
   sanitizeNotationStyle,
   shareUrl,
 } from "../../__util/notationStyles";
+import { BorderedImage } from "../BorderedImage/BorderedImage.index";
 import { LabelText, StanceText } from "../NotationText/NotationText.styled";
+import sampleArrow from "../../assets/images/upscaled/arrows/df.webp";
 import * as S from "./StyleEditor.styled";
 
 type Props = {
@@ -70,7 +72,12 @@ export const StyleEditor = (props: Props) => {
   };
 
   const colorField = (
-    key: "stanceFill" | "stanceOutline" | "labelBackground" | "labelText",
+    key:
+      | "stanceFill"
+      | "stanceOutline"
+      | "labelBackground"
+      | "labelText"
+      | "borderColor",
     label: string,
   ) => (
     <S.Field>
@@ -110,7 +117,9 @@ export const StyleEditor = (props: Props) => {
       | "labelOpacity"
       | "labelSize"
       | "labelMargin"
-      | "labelPadding",
+      | "labelPadding"
+      | "borderWidth"
+      | "borderGlow",
     label: string,
     min: number,
     max: number,
@@ -174,6 +183,20 @@ export const StyleEditor = (props: Props) => {
           <S.Sample style={notationStyleVars(draft)}>
             <StanceText>SWA</StanceText>
             <LabelText>HEAT</LabelText>
+            <BorderedImage
+              src={sampleArrow}
+              border={
+                draft.borderIcons
+                  ? {
+                      color: draft.borderColor,
+                      width: draft.borderWidth,
+                      glow: draft.borderGlow,
+                    }
+                  : null
+              }
+              renderHeight={128}
+              alt=""
+            />
           </S.Sample>
           <S.Row>
             {colorField("stanceFill", t("app.styles.stance_fill"))}
@@ -216,6 +239,38 @@ export const StyleEditor = (props: Props) => {
           {sliderField("labelSize", t("app.styles.label_size"), 0.4, 1.2)}
           {sliderField("labelMargin", t("app.styles.label_margin"), 0, 0.5)}
           {fontField("labelFont", t("app.styles.label_font"))}
+          <S.CheckField>
+            <input
+              type="checkbox"
+              id="borderIcons"
+              checked={draft.borderIcons}
+              onChange={(e) => update("borderIcons", e.target.checked)}
+            />
+            <label htmlFor="borderIcons">{t("app.styles.border_icons")}</label>
+          </S.CheckField>
+          <S.CheckField>
+            <input
+              type="checkbox"
+              id="borderLabels"
+              checked={draft.borderLabels}
+              onChange={(e) => update("borderLabels", e.target.checked)}
+            />
+            <label htmlFor="borderLabels">
+              {t("app.styles.border_labels")}
+            </label>
+          </S.CheckField>
+          {(draft.borderIcons || draft.borderLabels) && (
+            <>
+              {colorField("borderColor", t("app.styles.border_color"))}
+              {sliderField(
+                "borderWidth",
+                t("app.styles.border_width"),
+                0,
+                0.15,
+              )}
+              {sliderField("borderGlow", t("app.styles.border_glow"), 0, 0.15)}
+            </>
+          )}
           <S.Button onClick={restoreDefaults}>
             {t("app.styles.restore_defaults")}
           </S.Button>

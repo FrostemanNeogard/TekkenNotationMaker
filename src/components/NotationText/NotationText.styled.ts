@@ -32,7 +32,13 @@ export const LabelText = styled.span`
   font-weight: 700;
   color: var(--label-text);
   padding: 0 calc(var(--notation-height) * var(--label-padding));
-  margin: 0 calc(var(--notation-height) * var(--label-margin));
+  margin: 0
+    calc(var(--notation-height) * (var(--label-margin) + var(--label-reach)));
+  box-shadow:
+    0 0 0 calc(var(--notation-height) * var(--label-border))
+      var(--border-color),
+    0 0 calc(var(--notation-height) * var(--label-glow))
+      calc(var(--notation-height) * var(--label-border)) var(--border-color);
   background-color: var(--label-background);
   border-radius: calc(var(--notation-height) * var(--label-radius));
 `;

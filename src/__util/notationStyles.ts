@@ -23,6 +23,11 @@ export const defaultNotationStyle: SavedNotationStyle = {
   labelMargin: 0,
   labelPadding: 0.12,
   labelBackdrop: true,
+  borderColor: "#ffffff",
+  borderWidth: 0.04,
+  borderGlow: 0,
+  borderIcons: false,
+  borderLabels: false,
 };
 
 const styleFields = [
@@ -42,6 +47,11 @@ const styleFields = [
   "labelMargin",
   "labelPadding",
   "labelBackdrop",
+  "borderColor",
+  "borderWidth",
+  "borderGlow",
+  "borderIcons",
+  "borderLabels",
 ] as const;
 
 const shareVersion = 1;
@@ -100,6 +110,11 @@ export const sanitizeNotationStyle = (raw: unknown): NotationStyle | null => {
     labelMargin: readNumber(data.labelMargin, base.labelMargin, 0, 0.5),
     labelPadding: readNumber(data.labelPadding, base.labelPadding, 0, 0.5),
     labelBackdrop: readBoolean(data.labelBackdrop, base.labelBackdrop),
+    borderColor: readColor(data.borderColor, base.borderColor),
+    borderWidth: readNumber(data.borderWidth, base.borderWidth, 0, 0.15),
+    borderGlow: readNumber(data.borderGlow, base.borderGlow, 0, 0.15),
+    borderIcons: readBoolean(data.borderIcons, base.borderIcons),
+    borderLabels: readBoolean(data.borderLabels, base.borderLabels),
   };
 };
 
@@ -194,8 +209,12 @@ const hexToRgba = (hex: string, alpha: number) => {
   return `rgba(${value >> 16}, ${(value >> 8) & 255}, ${value & 255}, ${alpha})`;
 };
 
-export const notationStyleVars = (style: NotationStyle) =>
-  ({
+export const notationStyleVars = (style: NotationStyle) => {
+  const reach = style.borderWidth + style.borderGlow;
+  const iconReach = style.borderIcons ? reach : 0;
+  const labelReach = style.borderLabels ? reach : 0;
+
+  return {
     "--stance-fill": style.stanceFill,
     "--stance-outline": style.stanceOutline,
     "--stance-outline-width": String(style.stanceOutlineWidth),
@@ -211,4 +230,13 @@ export const notationStyleVars = (style: NotationStyle) =>
     "--label-size": String(style.labelSize),
     "--label-margin": String(style.labelMargin),
     "--label-padding": String(style.labelBackdrop ? style.labelPadding : 0),
-  }) as CSSProperties;
+    "--border-color": style.borderColor,
+    "--border-width": String(style.borderWidth),
+    "--border-glow": String(style.borderGlow),
+    "--icon-reach": String(iconReach),
+    "--label-reach": String(labelReach),
+    "--label-border": String(style.borderLabels ? style.borderWidth : 0),
+    "--label-glow": String(style.borderLabels ? style.borderGlow : 0),
+    "--border-room": String(Math.max(iconReach, labelReach)),
+  } as CSSProperties;
+};

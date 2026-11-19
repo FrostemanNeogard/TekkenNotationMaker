@@ -96,6 +96,10 @@ export const Sample = styled.div`
     background-color: ${(props) => props.theme.colors.primary};
     border-radius: 5px;
   }
+
+  && img {
+    height: var(--notation-height);
+  }
 `;
 
 export const Button = styled.button<{ $danger?: boolean }>`
