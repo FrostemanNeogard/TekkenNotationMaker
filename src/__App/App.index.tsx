@@ -407,7 +407,6 @@ function App() {
               {text}
             </StanceText>
           ))}
-          <S.HorizontalDivider />
           <CustomNotations
             items={customNotations.items}
             onInsert={pushItem}

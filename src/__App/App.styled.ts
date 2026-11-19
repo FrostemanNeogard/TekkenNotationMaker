@@ -190,6 +190,7 @@ export const EditorUI = styled.div`
 export const NotationButtons = styled.nav`
   display: flex;
   height: min-content;
+  padding: 1rem 0;
   flex-wrap: wrap;
   gap: 0.2rem;
   row-gap: calc(0.2rem + var(--notation-height) * var(--icon-reach));
