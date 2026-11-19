@@ -43,7 +43,12 @@
       "label_backdrop": "Mostrar fundo dos rótulos",
       "label_size": "Tamanho do texto dos rótulos",
       "label_padding": "Preenchimento dos rótulos",
-      "label_margin": "Margem dos rótulos"
+      "label_margin": "Margem dos rótulos",
+      "border_icons": "Borda nos ícones",
+      "border_labels": "Borda nos rótulos",
+      "border_color": "Cor da borda",
+      "border_width": "Espessura da borda",
+      "border_glow": "Brilho da borda"
     },
     "custom": {
       "title": "Notações personalizadas",

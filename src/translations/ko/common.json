@@ -43,7 +43,12 @@
       "label_backdrop": "라벨 배경 표시",
       "label_size": "라벨 텍스트 크기",
       "label_padding": "라벨 안쪽 여백",
-      "label_margin": "라벨 바깥 여백"
+      "label_margin": "라벨 바깥 여백",
+      "border_icons": "아이콘 테두리",
+      "border_labels": "라벨 테두리",
+      "border_color": "테두리 색상",
+      "border_width": "테두리 두께",
+      "border_glow": "테두리 글로우"
     },
     "custom": {
       "title": "사용자 지정 표기",

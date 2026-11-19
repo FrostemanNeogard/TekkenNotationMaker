@@ -43,7 +43,12 @@
       "label_backdrop": "Show label backdrop",
       "label_size": "Label text size",
       "label_padding": "Label padding",
-      "label_margin": "Label margin"
+      "label_margin": "Label margin",
+      "border_icons": "Border on icons",
+      "border_labels": "Border on labels",
+      "border_color": "Border color",
+      "border_width": "Border width",
+      "border_glow": "Border glow"
     },
     "custom": {
       "title": "Custom notations",

@@ -43,7 +43,12 @@
       "label_backdrop": "Pokaż tło etykiet",
       "label_size": "Rozmiar tekstu etykiet",
       "label_padding": "Odstęp wewnętrzny etykiet",
-      "label_margin": "Margines etykiet"
+      "label_margin": "Margines etykiet",
+      "border_icons": "Obramowanie ikon",
+      "border_labels": "Obramowanie etykiet",
+      "border_color": "Kolor obramowania",
+      "border_width": "Grubość obramowania",
+      "border_glow": "Poświata obramowania"
     },
     "custom": {
       "title": "Własne notacje",
