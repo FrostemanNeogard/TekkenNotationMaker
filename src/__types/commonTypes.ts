@@ -38,3 +38,9 @@ export type NotationStyle = {
 };
 
 export type SavedNotationStyle = NotationStyle & { id: string };
+
+export type CustomNotation = {
+  id: string;
+  text: string;
+  kind: "stance" | "label";
+};

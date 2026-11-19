@@ -149,7 +149,7 @@ export const shareUrl = (style: NotationStyle) =>
 export const styleCodeFromHash = (hash: string) =>
   hash.match(/^#style=([\w-]+)$/)?.[1] ?? null;
 
-export const createStyleId = () =>
+export const createId = () =>
   Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
 
 export const loadSavedStyles = (): SavedNotationStyle[] => {

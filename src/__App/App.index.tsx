@@ -29,6 +29,8 @@ import { enCharacters, jpCharacters } from "../__util/characters";
 import { Footer } from "../components/Footer/Footer.index";
 import { Theme } from "../__types/commonTypes";
 import { useTranslation } from "react-i18next";
+import { CustomNotations } from "../components/CustomNotations/CustomNotations.index";
+import { useCustomNotations } from "../__util/useCustomNotations";
 import { StyleEditor } from "../components/StyleEditor/StyleEditor.index";
 import {
   LabelText,
@@ -54,6 +56,7 @@ function App() {
   >([]);
   const [cursorIndex, setCursorIndex] = useState<number>(0);
   const notationStyles = useNotationStyles();
+  const customNotations = useCustomNotations();
   const [styleDraft, setStyleDraft] = useState<NotationStyle | null>(null);
   const { t, i18n } = useTranslation("common");
   const currentLang = i18n.language;
@@ -380,6 +383,13 @@ function App() {
               {text}
             </StanceText>
           ))}
+          <S.HorizontalDivider />
+          <CustomNotations
+            items={customNotations.items}
+            onInsert={pushItem}
+            onAdd={customNotations.add}
+            onRemove={customNotations.remove}
+          />
         </S.NotationButtons>
         <S.EditorNav>
           <CharacterDropdown />

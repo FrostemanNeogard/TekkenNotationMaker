@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NotationStyle, SavedNotationStyle } from "../__types/commonTypes";
 import {
-  createStyleId,
+  createId,
   decodeNotationStyle,
   defaultNotationStyle,
   defaultStyleId,
@@ -29,7 +29,7 @@ const loadInitialState = (): State => {
     return { styles, selectedId: existing.id };
   }
 
-  const added = { ...imported, id: createStyleId() };
+  const added = { ...imported, id: createId() };
   return { styles: [...styles, added], selectedId: added.id };
 };
 
@@ -58,7 +58,7 @@ export const useNotationStyles = () => {
     setState((current) => ({ ...current, selectedId: id }));
 
   const save = (style: NotationStyle, id?: string) => {
-    const savedId = id ?? createStyleId();
+    const savedId = id ?? createId();
     setState((current) => ({
       styles: current.styles.some((item) => item.id === savedId)
         ? current.styles.map((item) =>
