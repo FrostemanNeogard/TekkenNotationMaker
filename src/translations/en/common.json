@@ -45,6 +45,14 @@
       "label_padding": "Label padding",
       "label_margin": "Label margin"
     },
+    "custom": {
+      "title": "Custom notations",
+      "placeholder": "Notation text",
+      "stance": "Stance",
+      "label": "Label",
+      "add": "Add",
+      "remove": "Remove"
+    },
     "top_text": "Top Text",
     "bottom_text": "Bottom Text",
     "optional": "Optional",

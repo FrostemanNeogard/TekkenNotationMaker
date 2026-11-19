@@ -45,6 +45,14 @@
       "label_padding": "Preenchimento dos rótulos",
       "label_margin": "Margem dos rótulos"
     },
+    "custom": {
+      "title": "Notações personalizadas",
+      "placeholder": "Texto da notação",
+      "stance": "Postura",
+      "label": "Rótulo",
+      "add": "Adicionar",
+      "remove": "Remover"
+    },
     "top_text": "Texto Superior",
     "bottom_text": "Texto Inferior",
     "optional": "Opcional",

@@ -45,6 +45,14 @@
       "label_padding": "Odstęp wewnętrzny etykiet",
       "label_margin": "Margines etykiet"
     },
+    "custom": {
+      "title": "Własne notacje",
+      "placeholder": "Tekst notacji",
+      "stance": "Postawa",
+      "label": "Etykieta",
+      "add": "Dodaj",
+      "remove": "Usuń"
+    },
     "top_text": "Tekst na górze",
     "bottom_text": "Tekst na dole",
     "optional": "opcjonalny",

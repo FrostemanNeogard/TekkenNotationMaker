@@ -45,6 +45,14 @@
       "label_padding": "ラベルの内側余白",
       "label_margin": "ラベルの外側余白"
     },
+    "custom": {
+      "title": "カスタムノーテーション",
+      "placeholder": "表記テキスト",
+      "stance": "構え",
+      "label": "ラベル",
+      "add": "追加",
+      "remove": "削除"
+    },
     "top_text": "上部文字",
     "bottom_text": "下部文字",
     "optional": "任意",

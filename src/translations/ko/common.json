@@ -45,6 +45,14 @@
       "label_padding": "라벨 안쪽 여백",
       "label_margin": "라벨 바깥 여백"
     },
+    "custom": {
+      "title": "사용자 지정 표기",
+      "placeholder": "표기 텍스트",
+      "stance": "자세",
+      "label": "라벨",
+      "add": "추가",
+      "remove": "삭제"
+    },
     "top_text": "상단 텍스트",
     "bottom_text": "하단 텍스트",
     "optional": "선택 사항",
