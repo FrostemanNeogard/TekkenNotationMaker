@@ -29,6 +29,12 @@ export type NotationStyle = {
   labelRadius: number;
   labelFont: string;
   labelOpacity: number;
+  stanceSize: number;
+  stanceMargin: number;
+  labelSize: number;
+  labelMargin: number;
+  labelPadding: number;
+  labelBackdrop: boolean;
 };
 
 export type SavedNotationStyle = NotationStyle & { id: string };

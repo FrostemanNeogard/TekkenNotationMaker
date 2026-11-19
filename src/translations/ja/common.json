@@ -39,7 +39,6 @@
       "delete": "削除",
       "restore_defaults": "デフォルトに戻す",
       "stance_size": "構え文字のサイズ",
-      "stance_padding": "構え文字の内側余白",
       "stance_margin": "構え文字の外側余白",
       "label_backdrop": "ラベルの背景を表示",
       "label_size": "ラベルの文字サイズ",

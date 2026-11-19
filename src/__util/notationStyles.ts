@@ -17,6 +17,12 @@ export const defaultNotationStyle: SavedNotationStyle = {
   labelRadius: 0.09,
   labelFont: "Roboto Condensed",
   labelOpacity: 1,
+  stanceSize: 1,
+  stanceMargin: 0.1,
+  labelSize: 0.8,
+  labelMargin: 0,
+  labelPadding: 0.12,
+  labelBackdrop: true,
 };
 
 const styleFields = [
@@ -30,6 +36,12 @@ const styleFields = [
   "labelRadius",
   "labelFont",
   "labelOpacity",
+  "stanceSize",
+  "stanceMargin",
+  "labelSize",
+  "labelMargin",
+  "labelPadding",
+  "labelBackdrop",
 ] as const;
 
 const shareVersion = 1;
@@ -50,6 +62,9 @@ const readNumber = (
   typeof value === "number" && Number.isFinite(value)
     ? Math.min(max, Math.max(min, value))
     : fallback;
+
+const readBoolean = (value: unknown, fallback: boolean) =>
+  typeof value === "boolean" ? value : fallback;
 
 const readFont = (value: unknown, fallback: string) =>
   typeof value === "string" && fontOptions.includes(value) ? value : fallback;
@@ -79,6 +94,12 @@ export const sanitizeNotationStyle = (raw: unknown): NotationStyle | null => {
     labelRadius: readNumber(data.labelRadius, base.labelRadius, 0, 0.5),
     labelFont: readFont(data.labelFont, base.labelFont),
     labelOpacity: readNumber(data.labelOpacity, base.labelOpacity, 0, 1),
+    stanceSize: readNumber(data.stanceSize, base.stanceSize, 0.5, 1.3),
+    stanceMargin: readNumber(data.stanceMargin, base.stanceMargin, 0, 0.5),
+    labelSize: readNumber(data.labelSize, base.labelSize, 0.4, 1.2),
+    labelMargin: readNumber(data.labelMargin, base.labelMargin, 0, 0.5),
+    labelPadding: readNumber(data.labelPadding, base.labelPadding, 0, 0.5),
+    labelBackdrop: readBoolean(data.labelBackdrop, base.labelBackdrop),
   };
 };
 
@@ -179,8 +200,15 @@ export const notationStyleVars = (style: NotationStyle) =>
     "--stance-outline": style.stanceOutline,
     "--stance-outline-width": String(style.stanceOutlineWidth),
     "--stance-font": `"${style.stanceFont}", sans-serif`,
-    "--label-background": hexToRgba(style.labelBackground, style.labelOpacity),
+    "--stance-size": String(style.stanceSize),
+    "--stance-margin": String(style.stanceMargin),
+    "--label-background": style.labelBackdrop
+      ? hexToRgba(style.labelBackground, style.labelOpacity)
+      : "transparent",
     "--label-text": style.labelText,
     "--label-radius": String(style.labelRadius),
     "--label-font": `"${style.labelFont}", sans-serif`,
+    "--label-size": String(style.labelSize),
+    "--label-margin": String(style.labelMargin),
+    "--label-padding": String(style.labelBackdrop ? style.labelPadding : 0),
   }) as CSSProperties;

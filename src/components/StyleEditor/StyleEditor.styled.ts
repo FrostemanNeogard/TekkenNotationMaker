@@ -63,6 +63,26 @@ export const Field = styled.div`
   }
 `;
 
+export const CheckField = styled.div`
+  && {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  && input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  && label {
+    cursor: pointer;
+  }
+`;
+
 export const Sample = styled.div`
   ${notationHeight("2.5rem")}
 

@@ -39,7 +39,6 @@
       "delete": "Delete",
       "restore_defaults": "Restore defaults",
       "stance_size": "Stance text size",
-      "stance_padding": "Stance padding",
       "stance_margin": "Stance margin",
       "label_backdrop": "Show label backdrop",
       "label_size": "Label text size",

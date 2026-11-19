@@ -16,9 +16,9 @@ const notationText = css`
 export const StanceText = styled.span`
   ${notationText}
   font-family: var(--stance-font);
-  font-size: var(--notation-height);
+  font-size: calc(var(--notation-height) * var(--stance-size));
   color: var(--stance-fill);
-  padding: 0 0.1em;
+  margin: 0 calc(var(--notation-height) * var(--stance-margin));
   -webkit-text-stroke: calc(var(--stance-outline-width) * 1em)
     var(--stance-outline);
   paint-order: stroke fill;
@@ -28,10 +28,11 @@ export const StanceText = styled.span`
 export const LabelText = styled.span`
   ${notationText}
   font-family: var(--label-font);
-  font-size: calc(var(--notation-height) * 0.8);
+  font-size: calc(var(--notation-height) * var(--label-size));
   font-weight: 700;
   color: var(--label-text);
-  padding: 0 calc(var(--notation-height) * 0.12);
+  padding: 0 calc(var(--notation-height) * var(--label-padding));
+  margin: 0 calc(var(--notation-height) * var(--label-margin));
   background-color: var(--label-background);
   border-radius: calc(var(--notation-height) * var(--label-radius));
 `;

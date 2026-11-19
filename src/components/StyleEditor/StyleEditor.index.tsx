@@ -102,8 +102,17 @@ export const StyleEditor = (props: Props) => {
   );
 
   const sliderField = (
-    key: "stanceOutlineWidth" | "labelRadius" | "labelOpacity",
+    key:
+      | "stanceOutlineWidth"
+      | "stanceSize"
+      | "stanceMargin"
+      | "labelRadius"
+      | "labelOpacity"
+      | "labelSize"
+      | "labelMargin"
+      | "labelPadding",
     label: string,
+    min: number,
     max: number,
   ) => (
     <S.Field>
@@ -111,7 +120,7 @@ export const StyleEditor = (props: Props) => {
       <input
         type="range"
         id={key}
-        min={0}
+        min={min}
         max={max}
         step={0.005}
         value={draft?.[key]}
@@ -173,15 +182,39 @@ export const StyleEditor = (props: Props) => {
           {sliderField(
             "stanceOutlineWidth",
             t("app.styles.outline_width"),
+            0,
             0.2,
           )}
+          {sliderField("stanceSize", t("app.styles.stance_size"), 0.5, 1.3)}
+          {sliderField("stanceMargin", t("app.styles.stance_margin"), 0, 0.5)}
           {fontField("stanceFont", t("app.styles.stance_font"))}
-          <S.Row>
-            {colorField("labelBackground", t("app.styles.label_background"))}
-            {colorField("labelText", t("app.styles.label_text"))}
-          </S.Row>
-          {sliderField("labelOpacity", t("app.styles.label_opacity"), 1)}
-          {sliderField("labelRadius", t("app.styles.label_radius"), 0.5)}
+          <S.CheckField>
+            <input
+              type="checkbox"
+              id="labelBackdrop"
+              checked={draft.labelBackdrop}
+              onChange={(e) => update("labelBackdrop", e.target.checked)}
+            />
+            <label htmlFor="labelBackdrop">
+              {t("app.styles.label_backdrop")}
+            </label>
+          </S.CheckField>
+          {draft.labelBackdrop && (
+            <>
+              {colorField("labelBackground", t("app.styles.label_background"))}
+              {sliderField("labelOpacity", t("app.styles.label_opacity"), 0, 1)}
+              {sliderField("labelRadius", t("app.styles.label_radius"), 0, 0.5)}
+              {sliderField(
+                "labelPadding",
+                t("app.styles.label_padding"),
+                0,
+                0.5,
+              )}
+            </>
+          )}
+          {colorField("labelText", t("app.styles.label_text"))}
+          {sliderField("labelSize", t("app.styles.label_size"), 0.4, 1.2)}
+          {sliderField("labelMargin", t("app.styles.label_margin"), 0, 0.5)}
           {fontField("labelFont", t("app.styles.label_font"))}
           <S.Button onClick={restoreDefaults}>
             {t("app.styles.restore_defaults")}
