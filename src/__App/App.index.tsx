@@ -8,6 +8,7 @@ import {
   PlaystationThemeOverrides,
   NumpadThemeOverrides,
   T7PCThemeOverrides,
+  ThemeLabels,
 } from "../__util/ThemeOverrides";
 import { CharacterStances } from "../__util/CharacterStances";
 import {
@@ -140,12 +141,16 @@ function App() {
     setSelectedCharacter(character[0]);
   };
 
-  const renderItem = (item: ComboItem, key: string) =>
-    item.type === "text" ? (
-      <S.StanceText key={key}>{item.text}</S.StanceText>
-    ) : (
-      <S.NotationOutput key={key} src={item.src} draggable={false} />
-    );
+  const renderItem = (item: ComboItem, key: string) => {
+    switch (item.type) {
+      case "stance":
+        return <S.StanceText key={key}>{item.text}</S.StanceText>;
+      case "label":
+        return <S.LabelText key={key}>{item.text}</S.LabelText>;
+      default:
+        return <S.NotationOutput key={key} src={item.src} draggable={false} />;
+    }
+  };
 
   const Output = () => {
     return (
@@ -217,6 +222,7 @@ function App() {
 
   const themeIcons = buttonImagesPath();
   const allImages = Object.values(themeIcons);
+  const themeLabels = ThemeLabels[theme];
   const characterStances = CharacterStances[selectedCharacter.pathName] ?? [];
 
   const EditorNotationButtons = (props: { image: NotationImage }) => {
@@ -321,12 +327,21 @@ function App() {
           {allImages.map((key: NotationImage, index) => (
             <EditorNotationButtons image={key} key={key.src + index} />
           ))}
+          {themeLabels.map((text) => (
+            <S.LabelText
+              key={text}
+              role="button"
+              onClick={() => pushItem({ type: "label", text })}
+            >
+              {text}
+            </S.LabelText>
+          ))}
           <S.HorizontalDivider />
           {characterStances.map((text) => (
             <S.StanceText
               key={text}
               role="button"
-              onClick={() => pushItem({ type: "text", text })}
+              onClick={() => pushItem({ type: "stance", text })}
             >
               {text}
             </S.StanceText>

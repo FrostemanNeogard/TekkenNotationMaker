@@ -1,4 +1,4 @@
-import { NotationImage } from "../__types/commonTypes";
+import { NotationImage, Theme } from "../__types/commonTypes";
 
 // ARROWS
 import db from "../assets/images/upscaled/arrows/db.webp";
@@ -36,29 +36,10 @@ import wallbreak from "../assets/images/upscaled/stage/wallbreak.webp";
 // MISC
 import heatdash from "../assets/images/upscaled/misc/heatdash.webp";
 import tornado from "../assets/images/upscaled/misc/tornado.webp";
-import heatburst from "../assets/images/upscaled/misc/hb!.webp";
 import jf from "../assets/images/upscaled/misc/jf.webp";
-import cc from "../assets/images/upscaled/misc/cc.webp";
-import ch from "../assets/images/upscaled/misc/ch.webp";
-import dash from "../assets/images/upscaled/misc/dash.webp";
-import fc from "../assets/images/upscaled/misc/fc.webp";
-import ssl from "../assets/images/upscaled/misc/ssl.webp";
-import ssr from "../assets/images/upscaled/misc/ssr.webp";
-import swl from "../assets/images/upscaled/misc/swl.webp";
-import swr from "../assets/images/upscaled/misc/swr.webp";
-import w from "../assets/images/upscaled/misc/w!.webp";
-import wr from "../assets/images/upscaled/misc/wr.webp";
-import ws from "../assets/images/upscaled/misc/ws.webp";
-import heat from "../assets/images/upscaled/misc/heat.webp";
-import ssc from "../assets/images/upscaled/misc/ssc.webp";
 import tilde from "../assets/images/upscaled/misc/tilde.png";
 import comma from "../assets/images/upscaled/misc/comma.png";
-import rage from "../assets/images/upscaled/misc/rage.png";
-import microdash from "../assets/images/upscaled/misc/microdash.png";
-import deepdash from "../assets/images/upscaled/misc/deepdash.png";
 import delay from "../assets/images/upscaled/misc/delay.png";
-import ss from "../assets/images/upscaled/misc/ss.png";
-import hold from "../assets/images/upscaled/misc/hold.png";
 
 // BUTTONS
 // TEKKEN 8
@@ -256,73 +237,6 @@ const standardTekkenArrows: { [key: string]: NotationImage } = {
   },
 };
 
-const standardTekkenMisc: { [key: string]: NotationImage } = {
-  cc: {
-    text: "cc",
-    src: cc,
-  },
-  ch: {
-    text: "ch",
-    src: ch,
-  },
-  dash: {
-    text: "dash",
-    src: dash,
-  },
-  fc: {
-    text: "fc",
-    src: fc,
-  },
-  hold: {
-    text: "*",
-    src: hold,
-  },
-  ss: {
-    text: "ss",
-    src: ss,
-  },
-  ssl: {
-    text: "ssl",
-    src: ssl,
-  },
-  ssr: {
-    text: "ssr",
-    src: ssr,
-  },
-  swl: {
-    text: "swl",
-    src: swl,
-  },
-  swr: {
-    text: "swr",
-    src: swr,
-  },
-  ssc: {
-    text: "ssc",
-    src: ssc,
-  },
-  w: {
-    text: "W!",
-    src: w,
-  },
-  wr: {
-    text: "wr",
-    src: wr,
-  },
-  ws: {
-    text: "ws",
-    src: ws,
-  },
-  microdash: {
-    text: "microdash",
-    src: microdash,
-  },
-  deepdash: {
-    text: "deep dash",
-    src: deepdash,
-  },
-};
-
 const tekken8Icons: { [key: string]: NotationImage } = {
   // STAGE
   balcony: {
@@ -358,18 +272,6 @@ const tekken8Icons: { [key: string]: NotationImage } = {
   tornado: {
     text: "T!",
     src: tornado,
-  },
-  heatburst: {
-    text: "HB!",
-    src: heatburst,
-  },
-  heat: {
-    text: "in heat",
-    src: heat,
-  },
-  rage: {
-    text: "in rage",
-    src: rage,
   },
 };
 
@@ -627,7 +529,6 @@ export const Tekken8ThemeOverrides: { [key: string]: NotationImage } = {
   },
   ...standardTekkenArrows,
   ...tekken8Icons,
-  ...standardTekkenMisc,
 };
 
 export const ArcadeThemeOverrides: { [key: string]: NotationImage } = {
@@ -694,21 +595,18 @@ export const ArcadeThemeOverrides: { [key: string]: NotationImage } = {
   },
   ...standardTekkenArrows,
   ...tekken8Icons,
-  ...standardTekkenMisc,
 };
 
 export const XboxThemeOverrides: { [key: string]: NotationImage } = {
   ...tekken7XboxButtons,
   ...standardTekkenArrows,
   ...tekken8Icons,
-  ...standardTekkenMisc,
 };
 
 export const PlaystationThemeOverrides: { [key: string]: NotationImage } = {
   ...tekken7PlaystationButtons,
   ...standardTekkenArrows,
   ...tekken8Icons,
-  ...standardTekkenMisc,
 };
 
 export const T7PCThemeOverrides = {
@@ -738,11 +636,6 @@ export const T7PCThemeOverrides = {
     text: "rage art",
     src: t7Rage,
   },
-  rage: {
-    text: "in rage",
-    src: rage,
-  },
-  ...standardTekkenMisc,
 };
 
 export const NumpadThemeOverrides: { [key: string]: NotationImage } = {
@@ -773,4 +666,34 @@ export const NumpadThemeOverrides: { [key: string]: NotationImage } = {
     src: comma,
   },
   ...tekken8Icons,
+};
+
+const heatRageLabels = ["HB!", "HEAT", "RAGE"];
+
+const miscLabels = [
+  "CC",
+  "CH",
+  "DASH",
+  "FC",
+  "HOLD",
+  "SS",
+  "SSL",
+  "SSR",
+  "SWL",
+  "SWR",
+  "SSC",
+  "W!",
+  "WR",
+  "WS",
+  "MICRODASH",
+  "DEEP DASH",
+];
+
+export const ThemeLabels: { [key in Theme]: string[] } = {
+  tekken8: [...heatRageLabels, ...miscLabels],
+  arcade: [...heatRageLabels, ...miscLabels],
+  tekken8xbox: [...heatRageLabels, ...miscLabels],
+  tekken8playstation: [...heatRageLabels, ...miscLabels],
+  tekken7: ["RAGE", ...miscLabels],
+  numpad: heatRageLabels,
 };

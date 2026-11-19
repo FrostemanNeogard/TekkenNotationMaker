@@ -5,7 +5,8 @@ export type NotationImage = {
 
 export type ComboItem =
   | { type: "image"; src: string }
-  | { type: "text"; text: string };
+  | { type: "stance"; text: string }
+  | { type: "label"; text: string };
 
 export type Character = { displayName: string; pathName: string };
 

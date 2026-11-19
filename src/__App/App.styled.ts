@@ -1,14 +1,7 @@
 import styled, { css } from "styled-components";
 
-const stanceText = (height: string) => css`
-  .stance-text {
-    display: inline-block;
-    vertical-align: bottom;
-    font-size: ${height};
-    height: 1em;
-    line-height: 1;
-    padding: 0 0.1em;
-  }
+const notationHeight = (height: string) => css`
+  --notation-height: ${height};
 `;
 
 export const App = styled.div`
@@ -21,14 +14,34 @@ export const App = styled.div`
   column-gap: 2rem;
 `;
 
-export const StanceText = styled.span.attrs({ className: "stance-text" })`
+const notationText = css`
+  display: inline-block;
+  vertical-align: bottom;
+  height: var(--notation-height);
+  line-height: var(--notation-height);
   font-family: "Roboto", sans-serif;
   font-weight: 900;
   white-space: nowrap;
   color: white;
+`;
+
+export const StanceText = styled.span`
+  ${notationText}
+  font-size: var(--notation-height);
+  padding: 0 0.1em;
   -webkit-text-stroke: 0.06em black;
   paint-order: stroke fill;
   stroke-linejoin: round;
+`;
+
+export const LabelText = styled.span`
+  ${notationText}
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
+  font-size: calc(var(--notation-height) * 0.8);
+  font-weight: 700;
+  padding: 0 calc(var(--notation-height) * 0.12);
+  background-color: salmon;
+  border-radius: calc(var(--notation-height) * 0.09);
 `;
 
 export const NotationButton = styled.img`
@@ -108,7 +121,7 @@ export const PreviewContent = styled.div`
     height: 50px;
     width: auto;
   }
-  ${stanceText("50px")}
+  ${notationHeight("50px")}
 `;
 
 export const NotationOutput = styled.img`
@@ -155,7 +168,8 @@ export const NotationContainer = styled.div<{ $qualityMultiplier: number }>`
       width: auto;
       height: calc(500px * ${(props) => props.$qualityMultiplier});
     }
-    ${(props) => stanceText(`calc(500px * ${props.$qualityMultiplier})`)}
+    ${(props) =>
+      notationHeight(`calc(500px * ${props.$qualityMultiplier})`)}
   }
 
   /* article {
@@ -211,9 +225,9 @@ export const NotationButtons = styled.nav`
   img {
     height: 3.5em;
   }
-  ${stanceText("3.5em")}
+  ${notationHeight("3.5rem")}
 
-  .stance-text[role="button"] {
+  span[role="button"] {
     cursor: pointer;
 
     &:hover {
